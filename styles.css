@@ -117,9 +117,9 @@ ul, ol { list-style: none; }
 .site-header { position: sticky; top: 0; z-index: 50; background: var(--ivory); border-bottom: 1px solid var(--line); }
 .header-inner { display: flex; align-items: center; gap: 1.5rem; min-height: var(--header-h); }
 .brand { display: inline-flex; align-items: center; gap: 0.8rem; min-height: var(--tap); text-decoration: none; }
-.brand img { width: 2.5rem; height: 2.5rem; }
+.brand img { width: 2.75rem; height: 2.75rem; }
 .brand-copy { display: grid; line-height: 1.2; }
-.brand-name { font-family: var(--serif); font-size: 1.3rem; letter-spacing: -0.01em; }
+.brand-name { font-family: var(--serif); font-size: 1.2rem; letter-spacing: 0.05em; text-transform: uppercase; }
 .brand-sub { font-size: 0.8125rem; color: var(--ink-2); }
 .primary-nav { display: flex; gap: clamp(0.25rem, 1.5vw, 1.25rem); margin-inline: auto; }
 .primary-nav a { display: inline-flex; align-items: center; min-height: var(--tap); padding-inline: 0.6rem; font-weight: 500; font-size: 1.0625rem; text-decoration: none; }
@@ -385,9 +385,9 @@ ul, ol { list-style: none; }
 .site-footer { background: var(--dark); color: var(--on-dark-2); padding-block: clamp(3rem, 6vw, 4.5rem); font-size: var(--t-small); }
 .footer-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 3fr) minmax(0, 2fr) auto; gap: 2rem clamp(1.5rem, 4vw, 3rem); align-items: start; }
 .footer-brand { display: flex; align-items: center; gap: 0.9rem; }
-.footer-brand img { width: 2.5rem; height: 2.5rem; border: 1px solid #55564f; }
+.footer-brand img { width: 2.75rem; height: 2.75rem; }
 .footer-brand p { display: grid; line-height: 1.35; }
-.footer-brand strong { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; color: var(--on-dark); }
+.footer-brand strong { font-family: var(--serif); font-weight: 400; font-size: 1.2rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--on-dark); }
 .footer-list { display: grid; }
 .footer-list a { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--on-dark); text-decoration: none; overflow-wrap: anywhere; }
 .footer-list a:hover { text-decoration: underline; }
