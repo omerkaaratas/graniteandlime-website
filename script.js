@@ -25,6 +25,9 @@
     $$('[data-whatsapp="photos"]').forEach(link => {
       link.href = whatsappUrl(`Hello ${BUSINESS.name}, I'd like to send photos of a project.`);
     });
+    $$('[data-whatsapp="chat"]').forEach(link => {
+      link.href = whatsappUrl(`Hello ${BUSINESS.name}, I have a question about a project.`);
+    });
   }
 
   /* ---------- Mobile navigation ---------- */
