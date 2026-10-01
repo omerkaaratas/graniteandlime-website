@@ -287,6 +287,25 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .service-row { padding-top: 1.5rem; border-top: 1px solid var(--ink); }
 .service-text { align-content: start; }
 @media (max-width: 900px) { .service-rows { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Project planner ---------- */
+.planner { background: var(--sheet); border-top: 1px solid var(--line); }
+.planner-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+.planner-copy { display: grid; gap: 1.5rem; }
+.planner-copy p { color: var(--ink-2); }
+.planner-card { display: grid; gap: 2rem; min-width: 0; }
+.pl-step { display: grid; gap: .9rem; }
+.pl-step h3 { font: 600 1.05rem/1.35 var(--body); letter-spacing: 0; display: flex; gap: .75rem; align-items: baseline; }
+.pl-n { font-family: var(--display); font-weight: 400; font-size: 1.5rem; line-height: 1; color: var(--green); }
+.pl-hint { color: var(--ink-2); font-size: var(--t-small); }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chip { font: 500 .95rem/1.2 var(--body); min-height: 2.75rem; padding: .6rem 1.05rem; border: 1px solid #a9a598; border-radius: 999px; background: #fff; color: var(--ink); cursor: pointer; transition: background-color .15s, color .15s, border-color .15s; }
+.chip:hover { border-color: var(--green); }
+.chip[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: var(--green-ink); }
+.pl-result { display: grid; gap: 1.1rem; padding-top: 1.75rem; border-top: 1px solid var(--line); justify-items: start; }
+.pl-summary { font-family: var(--display); font-size: clamp(1.15rem, 1.05rem + .4vw, 1.35rem); line-height: 1.4; max-width: none; }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+@media (max-width: 900px) { .planner-grid { grid-template-columns: minmax(0, 1fr); } }
 </style>
 </head>
 <body>
@@ -476,6 +495,46 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     </div>
   </section>
 
+  <!-- PLANNER -->
+  <section class="section planner" id="planner" aria-labelledby="planner-title">
+    <div class="wrap planner-grid">
+      <div class="planner-copy">
+        <p class="eyebrow">Plan your project</p>
+        <h2 id="planner-title">Three taps and your enquiry is written for you</h2>
+        <p>Choose what applies. We turn it into a short brief and place it in the form below, ready to send.</p>
+      </div>
+      <div class="planner-card">
+        <div class="pl-step" role="group" aria-labelledby="pl-q1">
+          <h3 id="pl-q1"><span class="pl-n" aria-hidden="true">1</span>What kind of work is it?</h3>
+          <div class="chips" id="pl-type">
+            <button type="button" class="chip" aria-pressed="false" data-i="1">Painting &amp; decorating</button>
+            <button type="button" class="chip" aria-pressed="false" data-i="2">Bathroom &amp; interiors</button>
+            <button type="button" class="chip" aria-pressed="false" data-i="3">Home refurbishment</button>
+            <button type="button" class="chip" aria-pressed="false" data-i="4">Not sure yet</button>
+          </div>
+        </div>
+        <div class="pl-step" role="group" aria-labelledby="pl-q2">
+          <h3 id="pl-q2"><span class="pl-n" aria-hidden="true">2</span>Which parts of the home?</h3>
+          <p class="pl-hint" id="pl-areas-hint">Pick the kind of work first.</p>
+          <div class="chips" id="pl-areas"></div>
+        </div>
+        <div class="pl-step" role="group" aria-labelledby="pl-q3">
+          <h3 id="pl-q3"><span class="pl-n" aria-hidden="true">3</span>When would you like it done?</h3>
+          <div class="chips" id="pl-timing">
+            <button type="button" class="chip" aria-pressed="false" data-i="1">As soon as possible</button>
+            <button type="button" class="chip" aria-pressed="false" data-i="2">Within 1 to 3 months</button>
+            <button type="button" class="chip" aria-pressed="false" data-i="3">3 months or more</button>
+            <button type="button" class="chip" aria-pressed="false" data-i="4">Just getting prices</button>
+          </div>
+        </div>
+        <div class="pl-result">
+          <p class="pl-summary" id="pl-summary" aria-live="polite">Your brief will appear here as you choose.</p>
+          <button type="button" class="btn btn-primary" id="pl-apply" disabled>Add this to my enquiry</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="section contact" id="contact" aria-labelledby="contact-title">
     <div class="wrap contact-grid">
@@ -583,6 +642,96 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
       '&body=' + encodeURIComponent(lines.join('\n'));
     window.location.href = url;
     show('Your email app should now open with the enquiry ready to send. If nothing opens, call or WhatsApp 083 427 7556.', false);
+  });
+})();
+</script>
+<script>
+// Project planner: builds a short brief from the chips and places it in the enquiry form.
+(function () {
+  var typeBox = document.getElementById('pl-type');
+  var areaBox = document.getElementById('pl-areas');
+  var timeBox = document.getElementById('pl-timing');
+  var hint = document.getElementById('pl-areas-hint');
+  var summary = document.getElementById('pl-summary');
+  var apply = document.getElementById('pl-apply');
+  var form = document.getElementById('enquiry-form');
+  if (!typeBox || !areaBox || !timeBox || !form) return;
+
+  var AREAS = {
+    1: ['Whole house', 'Hall, stairs & landing', 'Living areas', 'Bedrooms', 'Kitchen', 'Exterior'],
+    2: ['Main bathroom', 'En-suite', 'Downstairs WC', 'Tiling', 'Flooring', 'Kitchen refresh'],
+    3: ['Whole property', 'Several rooms', 'Before moving in', 'Rental property'],
+    4: ['One room', 'Several rooms', 'Whole property']
+  };
+  var state = { type: 0, typeLabel: '', areas: [], timing: 0, timingLabel: '' };
+  var lastBrief = '';
+
+  function press(box, chosen) {
+    Array.prototype.forEach.call(box.querySelectorAll('.chip'), function (c) {
+      c.setAttribute('aria-pressed', c === chosen ? 'true' : 'false');
+    });
+  }
+  function brief() {
+    var lines = ['Type of work: ' + state.typeLabel];
+    if (state.areas.length) lines.push('Areas: ' + state.areas.join(', '));
+    if (state.timing) lines.push('Timing: ' + state.timingLabel);
+    return lines;
+  }
+  function render() {
+    apply.disabled = !state.type;
+    summary.textContent = state.type ? brief().join('. ') + '.' : 'Your brief will appear here as you choose.';
+  }
+  function renderAreas() {
+    areaBox.textContent = '';
+    state.areas = [];
+    hint.hidden = true;
+    AREAS[state.type].forEach(function (name) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip';
+      b.setAttribute('aria-pressed', 'false');
+      b.textContent = name;
+      areaBox.appendChild(b);
+    });
+  }
+
+  typeBox.addEventListener('click', function (e) {
+    var c = e.target.closest('.chip');
+    if (!c) return;
+    press(typeBox, c);
+    state.type = Number(c.getAttribute('data-i'));
+    state.typeLabel = c.textContent;
+    renderAreas();
+    render();
+  });
+  areaBox.addEventListener('click', function (e) {
+    var c = e.target.closest('.chip');
+    if (!c) return;
+    var on = c.getAttribute('aria-pressed') !== 'true';
+    c.setAttribute('aria-pressed', on ? 'true' : 'false');
+    state.areas = Array.prototype.map.call(areaBox.querySelectorAll('.chip[aria-pressed="true"]'), function (x) { return x.textContent; });
+    render();
+  });
+  timeBox.addEventListener('click', function (e) {
+    var c = e.target.closest('.chip');
+    if (!c) return;
+    press(timeBox, c);
+    state.timing = Number(c.getAttribute('data-i'));
+    state.timingLabel = c.textContent;
+    render();
+  });
+  apply.addEventListener('click', function () {
+    if (!state.type) return;
+    form.elements['project_type'].selectedIndex = state.type;
+    if (state.timing) form.elements['timing'].selectedIndex = state.timing;
+    var msg = form.elements['message'];
+    var text = brief().join('\n');
+    var current = msg.value;
+    if (lastBrief && current.indexOf(lastBrief) === 0) current = current.slice(lastBrief.length).replace(/^\s+/, '');
+    msg.value = text + (current ? '\n\n' + current : '\n\n');
+    lastBrief = text;
+    document.getElementById('contact').scrollIntoView();
+    form.elements['name'].focus({ preventScroll: true });
   });
 })();
 </script>
