@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-labelledby="t">
+  <title id="t">Line drawing of a room elevation: panelled door, window, dado rail and stone floor</title>
+  <rect width="800" height="1000" fill="#e7e0d3"/>
+  <!-- wall -->
+  <rect x="60" y="80" width="680" height="790" fill="#f6f2ea"/>
+  <!-- painted lower wall -->
+  <rect x="60" y="610" width="680" height="220" fill="#a5a78f"/>
+  <!-- skirting -->
+  <rect x="60" y="830" width="680" height="40" fill="#fbf9f4"/>
+  <!-- floor -->
+  <rect x="0" y="870" width="800" height="130" fill="#cdc3b1"/>
+  <g fill="none" stroke="#1e1f1c" stroke-opacity=".28" stroke-width="1.5">
+    <path d="M0 870h800M0 935h800M150 870v65M430 870v65M690 870v65M290 935v65M570 935v65"/>
+  </g>
+  <!-- door -->
+  <rect x="128" y="218" width="244" height="652" fill="#fbf9f4"/>
+  <rect x="146" y="236" width="208" height="634" fill="#4d5340"/>
+  <g fill="none" stroke="#f6f2ea" stroke-opacity=".45" stroke-width="1.5">
+    <rect x="172" y="264" width="156" height="250"/>
+    <rect x="172" y="548" width="156" height="286"/>
+  </g>
+  <circle cx="330" cy="560" r="7" fill="#a98652"/>
+  <!-- window -->
+  <rect x="468" y="218" width="216" height="330" fill="#fbf9f4"/>
+  <rect x="484" y="234" width="184" height="298" fill="#dcdfd8"/>
+  <g fill="none" stroke="#fbf9f4" stroke-width="6">
+    <path d="M576 234v298M484 333h184M484 433h184"/>
+  </g>
+  <rect x="456" y="548" width="240" height="14" fill="#fbf9f4"/>
+  <!-- fine lines -->
+  <g fill="none" stroke="#1e1f1c" stroke-width="1.5" stroke-opacity=".55">
+    <rect x="60" y="80" width="680" height="790"/>
+    <path d="M60 610h68M372 610h368M60 830h68M372 830h368"/>
+    <rect x="128" y="218" width="244" height="652"/>
+    <rect x="146" y="236" width="208" height="634"/>
+    <rect x="468" y="218" width="216" height="330"/>
+    <rect x="484" y="234" width="184" height="298"/>
+    <rect x="456" y="548" width="240" height="14"/>
+  </g>
+  <!-- dimension lines -->
+  <g fill="none" stroke="#8b6b40" stroke-width="1.5">
+    <path d="M128 170h244M128 160v20M372 160v20M468 170h216M468 160v20M684 160v20"/>
+    <path d="M770 80v790M760 80h20M760 610h20M760 870h20"/>
+  </g>
+</svg>

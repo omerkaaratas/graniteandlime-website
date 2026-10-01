@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Granite &amp; Lime GL monogram</title>
+  <desc id="desc">Geometric interlocking G and L monogram.</desc>
+  <rect width="120" height="120" rx="2" fill="#1d1d1b"/>
+  <path fill="#f4efe5" d="M22 22h58v14H36v48h26V67H48V53h28v45H22z"/>
+  <path fill="#f4efe5" d="M69 22h29v14H83v48h15v14H69z"/>
+</svg>

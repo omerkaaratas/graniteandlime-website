@@ -1,0 +1,6 @@
+/* Loaded only when JavaScript is switched off. */
+.js-only, .menu-button { display: none !important; }
+@media (max-width: 56rem) {
+  .primary-nav { display: flex; flex-direction: row; flex-wrap: wrap; gap: 0 1.25rem; }
+  .primary-nav a { border-top: 0; min-height: 3rem; }
+}
