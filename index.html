@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Granite &amp; Lime | Painting, Bathrooms &amp; Home Refurbishment in Dublin</title>
+<meta name="description" content="Granite &amp; Lime: painting, bathroom renovation and home refurbishment across Dublin. Site visit, written itemised quote, and one person accountable from start to finish.">
+<link rel="canonical" href="https://graniteandlime.ie/">
+<meta property="og:title" content="Granite &amp; Lime | Renovation &amp; Refurbishment, Dublin">
+<meta property="og:description" content="Painting, bathrooms and home refurbishment in Dublin, properly managed.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://graniteandlime.ie/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<style>
+/* Granite & Lime — homepage v2
+   Layout concept: architectural editorial. Large serif headlines on a limestone ground,
+   photography doing the visual work, rules used only where they organise information.
+   Section rhythm: light → image rows → deep green band → stone panel → light → warm stone → light. */
+:root {
+  --paper: #eeece6;      /* limestone ground */
+  --stone: #e2ded3;      /* warmer stone band */
+  --sheet: #f8f7f3;      /* paper surfaces: quote sheet, form */
+  --ink: #1d1f1c;        /* charcoal */
+  --ink-2: #4b4e47;      /* secondary text (AA on paper and stone) */
+  --mute: #8c887d;       /* decorative only */
+  --line: #d3cfc4;       /* hairlines */
+  --green: #2b4234;      /* deep natural green: actions + process band */
+  --green-ink: #edeee6;  /* text on green */
+  --green-2: #a9b8ab;    /* secondary text on green (AA large/AA small checked ~5:1) */
+  --focus: #a77f37;
+
+  --display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --body: "Hanken Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --t-hero: clamp(2.5rem, 1.5rem + 4.6vw, 5rem);
+  --t-h2: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  --t-h3: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --t-lede: clamp(1.125rem, 1rem + 0.45vw, 1.3rem);
+  --t-body: 1.0625rem;
+  --t-small: 0.9rem;
+
+  --gutter: clamp(1.25rem, 5vw, 3.5rem);
+  --maxw: 80rem;
+  --space-section: clamp(4.5rem, 11vw, 9rem);
+  --radius: 2px;
+
+  /* Stone grain: an SVG noise tile, ~400 bytes, no image request */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .25 0 0 0 0 .24 0 0 0 0 .21 0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 var(--t-body)/1.65 var(--body); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.06; letter-spacing: -0.018em; margin: 0; text-wrap: balance; }
+h2 { font-size: var(--t-h2); }
+h3 { font-size: var(--t-h3); line-height: 1.15; }
+p { margin: 0; max-width: 58ch; text-wrap: pretty; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--space-section); }
+.eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-2); }
+.lede { font-size: var(--t-lede); line-height: 1.55; color: var(--ink-2); }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--paper); padding: .75rem 1rem; z-index: 50; }
+.skip:focus { left: 1rem; top: 1rem; }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 3.25rem; padding: .9rem 1.6rem; border-radius: var(--radius); border: 1px solid transparent; font: 600 1rem/1.2 var(--body); text-decoration: none; cursor: pointer; transition: background-color .15s, color .15s; }
+.btn-primary { background: var(--green); color: var(--green-ink); }
+.btn-primary:hover { background: #1f3126; }
+.btn-quiet { padding-inline: 0; min-height: auto; border: 0; border-bottom: 1px solid currentColor; border-radius: 0; padding-block: .2rem; font-weight: 600; }
+.btn-quiet:hover { color: var(--green); }
+.btn-outline { border-color: var(--ink); color: var(--ink); background: transparent; }
+
+/* ---------- Header ---------- */
+.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.5rem; }
+.wordmark { text-decoration: none; display: grid; gap: .15rem; line-height: 1.1; }
+.wordmark-name { font-weight: 600; letter-spacing: .26em; font-size: .95rem; }
+.wordmark-sub { font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); }
+.nav { display: flex; align-items: center; gap: 2rem; font-size: .95rem; }
+.nav a { text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
+.nav .btn { min-height: 2.75rem; padding: .6rem 1.1rem; font-size: .92rem; }
+.header-call { display: none; }
+@media (max-width: 900px) {
+  .nav { display: none; }
+  .header-call { display: inline-flex; font-weight: 600; font-size: .95rem; text-decoration: none; border-bottom: 1px solid currentColor; font-variant-numeric: tabular-nums; }
+}
+
+/* ---------- Photo frames (placeholders until real projects) ----------
+   Swap a placeholder for: <img src="/img/x.jpg" width="1600" height="2000" alt="…" loading="lazy" decoding="async"> */
+.photo { position: relative; margin: 0; overflow: hidden; background: #cfcabd var(--grain); aspect-ratio: var(--ratio, 4 / 5); max-width: 100%; }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.photo.is-placeholder::before { /* faint stone joint lines, like a laid floor */
+  content: ""; position: absolute; inset: 0;
+  background-image: linear-gradient(var(--line-ph, rgba(29,31,28,.07)) 1px, transparent 1px), linear-gradient(90deg, var(--line-ph, rgba(29,31,28,.07)) 1px, transparent 1px);
+  background-size: 33.333% 50%;
+}
+.photo figcaption.shot { position: absolute; left: .75rem; bottom: .75rem; right: .75rem; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+.photo figcaption.shot b { display: inline-block; background: var(--sheet); padding: .25rem .5rem; font-weight: 600; }
+.photo.tone-2 { background-color: #c2c3b6; }
+.photo.tone-3 { background-color: #d8d2c4; }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: clamp(2rem, 5vw, 4rem) var(--space-section); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(2rem, 6vw, 6rem); align-items: end; }
+.hero-copy { display: grid; gap: clamp(1.5rem, 3vw, 2.25rem); padding-bottom: clamp(0rem, 3vw, 2.5rem); }
+.hero h1 { font-size: var(--t-hero); }
+.hero .lede { max-width: 34ch; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
+.hero .photo { --ratio: 4 / 5; }
+.facts { margin-top: clamp(3rem, 7vw, 5.5rem); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem clamp(1.5rem, 3vw, 3rem); padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.facts div { display: grid; gap: .35rem; align-content: start; }
+.facts dt { font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); }
+.facts dd { margin: 0; font-size: var(--t-small); }
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero .photo { --ratio: 4 / 3; order: 2; }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Services: three editorial rows ---------- */
+.intro { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(1.5rem, 5vw, 6rem); align-items: end; margin-bottom: clamp(3rem, 7vw, 6rem); }
+.intro p { color: var(--ink-2); }
+.service-rows { display: grid; gap: clamp(4rem, 9vw, 8rem); }
+.service-row { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+.service-row:nth-child(even) { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+.service-row:nth-child(even) .photo { order: 2; }
+.service-row .photo { --ratio: 3 / 2; }
+.service-text { display: grid; gap: 1.25rem; align-content: center; }
+.service-text .num { font-family: var(--display); font-size: 1rem; color: var(--ink-2); }
+.service-text p { color: var(--ink-2); }
+.capabilities { display: grid; gap: .5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+.capabilities li { font-size: var(--t-small); display: flex; gap: .75rem; }
+.capabilities li::before { content: ""; width: .9rem; height: 1px; background: var(--ink); margin-top: .8em; flex: none; }
+@media (max-width: 900px) {
+  .intro, .service-row, .service-row:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
+  .service-row:nth-child(even) .photo { order: 0; }
+}
+
+/* ---------- Process: deep green band ---------- */
+.process { background: var(--green); color: var(--green-ink); }
+.process .eyebrow, .process p { color: var(--green-2); }
+.process h2 { max-width: 16ch; }
+.steps { margin-top: clamp(3rem, 7vw, 5rem); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); }
+.step { display: grid; gap: .75rem; align-content: start; padding-top: 1.25rem; border-top: 1px solid rgba(237,238,230,.28); }
+.step-n { font-family: var(--display); font-size: clamp(2.25rem, 1.8rem + 1.5vw, 3rem); line-height: 1; color: var(--green-ink); }
+.step h3 { font: 600 1.05rem/1.35 var(--body); letter-spacing: 0; }
+.step p { font-size: var(--t-small); }
+@media (max-width: 1000px) {
+  .steps { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .step { grid-template-columns: 3.5rem minmax(0, 1fr); column-gap: 1rem; padding-block: 1.5rem; }
+  .step-n { grid-row: span 2; }
+}
+
+/* ---------- Quote example: stone panel ---------- */
+.quote { background: var(--stone) var(--grain); }
+.quote-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
+.quote-copy { display: grid; gap: 1.5rem; }
+.quote-copy p { color: var(--ink-2); }
+.quote-copy ul { display: grid; gap: .6rem; }
+.quote-copy li { display: flex; gap: .75rem; }
+.quote-copy li::before { content: ""; width: .9rem; height: 1px; background: var(--ink); margin-top: .85em; flex: none; }
+.sheet { margin: 0; min-width: 0; background: var(--sheet); font-size: .93rem; box-shadow: 0 1px 0 rgba(29,31,28,.08), 0 24px 48px -32px rgba(29,31,28,.45); transform: rotate(-0.6deg); }
+@media (prefers-reduced-motion: no-preference) { .sheet { transition: transform .4s ease; } .sheet:hover { transform: rotate(0deg); } }
+.sheet-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 1rem; padding: 1.5rem 1.75rem 1.25rem; }
+.sheet-head strong { font-family: var(--display); font-weight: 400; font-size: 1.45rem; line-height: 1.2; }
+.sheet-meta { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
+.sheet-scroll { overflow-x: auto; }
+.sheet table { width: 100%; border-collapse: collapse; min-width: 28rem; }
+.sheet th, .sheet td { text-align: left; padding: .7rem 1.75rem; vertical-align: top; }
+.sheet thead th { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; border-block: 1px solid var(--ink); }
+.sheet tbody tr + tr td { border-top: 1px solid var(--line); }
+.sheet td:first-child { font-variant-numeric: tabular-nums; color: var(--ink-2); width: 3.5rem; }
+.sheet td:nth-child(2) { font-weight: 600; white-space: nowrap; }
+.sheet td:last-child { color: var(--ink-2); }
+.sheet-foot { margin: 0; padding: 1.1rem 1.75rem 1.5rem; border-top: 1px solid var(--ink); display: grid; gap: .3rem; font-size: .86rem; color: var(--ink-2); }
+@media (max-width: 900px) { .quote-grid { grid-template-columns: minmax(0, 1fr); } .sheet { transform: none; } }
+
+/* ---------- Recent work: ready for case studies ---------- */
+.work-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1.5rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.case { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.before-after { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+.before-after .photo { --ratio: 4 / 5; }
+.ba-label { position: absolute; top: .75rem; left: .75rem; font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; background: var(--sheet); padding: .25rem .55rem; }
+.case-text { display: grid; gap: 1.25rem; align-content: start; }
+.case-meta { display: grid; grid-template-columns: auto 1fr; gap: .5rem 1.25rem; font-size: var(--t-small); padding-block: 1.25rem; border-block: 1px solid var(--line); margin: 0; }
+.case-meta dt { color: var(--ink-2); }
+.case-meta dd { margin: 0; }
+.review { margin: 0; display: grid; gap: .75rem; }
+.review blockquote { margin: 0; font-family: var(--display); font-size: 1.35rem; line-height: 1.35; }
+.review figcaption { font-size: var(--t-small); color: var(--ink-2); }
+.template-note { font-size: .78rem; letter-spacing: .04em; color: var(--ink-2); border: 1px dashed var(--mute); padding: .6rem .8rem; }
+@media (max-width: 900px) { .case { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Founder ---------- */
+.founder { background: var(--stone); }
+.founder-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(2.5rem, 7vw, 7rem); align-items: start; }
+.founder .photo { --ratio: 4 / 5; }
+.founder-copy { display: grid; gap: 1.5rem; }
+.founder-copy .statement { font-family: var(--display); font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem); line-height: 1.2; letter-spacing: -0.01em; max-width: 24ch; }
+.founder-copy p { color: var(--ink-2); }
+.commit { margin-top: 1rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem clamp(1.5rem, 4vw, 3rem); }
+.commit li { display: grid; gap: .3rem; }
+.commit strong { font-weight: 600; }
+.commit span { color: var(--ink-2); font-size: var(--t-small); }
+@media (max-width: 900px) {
+  .founder-grid { grid-template-columns: minmax(0, 1fr); }
+  .founder .photo { --ratio: 1 / 1; max-width: 22rem; }
+}
+@media (max-width: 560px) { .commit { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; } }
+
+/* ---------- FAQ ---------- */
+.faq-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq details:first-child { border-top: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; padding: 1.35rem 3rem 1.35rem 0; position: relative; font-family: var(--display); font-size: clamp(1.2rem, 1.1rem + .4vw, 1.4rem); line-height: 1.3; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: .25rem; top: 1.15rem; font: 400 1.6rem/1 var(--body); color: var(--green); }
+.faq details[open] summary::after { content: "\2013"; }
+.faq details p { padding-bottom: 1.5rem; color: var(--ink-2); }
+@media (max-width: 900px) { .faq-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Contact ---------- */
+.contact { border-top: 1px solid var(--line); }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+.contact-copy { display: grid; gap: 1.5rem; }
+.contact-copy p { color: var(--ink-2); }
+.direct { display: grid; gap: 1.25rem; margin-top: .5rem; }
+.direct li { display: grid; gap: .1rem; }
+.direct span { font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); }
+.direct a { font-family: var(--display); font-size: 1.5rem; text-decoration: none; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.direct a:hover { color: var(--green); }
+.form { background: var(--sheet); padding: clamp(1.5rem, 4vw, 2.75rem); display: grid; gap: 1.25rem; }
+.form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+@media (max-width: 600px) { .form-row { grid-template-columns: minmax(0, 1fr); } }
+.field { display: grid; gap: .4rem; min-width: 0; }
+.field label { font-weight: 600; font-size: .95rem; }
+.field .hint { font-weight: 400; color: var(--ink-2); font-size: .85rem; }
+.field input, .field select, .field textarea { width: 100%; font: inherit; font-size: 1rem; color: var(--ink); background: #fff; border: 1px solid #a9a598; border-radius: var(--radius); padding: .8rem .85rem; min-height: 3.25rem; }
+.field textarea { min-height: 8rem; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--focus); outline-offset: 0; }
+.hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+.form-note { font-size: .85rem; color: var(--ink-2); }
+.form-status { font-weight: 600; padding: .9rem 1rem; border-left: 3px solid var(--green); background: var(--paper); }
+.form-status.is-error { border-left-color: #8b2f23; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--ink); color: #c9c7bf; padding-block: clamp(3rem, 6vw, 4.5rem) 6.5rem; font-size: var(--t-small); }
+.site-footer .wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: end; }
+.site-footer .wordmark-name { color: #f1f0ea; }
+.site-footer .wordmark-sub { color: #a8a69d; }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+.site-footer a { color: #e6e4dc; }
+@media (min-width: 901px) { .site-footer { padding-bottom: 3rem; } }
+@media (max-width: 700px) { .site-footer .wrap { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Mobile action bar ---------- */
+.mobile-bar { display: none; }
+@media (max-width: 900px) {
+  .mobile-bar { display: grid; grid-template-columns: 1fr 1.6fr; gap: .5rem; position: fixed; inset-inline: 0; bottom: 0; z-index: 30; padding: .6rem var(--gutter) calc(.6rem + env(safe-area-inset-bottom, 0px)); background: var(--paper); box-shadow: 0 -1px 0 var(--line); }
+  .mobile-bar .btn { min-height: 3rem; padding-inline: .75rem; }
+}
+@media (max-width: 600px) {
+  .sheet table { min-width: 0; }
+  .sheet th, .sheet td { padding: .65rem .9rem; }
+  .sheet td:first-child { width: 2.5rem; }
+  .sheet td:nth-child(2) { white-space: normal; }
+  .sheet-head, .sheet-foot { padding-inline: .9rem; }
+}
+
+
+/* ---------- Live without photography: single-column layouts until real photos are added ---------- */
+.hero-grid, .service-row, .service-row:nth-child(even), .founder-grid { grid-template-columns: minmax(0, 1fr); }
+.hero h1 { max-width: 18ch; }
+.hero .lede { max-width: 46ch; }
+.service-rows { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(2rem, 4vw, 4rem); align-items: start; }
+.service-row { padding-top: 1.5rem; border-top: 1px solid var(--ink); }
+.service-text { align-content: start; }
+@media (max-width: 900px) { .service-rows { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="#main" aria-label="Granite &amp; Lime home">
+      <span class="wordmark-name">GRANITE &amp; LIME</span>
+      <span class="wordmark-sub">Renovation &amp; Refurbishment</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#process">How we work</a>
+      <a href="#faq">Questions</a>
+      <a class="btn btn-primary" href="#contact">Request a site visit</a>
+    </nav>
+    <a class="header-call" href="tel:+353834277556">083 427 7556</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Dublin · Renovation &amp; Refurbishment</p>
+          <h1 id="hero-title">Painting, bathrooms and home refurbishment in Dublin, properly managed.</h1>
+          <p class="lede">We visit, agree the scope, put the price in writing and coordinate the trades. One person to call from first visit to final walk-round.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Request a site visit</a>
+            <a class="btn btn-quiet" href="https://wa.me/353834277556" rel="noopener">Send photos on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>Work</dt><dd>Painting, bathrooms &amp; interiors, refurbishment</dd></div>
+        <div><dt>Area</dt><dd>Homes across Dublin</dd></div>
+        <div><dt>Contact</dt><dd>Omer Karatas, start to finish</dd></div>
+        <div><dt>Quote</dt><dd>Written and itemised, after a site visit</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services" aria-labelledby="services-title" style="padding-top:0">
+    <div class="wrap">
+      <div class="intro">
+        <div>
+          <p class="eyebrow" style="margin-bottom:1rem">Services</p>
+          <h2 id="services-title">Three kinds of work, each run as one job</h2>
+        </div>
+        <p>Specialist trades for each part of the work, coordinated in the right order, with one person accountable for the finish.</p>
+      </div>
+
+      <div class="service-rows">
+        <article class="service-row">
+          <div class="service-text">
+            <span class="num">I.</span>
+            <h3>Painting &amp; Decorating</h3>
+            <p>Interiors, exteriors and full repaints before a sale or move-in. Most of a good finish is preparation, so we price that in rather than leaving it out.</p>
+            <ul class="capabilities" aria-label="Includes">
+              <li>Whole-house interiors</li>
+              <li>Hall, stairs &amp; landing</li>
+              <li>Exterior walls, windows &amp; trim</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-row">
+          <div class="service-text">
+            <span class="num">II.</span>
+            <h3>Bathrooms &amp; Interiors</h3>
+            <p>Bathroom refurbishments and full renovations, with plumbing, electrics, waterproofing and finishes sequenced as one project.</p>
+            <ul class="capabilities" aria-label="Includes">
+              <li>Bathroom renovation</li>
+              <li>Wall &amp; floor tiling</li>
+              <li>Flooring, carpentry &amp; joinery finishing</li>
+              <li>Kitchen refresh</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-row">
+          <div class="service-text">
+            <span class="num">III.</span>
+            <h3>Home Refurbishment</h3>
+            <p>Several rooms, or a whole property, brought up to standard. Typically before moving in, before letting, or after years of putting it off.</p>
+            <ul class="capabilities" aria-label="Includes">
+              <li>Multi-room refurbishment</li>
+              <li>Pre-move-in works</li>
+              <li>Landlord &amp; property refresh</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section process" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <p class="eyebrow" style="margin-bottom:1rem">How we work</p>
+      <h2 id="process-title">Five steps, and you know where you are at each one</h2>
+      <ol class="steps">
+        <li class="step"><span class="step-n" aria-hidden="true">1</span><h3>Tell us about the job</h3><p>Form, phone or photos on WhatsApp. We confirm quickly whether it's work we take on.</p></li>
+        <li class="step"><span class="step-n" aria-hidden="true">2</span><h3>Site visit</h3><p>We look, measure and ask what you want the finished result to be.</p></li>
+        <li class="step"><span class="step-n" aria-hidden="true">3</span><h3>Written quote</h3><p>Itemised: what's included, what isn't, and what the price covers.</p></li>
+        <li class="step"><span class="step-n" aria-hidden="true">4</span><h3>Coordinated work</h3><p>Agreed start date, trades booked in order, regular updates.</p></li>
+        <li class="step"><span class="step-n" aria-hidden="true">5</span><h3>Walk-round</h3><p>We go through it together and fix any snags before sign-off.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- QUOTE EXAMPLE -->
+  <section class="section quote" id="quote" aria-labelledby="quote-title">
+    <div class="wrap quote-grid">
+      <div class="quote-copy">
+        <p class="eyebrow">In writing</p>
+        <h2 id="quote-title">What a Granite &amp; Lime quote looks like</h2>
+        <p>Unclear quotes are where most renovation disagreements start. Ours list the work line by line.</p>
+        <ul>
+          <li>Preparation is listed, not assumed</li>
+          <li>Exclusions are written down</li>
+          <li>Anything unexpected is priced before it's done</li>
+        </ul>
+      </div>
+      <figure class="sheet" aria-label="Example quote layout">
+        <div class="sheet-head">
+          <strong>Hall, stairs &amp; landing repaint</strong>
+          <span class="sheet-meta">Example layout</span>
+        </div>
+        <div class="sheet-scroll">
+          <table>
+            <thead><tr><th scope="col">Item</th><th scope="col">Work</th><th scope="col">Detail</th></tr></thead>
+            <tbody>
+              <tr><td>1.0</td><td>Protection</td><td>Floors, stairs and banister covered</td></tr>
+              <tr><td>2.0</td><td>Preparation</td><td>Fill, sand, caulk, spot-prime</td></tr>
+              <tr><td>3.0</td><td>Ceilings</td><td>Two coats, matt</td></tr>
+              <tr><td>4.0</td><td>Walls</td><td>Two coats, colour as agreed</td></tr>
+              <tr><td>5.0</td><td>Woodwork</td><td>Skirting, spindles, doors</td></tr>
+              <tr><td>6.0</td><td>Clean-up</td><td>Daily tidy, final clean</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figcaption class="sheet-foot">
+          <span>Each line is priced after the site visit.</span>
+          <span>Not included: furniture removal, plaster repairs beyond minor filling.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="section founder" id="about" aria-labelledby="about-title">
+    <div class="wrap founder-grid">
+      <div class="founder-copy">
+        <p class="eyebrow">Who you deal with</p>
+        <h2 id="about-title" class="statement">One person accountable for the whole job.</h2>
+        <p>Granite &amp; Lime is run by Omer Karatas. Omer handles your enquiry, the site visit, the quote and the running of the project. The work is carried out by specialist trades he works with directly: painters, tilers, plumbers, electricians and carpenters.</p>
+        <ul class="commit" aria-label="What you can expect">
+          <li><strong>A clear answer early</strong><span>If a job isn't right for us, we say so at the start.</span></li>
+          <li><strong>A realistic start date</strong><span>Given with the quote, based on the actual schedule.</span></li>
+          <li><strong>No surprise extras</strong><span>Nothing added to the bill without your agreement.</span></li>
+          <li><strong>Your home respected</strong><span>Floors and furniture protected, tidy at the end of each day.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq-grid">
+      <div>
+        <p class="eyebrow" style="margin-bottom:1rem">Questions</p>
+        <h2 id="faq-title">Before you get in touch</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Can you give me a price over the phone?</summary><p>Photos are often enough for a rough range. A fixed price needs a site visit, so the quote reflects your actual rooms, surfaces and condition.</p></details>
+        <details><summary>Who actually does the work?</summary><p>Specialist trades that Omer works with directly. Omer manages the job, checks the work and stays your contact throughout.</p></details>
+        <details><summary>What if something extra comes up?</summary><p>If opening up a wall or floor reveals a problem, we stop, show you, explain the options and price them. Nothing extra goes ahead until you agree.</p></details>
+        <details><summary>How soon can you start?</summary><p>It depends on the job and the schedule. You'll get a realistic start date with your quote.</p></details>
+        <details><summary>Which areas do you cover?</summary><p>Homes across Dublin. If you're just outside the county, ask and we'll tell you straight away.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-grid">
+      <div class="contact-copy">
+        <p class="eyebrow">Request a site visit</p>
+        <h2 id="contact-title">Tell us about your project</h2>
+        <p>A few lines is enough. We'll reply to arrange a call or a visit.</p>
+        <ul class="direct">
+          <li><span>Phone</span><a href="tel:+353834277556">083 427 7556</a></li>
+          <li><span>WhatsApp</span><a href="https://wa.me/353834277556" rel="noopener">Send photos</a></li>
+          <li><span>Email</span><a href="mailto:omer@graniteandlime.ie">omer@graniteandlime.ie</a></li>
+        </ul>
+      </div>
+
+      <form class="form" id="enquiry-form" action="mailto:omer@graniteandlime.ie" method="post" enctype="text/plain" novalidate>
+        <div class="form-row">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-area">Area <span class="hint">e.g. Dublin 9</span></label><input id="f-area" name="area" type="text" autocomplete="address-level2" required></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-type">Type of work</label>
+            <select id="f-type" name="project_type" required>
+              <option value="">Choose one</option>
+              <option>Painting &amp; decorating</option>
+              <option>Bathroom &amp; interiors</option>
+              <option>Home refurbishment</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-timing">Timing</label>
+            <select id="f-timing" name="timing">
+              <option value="">Choose one</option>
+              <option>As soon as possible</option>
+              <option>Within 1–3 months</option>
+              <option>3 months or more</option>
+              <option>Just getting prices</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-message">About the project</label><textarea id="f-message" name="message" required placeholder="Which rooms, what you'd like done, anything we should know."></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="f-website">Leave this empty</label><input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        
+        <p class="form-note">Phone or email, whichever suits you. Pressing send opens your email app with these details filled in, ready to send to us.</p>
+        <div class="form-status" id="form-status" role="status" aria-live="polite" hidden></div>
+        <div><button class="btn btn-primary" type="submit">Send enquiry</button></div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div style="display:grid;gap:1rem">
+      <span class="wordmark"><span class="wordmark-name">GRANITE &amp; LIME</span><span class="wordmark-sub">Renovation &amp; Refurbishment · Dublin</span></span>
+      <span><a href="tel:+353834277556">083 427 7556</a> · <a href="mailto:omer@graniteandlime.ie">omer@graniteandlime.ie</a></span>
+    </div>
+    <nav aria-label="Footer">
+      <a href="#services">Services</a>
+      <a href="#process">How we work</a>
+      <span>© 2026 Granite &amp; Lime</span>
+    </nav>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-outline" href="tel:+353834277556">Call</a>
+  <a class="btn btn-primary" href="#contact">Request a site visit</a>
+</div>
+
+
+
+
+<script>
+// Enquiry form: checks the fields, then opens the visitor's email app with the details filled in.
+(function () {
+  var form = document.getElementById('enquiry-form');
+  if (!form) return;
+  var status = document.getElementById('form-status');
+  function show(msg, isError) { status.textContent = msg; status.classList.toggle('is-error', !!isError); status.hidden = false; }
+  function get(n) { return (form.elements[n].value || '').trim(); }
+  function validate() {
+    if (!get('name')) return ['f-name', 'Please add your name.'];
+    if (!get('area')) return ['f-area', 'Please add the area the project is in.'];
+    if (!get('phone') && !get('email')) return ['f-phone', 'Please add a phone number or email so we can reply.'];
+    if (get('email') && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(get('email'))) return ['f-email', 'That email address doesn’t look complete.'];
+    if (!get('project_type')) return ['f-type', 'Please choose the type of work.'];
+    if (!get('message')) return ['f-message', 'Please add a few lines about the project.'];
+    return null;
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var problem = validate();
+    if (problem) { show(problem[1], true); document.getElementById(problem[0]).focus(); return; }
+    if (get('website')) return; // spam trap
+    var lines = ['Name: ' + get('name'), 'Area: ' + get('area'), 'Phone: ' + (get('phone') || '-'), 'Email: ' + (get('email') || '-'),
+      'Type of work: ' + get('project_type'), 'Timing: ' + (get('timing') || '-'), '', get('message')];
+    var url = 'mailto:omer@graniteandlime.ie?subject=' + encodeURIComponent('Enquiry: ' + get('project_type') + ', ' + get('area')) +
+      '&body=' + encodeURIComponent(lines.join('\n'));
+    window.location.href = url;
+    show('Your email app should now open with the enquiry ready to send. If nothing opens, call or WhatsApp 083 427 7556.', false);
+  });
+})();
+</script>
+</body>
+</html>
