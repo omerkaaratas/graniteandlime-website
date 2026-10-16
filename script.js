@@ -222,6 +222,33 @@
       status.hidden = false;
     };
 
+    // Copy-and-paste fallback for devices where WhatsApp or an email app does not open.
+    // Separate from the status above, so screen readers only hear the short announcement.
+    const fallback = $('#form-fallback');
+    const fallbackBox = $('#form-fallback-message');
+    const copyStatus = $('#form-copy-status');
+    const showFallback = message => {
+      if (!fallback || !fallbackBox) return;
+      fallbackBox.value = message;
+      copyStatus.textContent = '';
+      fallback.hidden = false;
+      fallback.scrollIntoView({ block: 'nearest' }); // scroll-margin-bottom keeps it above the mobile bar
+    };
+    const copyButton = $('[data-copy-message]', form);
+    if (copyButton && fallbackBox) {
+      copyButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(fallbackBox.value);
+          copyStatus.textContent = `Message copied. Paste it into an email to ${BUSINESS.email}.`;
+        } catch (error) {
+          // Clipboard blocked: focus and select the text so the visitor can copy it by hand.
+          fallbackBox.focus();
+          fallbackBox.select();
+          copyStatus.textContent = 'Text selected: copy with Ctrl+C / Cmd+C, or press and hold.';
+        }
+      });
+    }
+
     fields.forEach(field => {
       document.getElementById(field.id).addEventListener('input', () => setError(field, ''));
     });
@@ -230,8 +257,10 @@
       event.preventDefault();
       const values = collect();
       if (!values) return;
-      follow(whatsappUrl(buildMessage(values)), true);
-      announce(`WhatsApp should now be open with your message ready. Press send there, and add photos if you have them. If nothing opened, call ${BUSINESS.phoneDisplay}.`);
+      const message = buildMessage(values);
+      follow(whatsappUrl(message), true);
+      announce('WhatsApp should now be open with your message ready. Press send there, and add photos if you have them. On a computer, WhatsApp may first ask you to open WhatsApp Web or the desktop app.');
+      showFallback(message);
     });
 
     const emailButton = $('[data-send-email]', form);
@@ -240,8 +269,10 @@
         const values = collect();
         if (!values) return;
         const subject = `Site visit request: ${values.type || 'project'} in ${values.area}`;
-        follow(`mailto:${BUSINESS.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(buildMessage(values))}`, false);
-        announce(`Your email app should now be open with your message ready. If nothing opened, write to ${BUSINESS.email} or call ${BUSINESS.phoneDisplay}.`);
+        const message = buildMessage(values);
+        follow(`mailto:${BUSINESS.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`, false);
+        announce('Your email app should now be open with your message ready. Press send there.');
+        showFallback(`Subject: ${subject}\n\n${message}`);
       });
     }
 

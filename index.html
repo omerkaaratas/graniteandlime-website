@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f6f2ea">
-  <title>Granite &amp; Lime | Renovation &amp; Refurbishment in Dublin</title>
-  <meta name="description" content="Painting, bathrooms and home refurbishment across Dublin, properly managed. Site visit, written itemised quote, coordinated trades and one person accountable from first visit to final walk-round.">
+  <title>Painters &amp; Decorators in Dublin | Granite &amp; Lime</title>
+  <meta name="description" content="House painting and decorating across Dublin: interiors, exteriors and full repaints. Site visit, written itemised quote and one person accountable throughout.">
   <link rel="canonical" href="https://www.graniteandlime.ie/">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Granite &amp; Lime">
-  <meta property="og:title" content="Granite &amp; Lime | Renovation &amp; refurbishment, properly managed">
-  <meta property="og:description" content="Painting, bathrooms and home refurbishment across Dublin. One person accountable from first visit to final walk-round.">
+  <meta property="og:title" content="Granite &amp; Lime | Painting &amp; decorating in Dublin, properly managed">
+  <meta property="og:description" content="House painting and decorating across Dublin, plus bathrooms and refurbishment. One person accountable from first visit to final walk-round.">
   <meta property="og:url" content="https://www.graniteandlime.ie/">
   <meta property="og:image" content="https://www.graniteandlime.ie/assets/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -24,14 +24,14 @@
   <link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css?v=6">
   <noscript><link rel="stylesheet" href="assets/noscript.css"></noscript>
-  <script src="script.js?v=6" defer></script>
+  <script src="script.js?v=7" defer></script>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     "name": "Granite & Lime",
-    "description": "Painting, bathrooms and home refurbishment across Dublin, properly managed.",
+    "description": "House painting and decorating across Dublin, plus bathrooms and home refurbishment, properly managed.",
     "url": "https://www.graniteandlime.ie/",
     "logo": "https://www.graniteandlime.ie/assets/logo.svg",
     "image": "https://www.graniteandlime.ie/assets/og-image.png",
@@ -81,9 +81,9 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="shell hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Dublin · Painting · Bathrooms · Refurbishment</p>
-          <h1 id="hero-title">Renovation &amp; refurbishment, <span class="accent">properly managed.</span></h1>
-          <p class="lede">Painting, bathrooms and home refurbishment across Dublin. One person accountable from first visit to final walk-round.</p>
+          <p class="eyebrow">Dublin · Painting &amp; Decorating</p>
+          <h1 id="hero-title">Painting &amp; Decorating Services in Dublin</h1>
+          <p class="lede">Interior and exterior painting across Dublin, from individual rooms to full-property repaints. We assess the required preparation and scope before providing a written quotation. Enquire about your property and discuss the next steps directly with Granite &amp; Lime.</p>
           <div class="actions">
             <a class="button button-primary" href="#contact">Request a site visit</a>
             <a class="button button-outline" href="https://wa.me/353834277556?text=Hello%20Granite%20%26%20Lime%2C%20I%27d%20like%20to%20send%20photos%20of%20a%20project." target="_blank" rel="noopener" data-whatsapp="photos">Send photos on WhatsApp</a>
@@ -462,6 +462,15 @@
           </div>
           <p class="form-note">Nothing is stored on this website. Your message opens in WhatsApp or your email app, and you press send there.</p>
           <p class="form-status" id="form-status" role="status" hidden></p>
+          <!-- Copy-and-paste fallback, shown by script.js after WhatsApp or email is tried. Kept outside the
+               status announcement above. scroll-margin keeps it clear of the fixed mobile action bar. -->
+          <div class="form-fallback" id="form-fallback" role="group" aria-labelledby="form-fallback-help" hidden style="margin-top:1rem;scroll-margin-bottom:6rem">
+            <p id="form-fallback-help">Having trouble sending your enquiry? Copy your message below and email it to <a href="mailto:omer@graniteandlime.ie" data-mail>omer@graniteandlime.ie</a>, or call <a href="tel:+353834277556" data-tel>083 427 7556</a>.</p>
+            <label for="form-fallback-message">Your drafted message</label>
+            <textarea id="form-fallback-message" rows="6" readonly style="display:block;width:100%;margin:.5rem 0 .75rem;scroll-margin-bottom:6rem"></textarea>
+            <button class="button button-outline" type="button" data-copy-message style="scroll-margin-bottom:6rem">Copy Message</button>
+            <p class="form-note" id="form-copy-status" role="status"></p>
+          </div>
         </form>
       </div>
     </section>
