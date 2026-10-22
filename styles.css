@@ -303,6 +303,8 @@ ul, ol { list-style: none; }
 .page p + p { margin-top: 0.85rem; }
 .page ul { display: grid; gap: 0.45rem; margin-top: 0.6rem; padding-left: 1.2rem; list-style: disc; }
 .page .actions { margin-top: 1.75rem; }
+.error-note { margin-block: 0.5rem 1rem; padding: 0.9rem 1.1rem; border-left: 4px solid var(--error); background: var(--stone); }
+.error-note p { color: var(--ink); font-weight: 600; }
 .draft-note { margin-bottom: 1.5rem; padding: 0.9rem 1.1rem; border-left: 4px solid var(--bronze); background: var(--stone); font-weight: 600; color: var(--ink); }
 
 /* ---------- Mobile action bar ---------- */

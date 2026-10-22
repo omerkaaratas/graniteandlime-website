@@ -330,7 +330,8 @@
                2. Set data-endpoint="https://submit-form.com/FORM_ID" (the same address).
              Until then the form prepares an email in the visitor's email app (mailto) and nothing is submitted.
              Hidden fields: _gotcha = honeypot (bots fill it, people never see it);
-             _redirect/_append = where visitors land after a no-JavaScript submission, without copying their
+             _redirect / _error = where visitors land after a no-JavaScript submission succeeds / fails;
+             _append=false stops the service copying their
              answers into the address bar; source_* = campaign identifiers read from the page address only. -->
         <form class="form" id="enquiry-form" action="mailto:omer@graniteandlime.ie" method="get" data-endpoint="" aria-labelledby="form-title">
           <h3 id="form-title">Send a Painting Enquiry</h3>
@@ -338,6 +339,7 @@
           <input type="hidden" name="subject" value="Painting enquiry from graniteandlime.ie">
           <input type="hidden" name="_email.subject" value="New painting enquiry from graniteandlime.ie">
           <input type="hidden" name="_redirect" value="https://www.graniteandlime.ie/enquiry-sent.html">
+          <input type="hidden" name="_error" value="https://www.graniteandlime.ie/enquiry-error.html">
           <input type="hidden" name="_append" value="false">
           <input type="hidden" name="enquiry_channel" value="Website form">
           <input type="hidden" name="source_utm_source" data-utm="utm_source">
