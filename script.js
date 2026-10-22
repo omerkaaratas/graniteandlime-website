@@ -25,9 +25,6 @@
     $$('[data-whatsapp="photos"]').forEach(link => {
       link.href = whatsappUrl(`Hello ${BUSINESS.name}, I'd like to send photos of a project.`);
     });
-    $$('[data-whatsapp="chat"]').forEach(link => {
-      link.href = whatsappUrl(`Hello ${BUSINESS.name}, I have a question about a project.`);
-    });
   }
 
   /* ---------- Mobile navigation ---------- */
@@ -48,36 +45,6 @@
         button.focus();
       }
     });
-  }
-
-  /* ---------- Five-step process ---------- */
-  function initStepper() {
-    const stepper = $('[data-stepper]');
-    if (!stepper) return;
-    const steps = $$('.step', stepper);
-    const buttons = steps.map(step => $('.step-button', step));
-
-    const activate = (index, focus) => {
-      steps.forEach((step, i) => {
-        const active = i === index;
-        step.classList.toggle('is-active', active);
-        buttons[i].setAttribute('aria-expanded', String(active));
-      });
-      if (focus) buttons[index].focus();
-    };
-
-    buttons.forEach((button, index) => {
-      button.addEventListener('click', () => activate(index, false));
-      button.addEventListener('keydown', event => {
-        const move = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[event.key];
-        if (!move) return;
-        event.preventDefault();
-        activate((index + move + steps.length) % steps.length, true);
-      });
-    });
-
-    stepper.classList.add('is-enhanced');
-    activate(0, false);
   }
 
   /* ---------- FAQ: native <details>, opened and closed smoothly ---------- */
@@ -106,37 +73,21 @@
     });
   }
 
-  /* ---------- Sample quotation dialog ---------- */
-  function initDialogs() {
-    $$('[data-open-dialog]').forEach(opener => {
-      const dialog = document.getElementById(opener.dataset.openDialog);
-      if (!dialog || typeof dialog.showModal !== 'function') {
-        opener.hidden = true;
-        return;
-      }
-      opener.addEventListener('click', () => dialog.showModal());
-      $$('[data-close-dialog]', dialog).forEach(closer => closer.addEventListener('click', () => dialog.close()));
-      // A click on the backdrop lands on the <dialog> element itself.
-      dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
-      dialog.addEventListener('close', () => opener.focus());
-    });
-  }
-
-  /* ---------- Enquiry form: builds a WhatsApp (or email) message ---------- */
+  /* ---------- Enquiry form: prepares an email in the visitor's own email app ----------
+     Nothing is sent or stored by this website. Without JavaScript the form still opens the email app
+     with the subject and project description (the <form> uses a mailto: action). */
   function buildMessage(values) {
-    const lines = [
+    return [
       `Hello ${BUSINESS.name},`,
       '',
-      "I'd like to discuss a project.",
+      'I would like to request a site visit.',
       '',
       `Name: ${values.name}`,
       `Area: ${values.area}`,
-      `Phone: ${values.phone}`
-    ];
-    if (values.email) lines.push(`Email: ${values.email}`);
-    if (values.type) lines.push(`Type of work: ${values.type}`);
-    lines.push(`Project details: ${values.details}`, '', 'Please contact me to arrange a site visit.');
-    return lines.join('\n');
+      `Project: ${values.details}`,
+      '',
+      'Please contact me to discuss next steps.'
+    ].join('\n');
   }
 
   // Following a real link inside the click handler is the most reliable way past popup blockers.
@@ -160,11 +111,8 @@
 
     const fields = [
       { id: 'f-name', key: 'name', message: 'Please add your name.' },
-      { id: 'f-area', key: 'area', message: 'Please add the area the project is in.' },
-      { id: 'f-phone', key: 'phone', message: 'Please add a phone number so we can call you back.' },
-      { id: 'f-email', key: 'email', optional: true, message: 'That email address does not look complete.',
-        test: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) },
-      { id: 'f-details', key: 'details', message: 'Please add a few lines about the project.' }
+      { id: 'f-area', key: 'area', message: 'Please add the area or neighbourhood.' },
+      { id: 'f-details', key: 'details', message: 'Please add a few words about what needs painting.' }
     ];
 
     const setError = (field, message) => {
@@ -192,23 +140,18 @@
         const input = document.getElementById(field.id);
         const value = input.value.trim();
         values[field.key] = value;
-        const missing = !value && !field.optional;
-        const malformed = value && field.test && !field.test(value);
-        setError(field, missing || malformed ? field.message : '');
-        if (missing || malformed) {
+        setError(field, value ? '' : field.message);
+        if (!value) {
           problems += 1;
           firstInvalid = firstInvalid || input;
         }
       });
 
-      const type = $('input[name="type"]:checked', form);
-      values.type = type ? type.value : '';
-
       status.hidden = true;
       if (problems) {
         summary.textContent = problems === 1
-          ? 'One thing needs your attention before sending.'
-          : `${problems} things need your attention before sending.`;
+          ? 'One field needs filling in before your email app opens.'
+          : `${problems} fields need filling in before your email app opens.`;
         summary.hidden = false;
         firstInvalid.focus();
         return null;
@@ -222,7 +165,7 @@
       status.hidden = false;
     };
 
-    // Copy-and-paste fallback for devices where WhatsApp or an email app does not open.
+    // Copy-and-paste fallback for devices where an email app does not open.
     // Separate from the status above, so screen readers only hear the short announcement.
     const fallback = $('#form-fallback');
     const fallbackBox = $('#form-fallback-message');
@@ -232,7 +175,20 @@
       fallbackBox.value = message;
       copyStatus.textContent = '';
       fallback.hidden = false;
-      fallback.scrollIntoView({ block: 'nearest' }); // scroll-margin-bottom keeps it above the mobile bar
+      // Show the confirmation and the Copy Message button together when the screen is tall enough;
+      // on short screens (or at high zoom) show the confirmation first. Neither may sit under the
+      // sticky header or the mobile action bar.
+      const header = $('.site-header');
+      const bar = $('.mobile-bar');
+      const top = header ? header.getBoundingClientRect().height : 0;
+      const bottom = bar && getComputedStyle(bar).display !== 'none' ? bar.getBoundingClientRect().height : 0;
+      const room = window.innerHeight - top - bottom - 32;
+      const span = copyButton ? copyButton.getBoundingClientRect().bottom - status.getBoundingClientRect().top : Infinity;
+      if (span <= room) {
+        copyButton.scrollIntoView({ block: 'nearest' });
+      } else {
+        status.scrollIntoView({ block: 'start' });
+      }
     };
     const copyButton = $('[data-copy-message]', form);
     if (copyButton && fallbackBox) {
@@ -257,31 +213,11 @@
       event.preventDefault();
       const values = collect();
       if (!values) return;
+      const subject = `Painting site visit enquiry: ${values.area}`;
       const message = buildMessage(values);
-      follow(whatsappUrl(message), true);
-      announce('WhatsApp should now be open with your message ready. Press send there, and add photos if you have them. On a computer, WhatsApp may first ask you to open WhatsApp Web or the desktop app.');
-      showFallback(message);
-    });
-
-    const emailButton = $('[data-send-email]', form);
-    if (emailButton) {
-      emailButton.addEventListener('click', () => {
-        const values = collect();
-        if (!values) return;
-        const subject = `Site visit request: ${values.type || 'project'} in ${values.area}`;
-        const message = buildMessage(values);
-        follow(`mailto:${BUSINESS.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`, false);
-        announce('Your email app should now be open with your message ready. Press send there.');
-        showFallback(`Subject: ${subject}\n\n${message}`);
-      });
-    }
-
-    // "Ask about painting" links in the services section preselect the type of work.
-    $$('[data-enquire]').forEach(link => {
-      link.addEventListener('click', () => {
-        const match = $$('input[name="type"]', form).find(input => input.value === link.dataset.enquire);
-        if (match) match.checked = true;
-      });
+      follow(`mailto:${BUSINESS.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`, false);
+      announce('Your email app should now be open with your message ready. Review it and press Send there.');
+      showFallback(`Subject: ${subject}\n\n${message}`);
     });
   }
 
@@ -297,35 +233,9 @@
     });
   }
 
-  /* ---------- Quiet reveal on scroll ----------
-     Only elements that start below the first screen are faded in, so nothing visible on load ever disappears. */
-  function initReveal() {
-    if (reduceMotion || !('IntersectionObserver' in window)) return;
-    const pending = $$('[data-reveal]').filter(el => el.getBoundingClientRect().top > window.innerHeight);
-    if (!pending.length) return;
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.remove('reveal-pending');
-        observer.unobserve(entry.target);
-      });
-    }, { rootMargin: '0px 0px -8% 0px' });
-
-    pending.forEach(el => {
-      el.classList.add('reveal-pending');
-      observer.observe(el);
-    });
-    // Add the transition one frame later so the initial hide is not animated.
-    requestAnimationFrame(() => pending.forEach(el => el.classList.add('reveal-ready')));
-  }
-
   initContactLinks();
   initNav();
-  initStepper();
   initFaq();
-  initDialogs();
   initForm();
   initCompare();
-  initReveal();
 })();

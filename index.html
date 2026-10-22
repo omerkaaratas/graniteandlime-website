@@ -22,9 +22,9 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/lora-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=8">
   <noscript><link rel="stylesheet" href="assets/noscript.css"></noscript>
-  <script src="script.js?v=7" defer></script>
+  <script src="script.js?v=8" defer></script>
 
   <script type="application/ld+json">
   {
@@ -61,16 +61,16 @@
       </button>
 
       <nav class="primary-nav" id="primary-nav" aria-label="Main">
-        <a href="#services">Services</a>
-        <a href="#process">How it works</a>
+        <a href="#services">Painting</a>
+        <a href="#approach">Our approach</a>
         <a href="#about">About</a>
-        <a href="#faq">FAQ</a>
+        <a href="#areas">Areas</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <div class="header-actions">
         <a class="header-phone" href="tel:+353834277556" data-tel><span class="visually-hidden">Call </span>083 427 7556</a>
-        <a class="button button-primary button-small" href="#contact">Request a site visit</a>
+        <a class="button button-primary button-small" href="tel:+353834277556" data-tel>Call Now</a>
       </div>
     </div>
   </header>
@@ -79,93 +79,69 @@
 
     <!-- 1. HERO -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="shell hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Dublin · Painting &amp; Decorating</p>
-          <h1 id="hero-title">Painting &amp; Decorating Services in Dublin</h1>
-          <p class="lede">Interior and exterior painting across Dublin, from individual rooms to full-property repaints. We assess the required preparation and scope before providing a written quotation. Enquire about your property and discuss the next steps directly with Granite &amp; Lime.</p>
-          <div class="actions">
-            <a class="button button-primary" href="#contact">Request a site visit</a>
-            <a class="button button-outline" href="https://wa.me/353834277556?text=Hello%20Granite%20%26%20Lime%2C%20I%27d%20like%20to%20send%20photos%20of%20a%20project." target="_blank" rel="noopener" data-whatsapp="photos">Send photos on WhatsApp</a>
+      <div class="shell">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Dublin · Residential Painting &amp; Decorating</p>
+            <h1 id="hero-title">Beautifully considered painting for your home.</h1>
+            <p class="lede">Interior, exterior and whole-home painting across Dublin. Discuss your project directly with Granite &amp; Lime, with preparation and scope considered before a written quotation.</p>
+            <div class="actions">
+              <a class="button button-primary" href="tel:+353834277556" data-tel>Call Now <span class="button-detail">083 427 7556</span></a>
+              <a class="button button-outline" href="#contact">Request a Site Visit</a>
+            </div>
+            <p class="hero-hint">Prefer to send photos? <a href="https://wa.me/353834277556?text=Hello%20Granite%20%26%20Lime%2C%20I%27d%20like%20to%20send%20photos%20of%20a%20project." target="_blank" rel="noopener" data-whatsapp="photos">WhatsApp Granite &amp; Lime</a></p>
           </div>
+
+          <!-- HERO IMAGE: temporary. This is the existing site illustration, kept until the founder approves a
+               licensed photograph (GL-DESIGN-008 M02). To swap, replace the <img> with a <picture> using local,
+               optimised files, for example:
+                 <picture>
+                   <source type="image/avif" srcset="assets/photos/hero-720.avif 720w, assets/photos/hero-1400.avif 1400w" sizes="(max-width: 37.5rem) 100vw, 45vw">
+                   <img src="assets/photos/hero-1400.jpg" width="1400" height="1560" alt="DESCRIBE THE ROOM. Illustrative photograph, not Granite &amp; Lime work." fetchpriority="high" loading="eager" decoding="async">
+                 </picture>
+               Never use the AI concept images from the design package, and never hotlink a stock library. -->
+          <figure class="hero-figure is-illustration">
+            <img src="assets/hero-study.svg" width="800" height="1000" alt="Illustration of a room elevation: panelled door, window, painted lower wall and stone floor." fetchpriority="high">
+          </figure>
         </div>
 
-        <!-- Illustration, not project photography. When a genuine finished-project photo is ready,
-             replace this <img> with it (portrait, about 1600 × 2000) and write a real alt text. -->
-        <figure class="hero-figure">
-          <img src="assets/hero-study.svg" width="800" height="1000" alt="Illustration of a room elevation: panelled door, window, painted lower wall and stone floor.">
-        </figure>
-      </div>
-
-      <div class="shell">
         <dl class="facts">
-          <div><dt>Work</dt><dd>Painting, bathrooms &amp; interiors, refurbishment</dd></div>
-          <div><dt>Area</dt><dd>Homes across Dublin</dd></div>
-          <div><dt>Contact</dt><dd>Omer Karatas, start to finish</dd></div>
-          <div><dt>Quote</dt><dd>Written and itemised, after a site visit</dd></div>
+          <div><dt>Painting services</dt><dd>Interiors · Exteriors · Doors &amp; woodwork</dd></div>
+          <div><dt>Serving</dt><dd>Homes across Dublin</dd></div>
+          <div><dt>Your next step</dt><dd>Call to discuss scope or request a site visit</dd></div>
         </dl>
       </div>
     </section>
 
-    <!-- 2. SERVICES -->
+    <!-- 2. PAINTING SERVICES -->
     <section class="section" id="services" aria-labelledby="services-title">
       <div class="shell">
-        <div class="section-head" data-reveal>
+        <div class="section-head">
           <div>
-            <p class="eyebrow">Services</p>
-            <h2 id="services-title">Three kinds of work, each run as one job.</h2>
+            <p class="eyebrow">Our services</p>
+            <h2 id="services-title">Painting that begins with a clear scope.</h2>
           </div>
-          <p class="section-intro">Specialist trades for each part of the work, coordinated in the right order, with one person accountable for the finish.</p>
+          <p class="section-intro">From a single room to a whole-property repaint, start with an honest discussion of surfaces, access, preparation and the finish you have in mind.</p>
         </div>
 
-        <div class="services">
-          <article class="service" data-reveal>
-            <div class="service-title">
-              <img class="service-motif" src="assets/motif-paint.svg" alt="" width="72" height="72" loading="lazy">
-              <h3>Painting &amp; Decorating</h3>
-            </div>
-            <p class="service-text">Interiors, exteriors and full repaints before a sale or move-in. Most of a good finish is preparation, so we price that in rather than leaving it out.</p>
-            <div class="service-detail">
-              <ul class="dash-list" aria-label="Painting and decorating includes">
-                <li>Whole-house interiors</li>
-                <li>Hall, stairs &amp; landing</li>
-                <li>Exterior walls, windows &amp; trim</li>
-              </ul>
-              <a class="text-link" href="#contact" data-enquire="Painting &amp; decorating">Ask about painting</a>
-            </div>
+        <div class="cards">
+          <article class="card">
+            <p class="card-num">01 / Interiors</p>
+            <h3>Interior painting</h3>
+            <p>Living rooms, kitchens, bedrooms, ceilings and hallways, with attention to surfaces and edges.</p>
+            <a class="text-link" href="#contact">Discuss interior painting</a>
           </article>
-
-          <article class="service" data-reveal>
-            <div class="service-title">
-              <img class="service-motif" src="assets/motif-tile.svg" alt="" width="72" height="72" loading="lazy">
-              <h3>Bathrooms &amp; Interiors</h3>
-            </div>
-            <p class="service-text">Bathroom refurbishments and full renovations, with plumbing, electrics, waterproofing and finishes sequenced as one project.</p>
-            <div class="service-detail">
-              <ul class="dash-list" aria-label="Bathrooms and interiors includes">
-                <li>Bathroom renovation</li>
-                <li>Wall &amp; floor tiling</li>
-                <li>Flooring, carpentry &amp; joinery finishing</li>
-                <li>Kitchen refresh</li>
-              </ul>
-              <a class="text-link" href="#contact" data-enquire="Bathroom &amp; interiors">Ask about a bathroom</a>
-            </div>
+          <article class="card">
+            <p class="card-num">02 / Exteriors</p>
+            <h3>Exterior painting</h3>
+            <p>Exterior walls and painted features, with suitability and access reviewed during scoping.</p>
+            <a class="text-link" href="#contact">Discuss exterior painting</a>
           </article>
-
-          <article class="service" data-reveal>
-            <div class="service-title">
-              <img class="service-motif" src="assets/motif-plan.svg" alt="" width="72" height="72" loading="lazy">
-              <h3>Home Refurbishment</h3>
-            </div>
-            <p class="service-text">Several rooms, or a whole property, brought up to standard. Typically before moving in, before letting, or after years of putting it off.</p>
-            <div class="service-detail">
-              <ul class="dash-list" aria-label="Home refurbishment includes">
-                <li>Multi-room refurbishment</li>
-                <li>Pre-move-in works</li>
-                <li>Landlord &amp; property refresh</li>
-              </ul>
-              <a class="text-link" href="#contact" data-enquire="Home refurbishment">Ask about a refurbishment</a>
-            </div>
+          <article class="card">
+            <p class="card-num">03 / Finishing</p>
+            <h3>Doors &amp; woodwork</h3>
+            <p>Doors, skirting, trim and decorative details considered as part of your painting project.</p>
+            <a class="text-link" href="#contact">Discuss finishing</a>
           </article>
         </div>
       </div>
@@ -212,278 +188,174 @@
       </div>
     </section>
 
-    <!-- 4. WHO YOU DEAL WITH
-         The photographs in this section are atmosphere images, not finished projects, so they have empty alt text.
-         To use a portrait of Omer instead, replace assets/entrance.avif in the first <img> below. -->
-    <section class="about" id="about" aria-labelledby="about-title">
-      <div class="about-top">
-        <div class="about-panel">
-          <img class="about-photo" src="assets/entrance.avif" alt="" width="900" height="539" loading="lazy">
-          <div class="about-panel-inner">
-            <p class="about-brand"><span>Granite &amp; Lime</span><span>Renovation &amp; Refurbishment</span></p>
-            <div class="about-person">
-              <p class="about-name">Omer Karatas</p>
-              <p class="about-role">Your contact, start to finish</p>
-              <a class="pill pill-on-photo" href="https://wa.me/353834277556?text=Hello%20Granite%20%26%20Lime%2C%20I%20have%20a%20question%20about%20a%20project." target="_blank" rel="noopener" data-whatsapp="chat">
-                <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5z"/></svg></span>
-                <span>Chat on WhatsApp</span>
-                <svg class="pill-arrow" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
-              </a>
-              <p class="about-hint">Quick questions, photos or to arrange a site visit.</p>
-            </div>
-          </div>
+    <!-- 4. APPROACH -->
+    <section class="approach" id="approach" aria-labelledby="approach-title">
+      <div class="shell approach-row">
+        <div>
+          <p class="eyebrow">How we intend to work</p>
+          <h2 id="approach-title">A thoughtful process. Fewer unknowns.</h2>
         </div>
-
-        <div class="about-main" data-reveal>
-          <p class="eyebrow">Who you deal with</p>
-          <h2 id="about-title">One person accountable for the whole job.</h2>
-          <p class="lede">Granite &amp; Lime is run by Omer Karatas. I handle your enquiry, the site visit, the quote, the coordination of the work, the updates along the way and the final walk-round.</p>
-          <p>The work itself is carried out by specialist trades I work with directly: painters, tilers, plumbers, electricians and carpenters.</p>
-        </div>
-      </div>
-
-      <div class="shell about-promises">
-        <h3 class="promises-title" data-reveal>What you can expect</h3>
-        <ol class="promises" data-reveal>
-          <li class="promise">
-            <div class="promise-photo"><img src="assets/promise-wall.avif" alt="" width="350" height="490" loading="lazy"></div>
-            <span class="promise-num" aria-hidden="true">01</span>
-            <h4>A clear answer early</h4>
-            <p>If a job isn't right for us, we say so at the start.</p>
-          </li>
-          <li class="promise">
-            <div class="promise-photo"><img src="assets/promise-handle.avif" alt="" width="350" height="490" loading="lazy"></div>
-            <span class="promise-num" aria-hidden="true">02</span>
-            <h4>A realistic start date</h4>
-            <p>Given with the quote, based on the actual schedule.</p>
-          </li>
-          <li class="promise">
-            <div class="promise-photo"><img src="assets/promise-tiles.avif" alt="" width="350" height="490" loading="lazy"></div>
-            <span class="promise-num" aria-hidden="true">03</span>
-            <h4>No surprise extras</h4>
-            <p>Nothing added to the bill without your agreement.</p>
-          </li>
-          <li class="promise">
-            <div class="promise-photo"><img src="assets/promise-stairs.avif" alt="" width="350" height="490" loading="lazy"></div>
-            <span class="promise-num" aria-hidden="true">04</span>
-            <h4>Your home respected</h4>
-            <p>Floors and furniture protected, tidy at the end of each day.</p>
-          </li>
-        </ol>
-
-        <div class="about-foot" data-reveal>
-          <a class="pill pill-dark" href="https://wa.me/353834277556?text=Hello%20Granite%20%26%20Lime%2C%20I%20have%20a%20question%20about%20a%20project." target="_blank" rel="noopener" data-whatsapp="chat">
-            <span class="pill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5z"/></svg></span>
-            <span>Send a message on WhatsApp</span>
-            <svg class="pill-arrow" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
-          </a>
-          <p class="about-foot-text">Have a question, or want to arrange a site visit? You can also call <a href="tel:+353834277556" data-tel>083 427 7556</a></p>
-        </div>
+        <p>Our approach is to agree the scope and proposed preparation before work starts, keep communication clear and respect the rooms and surfaces involved.</p>
+        <ul class="approach-list">
+          <li>Surface preparation considered</li>
+          <li>Written scope and quotation</li>
+          <li>Property protection discussed</li>
+        </ul>
       </div>
     </section>
 
-    <!-- 5. HOW IT WORKS -->
-    <section class="section" id="process" aria-labelledby="process-title">
-      <div class="shell">
-        <div class="section-head" data-reveal>
-          <div>
-            <p class="eyebrow">How it works</p>
-            <h2 id="process-title">Five steps, and you know where you are at each one.</h2>
-          </div>
-        </div>
-
-        <!-- All five explanations are in the HTML. script.js turns this into a stepper;
-             without JavaScript every step stays open. -->
-        <ol class="steps" data-stepper data-reveal>
-          <li class="step">
-            <h3 class="step-heading"><button class="step-button" type="button" id="step-1" aria-controls="step-1-panel"><span class="step-num" aria-hidden="true">01</span><span class="step-name">Tell us about the job</span></button></h3>
-            <div class="step-panel" id="step-1-panel" role="region" aria-labelledby="step-1"><div class="step-panel-inner"><p>Form, phone or photos on WhatsApp. We confirm quickly whether it's work we take on.</p></div></div>
-          </li>
-          <li class="step">
-            <h3 class="step-heading"><button class="step-button" type="button" id="step-2" aria-controls="step-2-panel"><span class="step-num" aria-hidden="true">02</span><span class="step-name">Site visit</span></button></h3>
-            <div class="step-panel" id="step-2-panel" role="region" aria-labelledby="step-2"><div class="step-panel-inner"><p>We look, measure and ask what you want the finished result to be.</p></div></div>
-          </li>
-          <li class="step">
-            <h3 class="step-heading"><button class="step-button" type="button" id="step-3" aria-controls="step-3-panel"><span class="step-num" aria-hidden="true">03</span><span class="step-name">Written quote</span></button></h3>
-            <div class="step-panel" id="step-3-panel" role="region" aria-labelledby="step-3"><div class="step-panel-inner"><p>Itemised: what's included, what isn't, and what the price covers. A realistic start date comes with it.</p></div></div>
-          </li>
-          <li class="step">
-            <h3 class="step-heading"><button class="step-button" type="button" id="step-4" aria-controls="step-4-panel"><span class="step-num" aria-hidden="true">04</span><span class="step-name">Coordinated work</span></button></h3>
-            <div class="step-panel" id="step-4-panel" role="region" aria-labelledby="step-4"><div class="step-panel-inner"><p>Agreed start date, trades booked in the right order, regular updates. Anything unexpected is priced and agreed before it's done.</p></div></div>
-          </li>
-          <li class="step">
-            <h3 class="step-heading"><button class="step-button" type="button" id="step-5" aria-controls="step-5-panel"><span class="step-num" aria-hidden="true">05</span><span class="step-name">Walk-round</span></button></h3>
-            <div class="step-panel" id="step-5-panel" role="region" aria-labelledby="step-5"><div class="step-panel-inner"><p>We go through it together and fix any snags before sign-off.</p></div></div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- 6. THE QUOTE -->
-    <section class="section section-dark" id="quote" aria-labelledby="quote-title">
-      <div class="shell quote-grid">
-        <div class="quote-copy" data-reveal>
-          <p class="eyebrow">In writing</p>
-          <h2 id="quote-title">What a Granite &amp; Lime quote looks like.</h2>
-          <p class="lede">Unclear quotes are where most renovation disagreements start. Ours list the work line by line.</p>
-          <ul class="dash-list">
-            <li>Preparation is listed, not assumed</li>
-            <li>What's included is clear, line by line</li>
-            <li>Exclusions are written down</li>
-            <li>Anything unexpected is priced and agreed before it's done</li>
-          </ul>
-          <button class="button button-light js-only" type="button" data-open-dialog="quote-dialog">View the full sample</button>
-        </div>
-
-        <figure class="sheet" data-reveal>
-          <div class="sheet-top">
-            <span class="sheet-brand">Granite &amp; Lime</span>
-            <span class="sheet-label">Sample quotation</span>
-          </div>
-          <table class="sheet-table">
-            <caption>Hall, stairs &amp; landing repaint</caption>
-            <thead>
-              <tr><th scope="col">Item</th><th scope="col">Work</th><th scope="col">Detail</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>1.0</td><th scope="row">Protection</th><td>Floors, stairs and banister covered</td></tr>
-              <tr><td>2.0</td><th scope="row">Preparation</th><td>Fill, sand, caulk, spot-prime</td></tr>
-              <tr><td>3.0</td><th scope="row">Ceilings</th><td>Two coats, matt</td></tr>
-              <tr><td>4.0</td><th scope="row">Walls</th><td>Two coats, colour as agreed</td></tr>
-              <tr><td>5.0</td><th scope="row">Woodwork</th><td>Skirting, spindles, doors</td></tr>
-              <tr><td>6.0</td><th scope="row">Clean-up</th><td>Daily tidy, final clean</td></tr>
-            </tbody>
-          </table>
-          <figcaption class="sheet-foot">
-            <span>Each line is priced after the site visit.</span>
-            <span>Not included: furniture removal, plaster repairs beyond minor filling.</span>
-          </figcaption>
+    <!-- 5. DETAIL IMAGE
+         Temporary: the existing atmosphere image (not project photography, so empty alt text).
+         Replace with one founder-approved, licensed architectural photograph (GL-DESIGN-008 M04). -->
+    <section class="section detail" aria-labelledby="detail-title">
+      <div class="shell detail-grid">
+        <figure class="detail-figure">
+          <img src="assets/entrance.avif" alt="" width="900" height="539" loading="lazy" decoding="async">
         </figure>
+        <div class="detail-copy">
+          <p class="eyebrow">Details make the difference</p>
+          <h2 id="detail-title">Considered interiors, from wall to woodwork.</h2>
+          <p>Painting can transform how a space feels. The best starting point is understanding the condition of the room, the preparation required and the result you want to achieve.</p>
+          <p>Period details and contemporary spaces call for different considerations. We discuss these during the initial conversation and site visit.</p>
+          <a class="button button-outline" href="#contact">Discuss Your Project</a>
+          <p class="disclosure">Images on this website are illustrative, not a portfolio of completed Granite &amp; Lime work.</p>
+        </div>
       </div>
     </section>
 
-    <!-- 7. FAQ -->
+    <!-- 6. PROCESS: plain list, works without JavaScript -->
+    <section class="section process" id="process" aria-labelledby="process-title">
+      <div class="shell">
+        <p class="eyebrow">From enquiry to quotation</p>
+        <h2 id="process-title">Three simple steps to begin.</h2>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">01</span>
+            <h3>Get in touch</h3>
+            <p>Call or share the location, property type and painting work you have in mind.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">02</span>
+            <h3>Discuss the property</h3>
+            <p>We review the scope and whether a site visit is appropriate before preparing a quotation.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">03</span>
+            <h3>Receive a written quote</h3>
+            <p>Where we can take the work forward, we aim to set out the agreed scope and relevant considerations in writing.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 7. ABOUT. The monogram card stands in until a genuine, consented portrait of Omer exists. -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="shell about-grid">
+        <div class="about-mark">
+          <img src="assets/logo.svg" alt="" width="88" height="88" loading="lazy">
+          <p class="about-mark-name">Omer Karatas</p>
+          <p class="about-mark-role">Your direct contact</p>
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow">About Granite &amp; Lime</p>
+          <h2 id="about-title">A real point of contact for your project.</h2>
+          <p>Granite &amp; Lime is a Dublin-based painting and refurbishment business. Omer Karatas is your direct contact for discussing the project, arranging a visit and preparing the next steps.</p>
+          <p>We focus first on residential painting and decorating, with wider refurbishment enquiries considered separately according to scope.</p>
+          <a class="button button-outline" href="tel:+353834277556" data-tel>Call Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. AREAS: target service areas, not office locations -->
+    <section class="areas" id="areas" aria-labelledby="areas-title">
+      <div class="shell areas-grid">
+        <div>
+          <p class="eyebrow">Dublin service areas</p>
+          <h2 id="areas-title">For homes across Dublin.</h2>
+          <p>We welcome residential painting enquiries from established Dublin neighbourhoods and nearby areas. Site-visit availability is confirmed individually.</p>
+        </div>
+        <ul class="area-list" aria-label="Areas we serve">
+          <li>Clontarf</li><li>Malahide</li><li>Portmarnock</li><li>Blackrock</li><li>Monkstown</li><li>Dún Laoghaire</li><li>Sandycove</li><li>Dalkey</li><li>Killiney</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 9. FAQ -->
     <section class="section" id="faq" aria-labelledby="faq-title">
       <div class="shell faq-grid">
-        <div data-reveal>
+        <div>
           <p class="eyebrow">Questions</p>
-          <h2 id="faq-title">Before you get in touch.</h2>
+          <h2 id="faq-title">A few things worth knowing.</h2>
         </div>
-
-        <div class="faq" data-reveal>
+        <div class="faq">
           <details>
-            <summary>Can you give me a price over the phone?</summary>
-            <div class="faq-body"><p>Photos are often enough for a rough range. A fixed price needs a site visit, so the quote reflects your actual rooms, surfaces and condition.</p></div>
+            <summary>Can I send photographs before a site visit?</summary>
+            <div class="faq-body"><p>Yes. Send initial photos on WhatsApp to help explain your project. A quotation may still require a site visit and more information.</p></div>
           </details>
           <details>
-            <summary>Who actually does the work?</summary>
-            <div class="faq-body"><p>Specialist trades that Omer works with directly. Omer manages the job, checks the work and stays your contact throughout.</p></div>
+            <summary>Do you provide written quotations?</summary>
+            <div class="faq-body"><p>Our intended process is to scope the work first and then provide a written quotation where the project can be taken forward.</p></div>
           </details>
           <details>
-            <summary>What if something extra comes up?</summary>
-            <div class="faq-body"><p>If opening up a wall or floor reveals a problem, we stop, show you, explain the options and price them. Nothing extra goes ahead until you agree.</p></div>
-          </details>
-          <details>
-            <summary>How soon can you start?</summary>
-            <div class="faq-body"><p>It depends on the job and the schedule. You'll get a realistic start date with your quote.</p></div>
-          </details>
-          <details>
-            <summary>Which areas do you cover?</summary>
-            <div class="faq-body"><p>Homes across Dublin. If you're just outside the county, ask and we'll tell you straight away.</p></div>
+            <summary>Do you take on smaller painting jobs?</summary>
+            <div class="faq-body"><p>Tell us about the rooms, surfaces and timing. We can then discuss whether the scope is a suitable fit.</p></div>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- 8. ENQUIRY -->
-    <section class="section section-tint" id="contact" aria-labelledby="contact-title">
+    <!-- 10. CONTACT -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
       <div class="shell contact-grid">
-        <div class="contact-copy" data-reveal>
-          <p class="eyebrow">Request a site visit</p>
-          <h2 id="contact-title">Tell us about your project.</h2>
-          <p class="lede">A few lines is enough. The button opens WhatsApp with your details written out, ready to send. You can add photos there.</p>
-
-          <ul class="direct">
-            <li><span class="direct-label">Phone</span><a href="tel:+353834277556" data-tel>083 427 7556</a></li>
-            <li><span class="direct-label">WhatsApp</span><a href="https://wa.me/353834277556?text=Hello%20Granite%20%26%20Lime%2C%20I%27d%20like%20to%20send%20photos%20of%20a%20project." target="_blank" rel="noopener" data-whatsapp="photos">Send photos</a></li>
-            <li><span class="direct-label">Email</span><a href="mailto:omer@graniteandlime.ie" data-mail>omer@graniteandlime.ie</a></li>
-          </ul>
+        <div class="contact-copy">
+          <p class="eyebrow">Ready to talk?</p>
+          <h2 id="contact-title">Tell us about your painting project.</h2>
+          <p>Start with a call. Or share a few details and open a prepared message in your email app. Nothing is sent until you press Send there.</p>
+          <a class="contact-phone" href="tel:+353834277556" data-tel><span class="visually-hidden">Call </span>083 427 7556</a>
+          <p class="contact-meta">Granite &amp; Lime · Dublin · <a href="mailto:omer@graniteandlime.ie" data-mail>omer@graniteandlime.ie</a></p>
         </div>
 
-        <!-- Without JavaScript this still works: it opens WhatsApp with the project description. -->
-        <form class="form" id="enquiry-form" action="https://wa.me/353834277556" method="get" target="_blank" novalidate data-reveal>
+        <!-- Without JavaScript the form still opens the email app (subject + project description). -->
+        <form class="form" id="enquiry-form" action="mailto:omer@graniteandlime.ie" method="get" novalidate aria-labelledby="form-title">
+          <h3 id="form-title">Request a Site Visit</h3>
+          <p class="form-intro">Complete the three short fields below to prepare an email enquiry.</p>
+          <input type="hidden" name="subject" value="Painting site visit enquiry">
           <div class="form-error-summary" id="form-errors" role="alert" hidden></div>
 
-          <div class="form-row">
-            <div class="field">
-              <label for="f-name">Name</label>
-              <input id="f-name" name="name" type="text" autocomplete="name" required>
-              <p class="field-error" id="f-name-error" hidden></p>
-            </div>
-            <div class="field">
-              <label for="f-area">Area <span class="hint">for example Dublin 9</span></label>
-              <input id="f-area" name="area" type="text" autocomplete="address-level2" required>
-              <p class="field-error" id="f-area-error" hidden></p>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="field">
-              <label for="f-phone">Phone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
-              <p class="field-error" id="f-phone-error" hidden></p>
-            </div>
-            <div class="field">
-              <label for="f-email">Email <span class="hint">optional</span></label>
-              <input id="f-email" name="email" type="email" autocomplete="email">
-              <p class="field-error" id="f-email-error" hidden></p>
-            </div>
-          </div>
-
-          <fieldset class="choice">
-            <legend>Type of work <span class="hint">optional</span></legend>
-            <div class="choice-options">
-              <label class="choice-option"><input type="radio" name="type" value="Painting &amp; decorating"><span>Painting &amp; decorating</span></label>
-              <label class="choice-option"><input type="radio" name="type" value="Bathroom &amp; interiors"><span>Bathroom &amp; interiors</span></label>
-              <label class="choice-option"><input type="radio" name="type" value="Home refurbishment"><span>Home refurbishment</span></label>
-              <label class="choice-option"><input type="radio" name="type" value="Not sure yet"><span>Not sure yet</span></label>
-            </div>
-          </fieldset>
-
           <div class="field">
-            <label for="f-details">What do you need?</label>
-            <textarea id="f-details" name="text" rows="5" required placeholder="Which rooms, what you'd like done, anything we should know."></textarea>
+            <label for="f-name">Your name</label>
+            <input id="f-name" type="text" autocomplete="name" required>
+            <p class="field-error" id="f-name-error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-area">Your area / neighbourhood</label>
+            <input id="f-area" type="text" autocomplete="address-level2" placeholder="e.g. Clontarf" required>
+            <p class="field-error" id="f-area-error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-details">What needs painting?</label>
+            <textarea id="f-details" name="body" rows="4" required placeholder="Rooms, interior/exterior, approximate timing"></textarea>
             <p class="field-error" id="f-details-error" hidden></p>
           </div>
 
-          <div class="form-actions">
-            <button class="button button-primary" type="submit">Continue in WhatsApp</button>
-            <button class="button button-outline js-only" type="button" data-send-email>Send by email instead</button>
-          </div>
-          <p class="form-note">Nothing is stored on this website. Your message opens in WhatsApp or your email app, and you press send there.</p>
+          <button class="button button-light form-submit" type="submit">Open email enquiry</button>
+          <p class="form-note">Your email app opens; review and press Send there. This website does not send or store your enquiry directly.</p>
           <p class="form-status" id="form-status" role="status" hidden></p>
-          <!-- Copy-and-paste fallback, shown by script.js after WhatsApp or email is tried. Kept outside the
+          <!-- Copy-and-paste fallback, shown by script.js after the email app is tried. Kept outside the
                status announcement above. scroll-margin keeps it clear of the fixed mobile action bar. -->
-          <div class="form-fallback" id="form-fallback" role="group" aria-labelledby="form-fallback-help" hidden style="margin-top:1rem;scroll-margin-bottom:6rem">
+          <div class="form-fallback" id="form-fallback" role="group" aria-labelledby="form-fallback-help" hidden>
             <p id="form-fallback-help">Having trouble sending your enquiry? Copy your message below and email it to <a href="mailto:omer@graniteandlime.ie" data-mail>omer@graniteandlime.ie</a>, or call <a href="tel:+353834277556" data-tel>083 427 7556</a>.</p>
             <label for="form-fallback-message">Your drafted message</label>
-            <textarea id="form-fallback-message" rows="6" readonly style="display:block;width:100%;margin:.5rem 0 .75rem;scroll-margin-bottom:6rem"></textarea>
-            <button class="button button-outline" type="button" data-copy-message style="scroll-margin-bottom:6rem">Copy Message</button>
+            <textarea id="form-fallback-message" rows="6" readonly></textarea>
+            <button class="button button-light" type="button" data-copy-message>Copy Message</button>
             <p class="form-note" id="form-copy-status" role="status"></p>
           </div>
-        </form>
-      </div>
-    </section>
 
-    <!-- 9. FINAL CTA -->
-    <section class="section cta" aria-labelledby="cta-title">
-      <div class="shell cta-inner" data-reveal>
-        <h2 id="cta-title">Have a project in mind?</h2>
-        <div class="actions">
-          <a class="button button-primary" href="#contact">Request a site visit</a>
-          <a class="button button-outline" href="https://wa.me/353834277556?text=Hello%20Granite%20%26%20Lime%2C%20I%27d%20like%20to%20send%20photos%20of%20a%20project." target="_blank" rel="noopener" data-whatsapp="photos">Send photos on WhatsApp</a>
-        </div>
-        <p class="cta-phone">Or call Omer on <a href="tel:+353834277556" data-tel>083 427 7556</a></p>
+          <div class="form-alt">
+            <a href="https://wa.me/353834277556?text=Hello%20Granite%20%26%20Lime%2C%20I%27d%20like%20to%20send%20photos%20of%20a%20project." target="_blank" rel="noopener" data-whatsapp="photos">Use WhatsApp</a>
+            <a href="tel:+353834277556" data-tel>Call instead</a>
+          </div>
+        </form>
       </div>
     </section>
   </main>
@@ -492,61 +364,24 @@
     <div class="shell footer-grid">
       <div class="footer-brand">
         <img src="assets/logo-light.svg" alt="" width="44" height="44" loading="lazy">
-        <p><strong>Granite &amp; Lime</strong><span>Renovation &amp; Refurbishment · Dublin</span></p>
+        <p><strong>Granite &amp; Lime</strong><span>Painting &amp; decorating · Dublin</span></p>
       </div>
       <ul class="footer-list">
         <li><a href="tel:+353834277556" data-tel>083 427 7556</a></li>
         <li><a href="mailto:omer@graniteandlime.ie" data-mail>omer@graniteandlime.ie</a></li>
       </ul>
       <ul class="footer-list">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">How we work</a></li>
+        <li><a href="#services">Painting</a></li>
+        <li><a href="#areas">Areas</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
       <p class="footer-copy">© 2026 Granite &amp; Lime</p>
     </div>
   </footer>
 
-  <div class="mobile-bar">
-    <a class="button button-outline" href="tel:+353834277556" data-tel>Call</a>
-    <a class="button button-primary" href="#contact">Request a site visit</a>
-  </div>
-
-  <dialog class="dialog" id="quote-dialog" aria-labelledby="quote-dialog-title">
-    <div class="dialog-head">
-      <div>
-        <p class="eyebrow">Sample layout</p>
-        <h2 id="quote-dialog-title">Written, itemised, easy to check.</h2>
-      </div>
-      <button class="dialog-close" type="button" data-close-dialog aria-label="Close sample quote">Close</button>
-    </div>
-
-    <div class="sheet sheet-large">
-      <div class="sheet-top">
-        <span class="sheet-brand">Granite &amp; Lime</span>
-        <span class="sheet-label">Sample quotation</span>
-      </div>
-      <table class="sheet-table">
-        <caption>Hall, stairs &amp; landing repaint</caption>
-        <thead>
-          <tr><th scope="col">Item</th><th scope="col">Work</th><th scope="col">Detail</th><th scope="col" class="num">Price</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1.0</td><th scope="row">Protection</th><td>Floors, stairs and banister covered</td><td class="num">Priced</td></tr>
-          <tr><td>2.0</td><th scope="row">Preparation</th><td>Fill, sand, caulk, spot-prime</td><td class="num">Priced</td></tr>
-          <tr><td>3.0</td><th scope="row">Ceilings</th><td>Two coats, matt</td><td class="num">Priced</td></tr>
-          <tr><td>4.0</td><th scope="row">Walls</th><td>Two coats, colour as agreed</td><td class="num">Priced</td></tr>
-          <tr><td>5.0</td><th scope="row">Woodwork</th><td>Skirting, spindles, doors</td><td class="num">Priced</td></tr>
-          <tr><td>6.0</td><th scope="row">Clean-up</th><td>Daily tidy, final clean</td><td class="num">Priced</td></tr>
-        </tbody>
-      </table>
-      <dl class="sheet-terms">
-        <div><dt>Included</dt><dd>Everything listed above, with labour and materials stated per line.</dd></div>
-        <div><dt>Not included</dt><dd>Furniture removal, plaster repairs beyond minor filling.</dd></div>
-        <div><dt>If something unexpected comes up</dt><dd>We stop, show you, and price the options. Nothing extra goes ahead until you agree.</dd></div>
-        <div><dt>Start date</dt><dd>A realistic date, given with the quote.</dd></div>
-      </dl>
-    </div>
-    <p class="dialog-note">This is a layout example. Your prices are worked out after the site visit.</p>
-  </dialog>
+  <nav class="mobile-bar" aria-label="Quick contact">
+    <a class="button button-primary" href="tel:+353834277556" data-tel>Call Now</a>
+    <a class="button button-outline" href="#contact">Request a Site Visit</a>
+  </nav>
 </body>
 </html>
