@@ -150,6 +150,7 @@ ul, ol { list-style: none; }
 .card h3 { margin-bottom: 0.85rem; }
 .card > p:not(.card-num) { font-size: var(--t-small); color: var(--ink-2); }
 .card .text-link { margin-top: auto; padding-top: 1rem; align-self: flex-start; }
+.services-note { margin-top: 1.25rem; font-size: var(--t-small); color: var(--ink-2); }
 
 /* ---------- Selected work (hidden until real photos exist) ---------- */
 .project { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
@@ -214,6 +215,8 @@ ul, ol { list-style: none; }
 .areas-grid > div > p { margin-top: 1.1rem; color: var(--ink-2); }
 .area-list { display: flex; flex-wrap: wrap; gap: 0.1rem 0; font-family: var(--serif); font-size: clamp(1.15rem, 1rem + 0.6vw, 1.45rem); line-height: 1.7; }
 .area-list li:not(:last-child)::after { content: "·"; margin-inline: 0.55rem; color: var(--line-strong); }
+.area-groups { display: grid; gap: 0.35rem; }
+.area-more { margin-top: 0.5rem; font-size: var(--t-small); color: var(--ink-2); }
 
 /* ---------- FAQ ---------- */
 .faq-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 1.25rem clamp(2rem, 6vw, 4.4rem); align-items: start; }
@@ -265,6 +268,20 @@ ul, ol { list-style: none; }
 .form-alt a { display: inline-flex; align-items: center; min-height: var(--tap); font-weight: 600; }
 .form-alt a::after { content: "↗"; margin-left: 0.35rem; }
 
+.contact-choice { min-width: 0; margin: 0.9rem 0 0; padding: 0.9rem 1rem 1rem; border: 1px solid var(--dark-line); }
+.contact-choice legend { padding: 0 0.35rem; font-weight: 600; font-size: 0.875rem; color: #eee8dc; }
+.contact-choice .field:first-of-type { margin-top: 0.25rem; }
+.field-hint { font-size: 0.8125rem; color: var(--on-dark-2); }
+.req { color: #e2c897; }
+.hp-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.form-submit[disabled] { opacity: 0.75; cursor: progress; }
+.form-status[data-tone="error"] { border-left-color: var(--error-on-dark); }
+.form-done { display: grid; gap: 0.75rem; padding-block: 0.5rem; }
+.form-done p { color: var(--on-dark-2); }
+.form-done a { font-weight: 600; }
+.form-done:focus { outline: none; }
+.form-done:focus-visible { outline: 3px solid #e2c897; outline-offset: 6px; }
+
 /* ---------- Footer ---------- */
 .site-footer { background: #151713; color: #dfddd5; padding-block: clamp(2.5rem, 5vw, 3.5rem); font-size: 0.875rem; }
 .footer-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 3fr) minmax(0, 2fr) auto; gap: 1.5rem clamp(1.5rem, 4vw, 3rem); align-items: start; }
@@ -276,6 +293,17 @@ ul, ol { list-style: none; }
 .footer-list a { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--on-dark); text-decoration: none; overflow-wrap: anywhere; }
 .footer-list a:hover { text-decoration: underline; }
 .footer-copy { display: flex; align-items: center; min-height: 2.75rem; }
+
+/* ---------- Text pages (privacy notice, enquiry sent) ---------- */
+.page { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+.page .shell { max-width: 50rem; }
+.page h1 { font-size: clamp(2.2rem, 1.6rem + 2.4vw, 3.25rem); margin-bottom: 1.25rem; }
+.page h2 { font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.75rem); margin: 2.25rem 0 0.75rem; }
+.page p, .page li { color: var(--ink-2); }
+.page p + p { margin-top: 0.85rem; }
+.page ul { display: grid; gap: 0.45rem; margin-top: 0.6rem; padding-left: 1.2rem; list-style: disc; }
+.page .actions { margin-top: 1.75rem; }
+.draft-note { margin-bottom: 1.5rem; padding: 0.9rem 1.1rem; border-left: 4px solid var(--bronze); background: var(--stone); font-weight: 600; color: var(--ink); }
 
 /* ---------- Mobile action bar ---------- */
 .mobile-bar { display: none; }
