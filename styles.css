@@ -413,4 +413,11 @@ ul, ol { list-style: none; }
 @media (max-width: 22.5rem) {                       /* ≤360px: smallest phones (after the ≤600px rules) */
   .hero-actions { grid-template-columns: minmax(0, 1fr); }
   .hero h1 { font-size: 2.2rem; }
+  /* One-row header: logo + name + Menu. Only the strapline is hidden; the row may still wrap at large text zoom. */
+  .header-inner { gap: 0 0.6rem; }
+  .brand { flex: 0 1 auto; min-width: 0; gap: 0.5rem; }
+  .brand img { width: 2rem; height: 2rem; }
+  .brand-name { font-size: 0.9375rem; letter-spacing: 0.02em; white-space: nowrap; }
+  .brand-sub { display: none; }
+  .menu-button { flex: none; gap: 0.5rem; padding: 0 0.75rem; }
 }
