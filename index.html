@@ -329,7 +329,7 @@
              To disconnect: set action="mailto:omer@graniteandlime.ie" method="get" and data-endpoint="" — the form then
              prepares an email in the visitor's email app instead.
              Hidden fields: _gotcha = honeypot (bots fill it, people never see it);
-             _redirect / _error = site-relative pages where visitors land after a no-JavaScript submission succeeds / fails;
+             _redirect / _error = absolute addresses (Formspark cannot resolve relative paths when no Referer is sent) where visitors land after a no-JavaScript submission succeeds / fails;
              _append=false stops the service copying their
              answers into the address bar; source_* = campaign identifiers read from the page address only. -->
         <form class="form" id="enquiry-form" action="https://submit-form.com/3BXhXMnj9" method="post" data-endpoint="https://submit-form.com/3BXhXMnj9" aria-labelledby="form-title">
@@ -337,8 +337,8 @@
           <p class="form-intro">Tell us about the property and the work. Fields marked <span aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required, plus a phone number or an email address so we can reply.</p>
           <input type="hidden" name="subject" value="Painting enquiry from graniteandlime.ie">
           <input type="hidden" name="_email.subject" value="New painting enquiry from graniteandlime.ie">
-          <input type="hidden" name="_redirect" value="/enquiry-sent.html">
-          <input type="hidden" name="_error" value="/enquiry-error.html">
+          <input type="hidden" name="_redirect" value="https://www.graniteandlime.ie/enquiry-sent.html">
+          <input type="hidden" name="_error" value="https://www.graniteandlime.ie/enquiry-error.html">
           <input type="hidden" name="_append" value="false">
           <input type="hidden" name="enquiry_channel" value="Website form">
           <input type="hidden" name="source_utm_source" data-utm="utm_source">
