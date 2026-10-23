@@ -270,7 +270,7 @@
         enquiry_channel: 'Website form',
         page: window.location.pathname,
         _gotcha: document.getElementById('f-website').value,
-        '_email.subject': `New painting enquiry: ${values.area}`
+        _email: { subject: `New painting enquiry: ${values.area}` }   // JSON form of the documented _email.subject field
       };
       $$('[data-utm]', form).forEach(input => { if (input.value) payload[input.name] = input.value; });
 
