@@ -22,6 +22,14 @@
   function initContactLinks() {
     $$('[data-tel]').forEach(link => { link.href = `tel:${BUSINESS.phoneHref}`; });
     $$('[data-mail]').forEach(link => { link.href = `mailto:${BUSINESS.email}`; });
+    // Mobile quick-contact bar: tucked away while the hero's own Call / WhatsApp / Enquiry buttons are on screen,
+    // so the first screen never shows the same actions twice. Without JavaScript the bar simply stays visible.
+    const heroActions = $('.hero-actions');
+    const quickBar = $('.mobile-bar');
+    if (heroActions && quickBar && 'IntersectionObserver' in window) {
+      // Tuck the bar only while all hero buttons are fully visible; on very short screens it stays, so all three routes show.
+      new IntersectionObserver(([entry]) => quickBar.classList.toggle('is-tucked', entry.intersectionRatio > 0.98), { threshold: [0, 0.5, 0.99, 1] }).observe(heroActions);
+    }
     $$('[data-whatsapp="photos"]').forEach(link => {
       link.href = whatsappUrl(`Hello ${BUSINESS.name}, I'd like to send photos of a project.`);
     });
