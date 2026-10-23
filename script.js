@@ -125,8 +125,8 @@
     // With JavaScript this script validates instead, and "phone or email" replaces "phone required".
     form.noValidate = true;
     $$('[data-no-js-required]', form).forEach(input => input.removeAttribute('required'));
-    if (endpoint() && modeNote) {
-      modeNote.textContent = 'Your enquiry is sent securely to Granite & Lime. You will see a confirmation once it has been received.';
+    if (!endpoint() && modeNote) {                       // disconnected mode: the email app does the sending
+      modeNote.textContent = 'This form opens a prepared email in your email app; review it and press Send there.';
     }
 
     // Campaign identifiers (for example utm_source=google) are copied from the page address into hidden
@@ -326,7 +326,7 @@
         return;
       }
       setSending(false);
-      announce(`Sorry, your enquiry could not be sent just now. Your details are still in the form, so you can try again, call ${BUSINESS.phoneDisplay}, or copy the message below and email it.`, 'error');
+      announce(`Sorry, we couldn't confirm your enquiry was received. Your details are still in the form, so you can try again, call ${BUSINESS.phoneDisplay}, or copy the message below and email it.`, 'error');
       showFallback(message);
     });
   }
