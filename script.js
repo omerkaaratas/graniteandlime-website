@@ -22,6 +22,54 @@
   function initContactLinks() {
     $$('[data-tel]').forEach(link => { link.href = `tel:${BUSINESS.phoneHref}`; });
     $$('[data-mail]').forEach(link => { link.href = `mailto:${BUSINESS.email}`; });
+    // Mobile quick-contact bar (GL-CONTACT-FIRST, issue #3). It is tucked away whenever it would duplicate or cover
+    // something: while any part of the hero's Call / WhatsApp / Enquiry buttons is on screen below the sticky header,
+    // while the contact section (form, its errors, notices and fallback) is on screen, while a form field or control
+    // has focus, and while the on-screen keyboard is open. Without JavaScript the bar simply stays visible.
+    const heroActions = $('.hero-actions');
+    const quickBar = $('.mobile-bar');
+    const contact = $('#contact');
+    if (heroActions && quickBar) {
+      const header = $('.site-header');
+      let frame = 0;
+      // Height of an element that is genuinely visible: below the sticky header and, while the bar is showing, above it.
+      const visibleHeight = (el, top, bottom) => {
+        if (!el) return 0;
+        const r = el.getBoundingClientRect();
+        return Math.min(r.bottom, bottom) - Math.max(r.top, top);
+      };
+      const keyboardOpen = () => window.visualViewport ? window.visualViewport.height < window.innerHeight * 0.75 : false;
+      // Form fields anywhere, and any control inside the contact section (where the bar would cover the form).
+      const fieldFocused = () => {
+        const a = document.activeElement;
+        if (!a || quickBar.contains(a)) return false;
+        return a.matches('input, textarea, select, [contenteditable="true"]') || (!!contact && contact.contains(a) && a.matches('a, button'));
+      };
+      const update = () => {
+        frame = 0;
+        if (getComputedStyle(quickBar).display === 'none') return;          // desktop: bar not used
+        const top = header ? header.getBoundingClientRect().bottom : 0;
+        const tucked = quickBar.classList.contains('is-tucked');
+        // While showing, the bar covers the bottom of the screen, so only the area above it counts. Tuck once 16px of
+        // the hero buttons is really visible, or as soon as any part of the contact section reaches the screen; show
+        // again only when both have left it entirely. The gap between the two thresholds prevents flicker.
+        const bottom = tucked ? window.innerHeight : quickBar.getBoundingClientRect().top;
+        const hero = visibleHeight(heroActions, top, bottom);
+        const form = visibleHeight(contact, top, window.innerHeight);   // any part of the contact section, even behind the bar
+        const inView = form > 0 || (tucked ? hero > 0 : hero >= 16);
+        const tuck = inView || fieldFocused() || keyboardOpen();
+        quickBar.classList.toggle('is-tucked', tuck);
+        if (tuck) quickBar.setAttribute('inert', ''); else quickBar.removeAttribute('inert');
+      };
+      const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+      ['scroll', 'resize'].forEach(type => window.addEventListener(type, schedule, { passive: true }));
+      if (window.visualViewport) window.visualViewport.addEventListener('resize', schedule);
+      // Opening or closing the menu changes the layout without a scroll or resize event: re-check when the header changes.
+      if (header && 'ResizeObserver' in window) new ResizeObserver(schedule).observe(header);
+      document.addEventListener('focusin', schedule);
+      document.addEventListener('focusout', () => setTimeout(schedule, 0));
+      update();
+    }
     $$('[data-whatsapp="photos"]').forEach(link => {
       link.href = whatsappUrl(`Hello ${BUSINESS.name}, I'd like to send photos of a project.`);
     });
