@@ -25,9 +25,6 @@
     $$('[data-whatsapp="photos"]').forEach(link => {
       link.href = whatsappUrl(`Hello ${BUSINESS.name}, I'd like to send photos of a project.`);
     });
-    $$('[data-whatsapp="chat"]').forEach(link => {
-      link.href = whatsappUrl(`Hello ${BUSINESS.name}, I have a question about a project.`);
-    });
   }
 
   /* ---------- Mobile navigation ---------- */
@@ -48,36 +45,6 @@
         button.focus();
       }
     });
-  }
-
-  /* ---------- Five-step process ---------- */
-  function initStepper() {
-    const stepper = $('[data-stepper]');
-    if (!stepper) return;
-    const steps = $$('.step', stepper);
-    const buttons = steps.map(step => $('.step-button', step));
-
-    const activate = (index, focus) => {
-      steps.forEach((step, i) => {
-        const active = i === index;
-        step.classList.toggle('is-active', active);
-        buttons[i].setAttribute('aria-expanded', String(active));
-      });
-      if (focus) buttons[index].focus();
-    };
-
-    buttons.forEach((button, index) => {
-      button.addEventListener('click', () => activate(index, false));
-      button.addEventListener('keydown', event => {
-        const move = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[event.key];
-        if (!move) return;
-        event.preventDefault();
-        activate((index + move + steps.length) % steps.length, true);
-      });
-    });
-
-    stepper.classList.add('is-enhanced');
-    activate(0, false);
   }
 
   /* ---------- FAQ: native <details>, opened and closed smoothly ---------- */
@@ -106,36 +73,27 @@
     });
   }
 
-  /* ---------- Sample quotation dialog ---------- */
-  function initDialogs() {
-    $$('[data-open-dialog]').forEach(opener => {
-      const dialog = document.getElementById(opener.dataset.openDialog);
-      if (!dialog || typeof dialog.showModal !== 'function') {
-        opener.hidden = true;
-        return;
-      }
-      opener.addEventListener('click', () => dialog.showModal());
-      $$('[data-close-dialog]', dialog).forEach(closer => closer.addEventListener('click', () => dialog.close()));
-      // A click on the backdrop lands on the <dialog> element itself.
-      dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
-      dialog.addEventListener('close', () => opener.focus());
-    });
-  }
+  /* ---------- Enquiry form ----------
+     Two modes, chosen by the form's data-endpoint attribute:
+     - empty (preview / not yet approved): prepares an email in the visitor's email app (mailto);
+     - set to the approved form service URL: sends the enquiry directly and confirms only after the
+       service acknowledges it. Nothing is ever kept in browser storage or put in the page address. */
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const phoneDigits = value => value.replace(/[\s().\-]/g, '');
+  const PHONE_OK = value => /^\+?\d{7,15}$/.test(phoneDigits(value));
 
-  /* ---------- Enquiry form: builds a WhatsApp (or email) message ---------- */
   function buildMessage(values) {
     const lines = [
       `Hello ${BUSINESS.name},`,
       '',
-      "I'd like to discuss a project.",
+      'I would like to send a painting enquiry.',
       '',
       `Name: ${values.name}`,
-      `Area: ${values.area}`,
-      `Phone: ${values.phone}`
+      `Area: ${values.area}`
     ];
+    if (values.phone) lines.push(`Phone: ${values.phone}`);
     if (values.email) lines.push(`Email: ${values.email}`);
-    if (values.type) lines.push(`Type of work: ${values.type}`);
-    lines.push(`Project details: ${values.details}`, '', 'Please contact me to arrange a site visit.');
+    lines.push(`Project: ${values.details}`, '', 'Please contact me to discuss next steps.');
     return lines.join('\n');
   }
 
@@ -155,21 +113,39 @@
   function initForm() {
     const form = $('#enquiry-form');
     if (!form) return;
+    const endpoint = () => (form.dataset.endpoint || '').trim();
     const summary = $('#form-errors');
     const status = $('#form-status');
+    const submit = $('.form-submit', form);
+    const modeNote = $('#form-mode-note');
+    const choiceError = $('#contact-choice-error');
+    let sending = false;
+
+    // Without JavaScript the browser enforces the HTML required fields (including phone).
+    // With JavaScript this script validates instead, and "phone or email" replaces "phone required".
+    form.noValidate = true;
+    $$('[data-no-js-required]', form).forEach(input => input.removeAttribute('required'));
+    if (!endpoint() && modeNote) {                       // disconnected mode: the email app does the sending
+      modeNote.textContent = 'This form opens a prepared email in your email app; review it and press Send there.';
+    }
+
+    // Campaign identifiers (for example utm_source=google) are copied from the page address into hidden
+    // fields so the enquiry records where it came from. Only these named parameters are read.
+    const params = new URLSearchParams(window.location.search);
+    $$('[data-utm]', form).forEach(input => {
+      const value = params.get(input.dataset.utm);
+      if (value) input.value = value.slice(0, 120);
+    });
 
     const fields = [
-      { id: 'f-name', key: 'name', message: 'Please add your name.' },
-      { id: 'f-area', key: 'area', message: 'Please add the area the project is in.' },
-      { id: 'f-phone', key: 'phone', message: 'Please add a phone number so we can call you back.' },
-      { id: 'f-email', key: 'email', optional: true, message: 'That email address does not look complete.',
-        test: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) },
-      { id: 'f-details', key: 'details', message: 'Please add a few lines about the project.' }
+      { id: 'f-name', key: 'name', required: 'Please add your name.' },
+      { id: 'f-area', key: 'area', required: 'Please add the area or neighbourhood.' },
+      { id: 'f-details', key: 'details', required: 'Please add a few words about what needs painting.' },
+      { id: 'f-phone', key: 'phone', invalid: 'Please check the phone number (digits only, for example 083 123 4567).', test: PHONE_OK },
+      { id: 'f-email', key: 'email', invalid: 'Please check the email address, for example name@example.ie.', test: value => EMAIL_RE.test(value) }
     ];
 
-    const setError = (field, message) => {
-      const input = document.getElementById(field.id);
-      const error = document.getElementById(`${field.id}-error`);
+    const setError = (input, error, message) => {
       if (message) {
         input.setAttribute('aria-invalid', 'true');
         input.setAttribute('aria-describedby', error.id);
@@ -185,56 +161,69 @@
     // Returns the values when everything is in order, otherwise shows the problems and returns null.
     const collect = () => {
       const values = {};
-      let firstInvalid = null;
-      let problems = 0;
-
+      const problems = [];
       fields.forEach(field => {
         const input = document.getElementById(field.id);
         const value = input.value.trim();
         values[field.key] = value;
-        const missing = !value && !field.optional;
-        const malformed = value && field.test && !field.test(value);
-        setError(field, missing || malformed ? field.message : '');
-        if (missing || malformed) {
-          problems += 1;
-          firstInvalid = firstInvalid || input;
-        }
+        let message = '';
+        if (!value && field.required) message = field.required;
+        else if (value && field.test && !field.test(value)) message = field.invalid;
+        setError(input, document.getElementById(`${field.id}-error`), message);
+        if (message) problems.push(input);
       });
 
-      const type = $('input[name="type"]:checked', form);
-      values.type = type ? type.value : '';
+      const phone = document.getElementById('f-phone');
+      const email = document.getElementById('f-email');
+      const noContact = !values.phone && !values.email;
+      choiceError.textContent = noContact ? 'Please give a phone number or an email address so we can reply.' : '';
+      choiceError.hidden = !noContact;
+      if (noContact) {
+        [phone, email].forEach(input => { input.setAttribute('aria-invalid', 'true'); input.setAttribute('aria-describedby', choiceError.id); });
+        problems.push(phone);
+      }
 
       status.hidden = true;
-      if (problems) {
-        summary.textContent = problems === 1
-          ? 'One thing needs your attention before sending.'
-          : `${problems} things need your attention before sending.`;
+      if (problems.length) {
+        const count = problems.length;
+        summary.textContent = count === 1 ? 'One thing needs your attention before sending.' : `${count} things need your attention before sending.`;
         summary.hidden = false;
-        firstInvalid.focus();
+        // Order of the fields on the page, so focus lands on the first problem.
+        const first = fields.map(f => document.getElementById(f.id)).find(input => problems.includes(input));
+        (first || problems[0]).focus();
         return null;
       }
       summary.hidden = true;
       return values;
     };
 
-    const announce = text => {
+    const announce = (text, tone) => {
       status.textContent = text;
+      status.dataset.tone = tone || '';
       status.hidden = false;
     };
 
-    // Copy-and-paste fallback for devices where WhatsApp or an email app does not open.
-    // Separate from the status above, so screen readers only hear the short announcement.
+    // Copy-and-paste fallback for when the email app does not open or the form service cannot be reached.
     const fallback = $('#form-fallback');
     const fallbackBox = $('#form-fallback-message');
     const copyStatus = $('#form-copy-status');
+    const copyButton = $('[data-copy-message]', form);
     const showFallback = message => {
       if (!fallback || !fallbackBox) return;
       fallbackBox.value = message;
       copyStatus.textContent = '';
       fallback.hidden = false;
-      fallback.scrollIntoView({ block: 'nearest' }); // scroll-margin-bottom keeps it above the mobile bar
+      // Show the message and the Copy Message button together when the screen is tall enough; on short
+      // screens (or at high zoom) show the message first. Neither may sit under the header or the mobile bar.
+      const header = $('.site-header');
+      const bar = $('.mobile-bar');
+      const top = header ? header.getBoundingClientRect().height : 0;
+      const bottom = bar && getComputedStyle(bar).display !== 'none' ? bar.getBoundingClientRect().height : 0;
+      const room = window.innerHeight - top - bottom - 32;
+      const span = copyButton ? copyButton.getBoundingClientRect().bottom - status.getBoundingClientRect().top : Infinity;
+      if (span <= room) copyButton.scrollIntoView({ block: 'nearest' });
+      else status.scrollIntoView({ block: 'start' });
     };
-    const copyButton = $('[data-copy-message]', form);
     if (copyButton && fallbackBox) {
       copyButton.addEventListener('click', async () => {
         try {
@@ -250,38 +239,95 @@
     }
 
     fields.forEach(field => {
-      document.getElementById(field.id).addEventListener('input', () => setError(field, ''));
+      const input = document.getElementById(field.id);
+      input.addEventListener('input', () => {
+        setError(input, document.getElementById(`${field.id}-error`), '');
+        if (field.key === 'phone' || field.key === 'email') {
+          choiceError.hidden = true;
+          ['f-phone', 'f-email'].forEach(id => {
+            const other = document.getElementById(id);
+            if (other.getAttribute('aria-describedby') === choiceError.id) { other.removeAttribute('aria-invalid'); other.removeAttribute('aria-describedby'); }
+          });
+        }
+      });
     });
 
-    form.addEventListener('submit', event => {
+    const setSending = on => {
+      sending = on;
+      submit.disabled = on;
+      submit.setAttribute('aria-busy', String(on));
+      submit.textContent = on ? 'Sending…' : submit.dataset.label;
+      form.setAttribute('aria-busy', String(on));
+    };
+
+    const sendDirect = async values => {
+      const payload = {
+        name: values.name,
+        area: values.area,
+        project: values.details,
+        phone: values.phone,
+        email: values.email,
+        enquiry_channel: 'Website form',
+        page: window.location.pathname,
+        _gotcha: document.getElementById('f-website').value,
+        _email: { subject: `New painting enquiry: ${values.area}` }   // JSON form of the documented _email.subject field
+      };
+      $$('[data-utm]', form).forEach(input => { if (input.value) payload[input.name] = input.value; });
+
+      const controller = 'AbortController' in window ? new AbortController() : null;
+      const timer = controller ? setTimeout(() => controller.abort(), 20000) : null;
+      try {
+        const response = await fetch(endpoint(), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload),
+          signal: controller ? controller.signal : undefined
+        });
+        return response.ok;
+      } catch (error) {
+        return false;
+      } finally {
+        if (timer) clearTimeout(timer);
+      }
+    };
+
+    form.addEventListener('submit', async event => {
       event.preventDefault();
+      if (sending) return;                                   // ignore double clicks / repeated Enter
       const values = collect();
       if (!values) return;
       const message = buildMessage(values);
-      follow(whatsappUrl(message), true);
-      announce('WhatsApp should now be open with your message ready. Press send there, and add photos if you have them. On a computer, WhatsApp may first ask you to open WhatsApp Web or the desktop app.');
-      showFallback(message);
-    });
 
-    const emailButton = $('[data-send-email]', form);
-    if (emailButton) {
-      emailButton.addEventListener('click', () => {
-        const values = collect();
-        if (!values) return;
-        const subject = `Site visit request: ${values.type || 'project'} in ${values.area}`;
-        const message = buildMessage(values);
+      if (!endpoint()) {
+        const subject = `Painting enquiry: ${values.area}`;
         follow(`mailto:${BUSINESS.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`, false);
-        announce('Your email app should now be open with your message ready. Press send there.');
+        announce('Your email app should now be open with your message ready. Review it and press Send there.');
         showFallback(`Subject: ${subject}\n\n${message}`);
-      });
-    }
+        return;
+      }
 
-    // "Ask about painting" links in the services section preselect the type of work.
-    $$('[data-enquire]').forEach(link => {
-      link.addEventListener('click', () => {
-        const match = $$('input[name="type"]', form).find(input => input.value === link.dataset.enquire);
-        if (match) match.checked = true;
-      });
+      setSending(true);
+      if (fallback) fallback.hidden = true;
+      const ok = await sendDirect(values);
+      if (ok) {
+        // Confirmed by the form service: replace the form with the confirmation so it cannot be sent twice.
+        const done = document.createElement('div');
+        done.className = 'form-done';
+        done.setAttribute('role', 'status');
+        done.tabIndex = -1;
+        done.innerHTML = '<h3>Thank you, your enquiry has been received.</h3><p></p><p>If it is urgent, call <a data-tel></a>.</p>';
+        done.querySelector('p').textContent = `We will reply by ${values.phone ? 'phone' : 'email'} to discuss your property. A site visit is arranged where the work is suitable and availability allows.`;
+        const tel = done.querySelector('[data-tel]');
+        tel.href = `tel:${BUSINESS.phoneHref}`;
+        tel.textContent = BUSINESS.phoneDisplay;
+        form.replaceChildren(done);
+        done.focus();
+        sending = false;
+        return;
+      }
+      setSending(false);
+      announce(`Sorry, we couldn't confirm your enquiry was received. Your details are still in the form, so you can try again, call ${BUSINESS.phoneDisplay}, or copy the message below and email it.`, 'error');
+      showFallback(message);
     });
   }
 
@@ -297,35 +343,9 @@
     });
   }
 
-  /* ---------- Quiet reveal on scroll ----------
-     Only elements that start below the first screen are faded in, so nothing visible on load ever disappears. */
-  function initReveal() {
-    if (reduceMotion || !('IntersectionObserver' in window)) return;
-    const pending = $$('[data-reveal]').filter(el => el.getBoundingClientRect().top > window.innerHeight);
-    if (!pending.length) return;
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.remove('reveal-pending');
-        observer.unobserve(entry.target);
-      });
-    }, { rootMargin: '0px 0px -8% 0px' });
-
-    pending.forEach(el => {
-      el.classList.add('reveal-pending');
-      observer.observe(el);
-    });
-    // Add the transition one frame later so the initial hide is not animated.
-    requestAnimationFrame(() => pending.forEach(el => el.classList.add('reveal-ready')));
-  }
-
   initContactLinks();
   initNav();
-  initStepper();
   initFaq();
-  initDialogs();
   initForm();
   initCompare();
-  initReveal();
 })();
