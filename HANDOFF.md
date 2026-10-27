@@ -1,7 +1,23 @@
-# Granite & Lime website: draft GL-UX-V2, revision 2
+# Granite & Lime website: draft GL-UX-V2, revision 3
 
 27 Oct 2026. Local branch `draft/gl-ux-v2`. Applies Growth instruction "GL-UX-V2 consolidated revision".
 **Not pushed, merged, deployed or published. Publication needs Mr Karatas's explicit authorisation.**
+
+## Revision 3 (27 Oct 2026, 09:36): approved SEO wording
+
+| Element | Text |
+|---|---|
+| H1 | Painting & Decorating in Dublin |
+| Opening | Interior painting for homes in Clontarf and across Dublin. Commercial painting, decorating and tiling enquiries also welcome. |
+| Contact line | Speak directly with Omer. |
+| Page title / og:title | Painting & Decorating in Clontarf and Dublin \| Granite & Lime |
+| Meta description | Interior painting for homes in Clontarf and across Dublin. Commercial painting, decorating and tiling enquiries welcome. Call 083 427 7556 or send photos on WhatsApp. |
+| og:description | Interior painting for homes in Clontarf and across Dublin. Speak directly with Omer: call or send photos on WhatsApp. |
+
+Re-tested after the change: no overflow at 320/390/768/1440 px or 200% zoom, no console errors, 0 contrast failures
+(117 text elements on phone, 122 on desktop), form validation and fallback unchanged.
+Google may still display its own title in results; ranking is not guaranteed by keyword placement.
+Note: the About heading also reads "Speak directly with Omer." Founder may prefer different wording there to avoid repetition.
 
 ## Change summary (revision 2)
 

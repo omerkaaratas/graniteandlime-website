@@ -459,3 +459,4 @@ ul, ol { list-style: none; }
 @media (max-width: 37.5rem) { .brand-sub-extra { display: none; } }
 .cards-note { grid-column: 1 / -1; color: var(--ink-2); font-size: var(--t-small); }
 .areas-main { font-size: clamp(1.15rem, 1.05rem + 0.4vw, 1.35rem); line-height: 1.4; }
+.lede-contact { margin-top: 0.75rem; font-size: var(--t-lede); font-weight: 600; color: var(--ink); }
