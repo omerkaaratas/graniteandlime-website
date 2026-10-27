@@ -9,7 +9,7 @@ That approval does not confirm photo ownership, publication permissions, operati
 - Mr Karatas instructed use of all seven newly supplied images, with disclosures. **All seven are AI-generated** (embedded C2PA
   content credentials: ChatGPT gpt-image, OpenAI, created 27 Oct 10:46–11:00 UTC, "trainedAlgorithmicMedia"). Two are materially
   altered: the teal bedroom hero (radiator and socket removed) and the skylit interior (vacuum removed). Details in PHOTOS.md.
-- Hero: AI teal bedroom with caption "AI-generated image based on a project photo · not an unedited photograph"; uncropped 4:3 on desktop and phone.
+- Hero: AI teal bedroom, uncropped 4:3 on desktop and phone. Caption and AI wording in its alt text removed by founder instruction (27 Oct 12:45); the image remains AI-generated and altered (recorded in PHOTOS.md). Gallery AI tags unchanged.
   Heading, intro, Call and WhatsApp buttons unchanged (widths restored to 528 px after a side effect was found and fixed).
 - Gallery: real-photo teal feature-wall pair kept; hallway and fireplace pairs replaced by the AI versions (preparation first; side by side on desktop, stacked on phones);
   "Room with skylight" and narrow centred "Staircase and landing" cards added. Every AI image has a visible "AI-recreated" tag, a note under its group and AI-labelled alt text.

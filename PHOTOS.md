@@ -12,7 +12,7 @@ High resolution does not show that an image is an untouched photograph.
 
 | Website file (assets/projects/) | Supplied file | Classification | Evidence | Placement and visible disclosure |
 |---|---|---|---|---|
-| ai-teal-bedroom-hero-480/960/1440 | NEXT TO HEADER Calm Teal Bedroom Retreat(1).png (1448 × 1086) | **AI-generated, materially altered** | C2PA: ChatGPT (gpt-image), OpenAI Media Service, created 27 Oct 2026 11:00 UTC, digitalSourceType trainedAlgorithmicMedia. Compared with the earlier teal-bedroom file: radiator and wall socket removed, skirting redrawn. That earlier file was itself an edited "decluttered" version; the camera original was not supplied | Hero beside the heading. Caption: "AI-generated image based on a project photo · not an unedited photograph". Alt text begins "AI-generated image" |
+| ai-teal-bedroom-hero-480/960/1440 | NEXT TO HEADER Calm Teal Bedroom Retreat(1).png (1448 × 1086) | **AI-generated, materially altered** | C2PA: ChatGPT (gpt-image), OpenAI Media Service, created 27 Oct 2026 11:00 UTC, digitalSourceType trainedAlgorithmicMedia. Compared with the earlier teal-bedroom file: radiator and wall socket removed, skirting redrawn. That earlier file was itself an edited "decluttered" version; the camera original was not supplied | Hero beside the heading. **No caption, badge or overlay** (founder instruction, 27 Oct 12:45); alt text describes the room only. Remains an AI-generated, altered image, not an unedited original |
 | ai-hall-preparation-480/960/1440 | Scuffed stairwell under a skylight(1).png (1448 × 1086) | **AI-generated recreation** | C2PA as above (gpt-image, trainedAlgorithmicMedia). Composition matches cc517646-…jpg; all surfaces re-rendered | Hallway pair, first. Labels "During preparation" + "AI-recreated"; note under the group |
 | ai-hall-after-480/960/1440 | Warm-lit staircase with white spindles(1).png (1448 × 1086) | **AI-generated recreation** | C2PA as above. Composition matches cfad4d52-…jpg | Hallway pair, second. "After painting" + "AI-recreated" |
 | ai-room-preparation-480/960/1440 | Room preparation with dust sheets.png (1652 × 952) | **AI-generated recreation** | C2PA as above. Composition matches Room_Preparation_Extract.png | Fireplace pair, first. "During preparation" + "AI-recreated" |
@@ -26,7 +26,7 @@ The C2PA claims are embedded in the files as delivered; their full signature cha
 (no verification tool is installable in this workspace). They can be checked at contentcredentials.org/verify.
 
 ## Disclosure applied on the page
-- Hero caption, plus an "AI-recreated" tag on every AI image in the gallery, a sentence under each AI group, and alt text that starts "AI-recreated image".
+- Hero: no on-page disclosure (founder instruction, 27 Oct 12:45). Gallery: an "AI-recreated" tag on every AI image in the gallery, a sentence under each AI group, and alt text that starts "AI-recreated image".
 - The section introduction says which images are photographs and which are AI-recreated illustrations, not unedited photos.
 
 ## Risk note for the founder (not a legal opinion)
