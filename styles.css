@@ -307,7 +307,10 @@ ul, ol { list-style: none; }
 }
 @media (max-width: 37.5rem) {
   .cards { grid-template-columns: minmax(0, 1fr); }
-  .about-grid { grid-template-columns: minmax(0, 1fr); }
+  .about-grid, .faq-grid, .contact-grid { grid-template-columns: minmax(0, 1fr); }
+  .faq-grid, .contact-grid { gap: 1.5rem; }
+  .faq summary { font-size: 1.0625rem; }
+  .form { padding: 1.25rem 1rem; }
   .contact-copy .button-wa { max-width: none; }
 }
 
@@ -460,3 +463,48 @@ ul, ol { list-style: none; }
 .cards-note { grid-column: 1 / -1; color: var(--ink-2); font-size: var(--t-small); }
 .areas-main { font-size: clamp(1.15rem, 1.05rem + 0.4vw, 1.35rem); line-height: 1.4; }
 .lede-contact { margin-top: 0.75rem; font-size: var(--t-lede); font-weight: 600; color: var(--ink); }
+
+/* Revision 3 mobile corrections */
+/* The number stays on one line at normal phone sizes (checked at 320 and 390 px). If text is enlarged until it
+   cannot fit, it breaks only between digit groups instead of pushing the page sideways. */
+.contact-phone { flex-wrap: wrap; column-gap: 0.28em; max-width: 100%; }
+.num-group { white-space: nowrap; }
+@media (max-width: 22.5rem) { .contact-phone { font-size: 1.875rem; } }
+.button-call { flex-wrap: wrap; row-gap: 0.1rem; }
+.brand { min-width: 0; }
+.brand-name { white-space: normal !important; overflow-wrap: anywhere; }
+.contact-copy > *, .hero-copy > * { max-width: 100%; }
+.contact-meta a { overflow-wrap: anywhere; }
+/* Gallery: every group full width; pairs side by side; a single photo takes one pair-cell. */
+.work-groups { grid-template-columns: minmax(0, 1fr); }
+.work-group:first-child { grid-column: auto; }
+/* Only affects text enlarged far beyond normal: a word wider than the screen breaks instead of scrolling sideways. */
+h1, h2, h3 { overflow-wrap: anywhere; hyphens: auto; }
+.button { max-width: 100%; overflow-wrap: anywhere; }
+@media (max-width: 37.5rem) { .brand { flex: 0 1 auto; } .brand-copy { min-width: 0; } }
+.footer-brand { min-width: 0; } .footer-brand p { min-width: 0; overflow-wrap: anywhere; }
+/* Large text on small phones: keep side margins fixed so enlarged text gets the full width, and when a column is
+   narrow relative to its text size, drop the decorative WhatsApp icon and let headings grow a little less. */
+@media (max-width: 37.5rem) { :root { --gutter: 21px; } .form { padding: 1.25rem 16px; } .contact-choice { padding-inline: 12px; } }
+.hero-copy, .contact-copy, .form, .faq { container-type: inline-size; }
+@container (max-width: 17em) {
+  .button-wa::before { display: none; }
+  .button { padding-inline: 0.6rem; }
+  h1 { font-size: 1.4em; }
+  h2, .contact-phone { font-size: 1.35em; }
+}
+.section-head > div, .card, .work-group, .about-copy, .areas-box, .steps, .faq-grid > div:first-child { container-type: inline-size; }
+@container (max-width: 17em) {
+  .hero h1 { font-size: 1.4em; }
+  .section-head h2, .card h3, .card-lead h3, .work-group h3, .about-copy h2, .areas-box h3, .step h3, .faq-grid h2 { font-size: 1.3em; }
+}
+@media (max-width: 37.5rem) { .card, .work-group, .areas-box { padding: 20px; } }
+@container (max-width: 17em) { .card:not(.card-lead) h3 { font-size: 1.3em; } }
+@container (max-width: 12em) { .card:not(.card-lead) h3 { font-size: 1.15em; } }
+@container (max-width: 17em) { .contact-phone::after { display: none; } }
+.button-detail { white-space: nowrap; }
+/* Very large text: keep the sticky header to one row (logo + Menu) so it does not take over the screen. */
+.header-inner { container-type: inline-size; container-name: header; }
+@container header (max-width: 15em) { .brand-copy { display: none; } .menu-button { margin-left: auto; } }
+/* When focus moves to a field (e.g. after a validation error), keep its label visible below the sticky header. */
+.field input, .field textarea { scroll-margin-top: calc(var(--header-h) + 2.75rem); }

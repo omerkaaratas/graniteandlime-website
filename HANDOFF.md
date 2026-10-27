@@ -3,6 +3,24 @@
 27 Oct 2026. Local branch `draft/gl-ux-v2`. Applies Growth instruction "GL-UX-V2 consolidated revision".
 **Not pushed, merged, deployed or published. Publication needs Mr Karatas's explicit authorisation.**
 
+## Revision 3.1 (27 Oct 2026, 09:41): final mobile corrections
+
+| Item | Change | Checked |
+|---|---|---|
+| Contact section on phones | One column: heading, phone number, WhatsApp button, email, then the full-width form. (Cause: an earlier stylesheet clean-up of mine had deleted the phone single-column rule; restored.) | 320 px: form 278 px wide (was 138 px). 390 px: 348 px (was 176 px) |
+| Phone number | One line at 320 and 390 px. If text is enlarged until it cannot fit, it breaks only between digit groups | Measured at both widths |
+| FAQ on phones | Heading above questions; each question full width | Questions 278 px (320) / 348 px (390); open answers same width |
+| Keyboard open (viewport 360 px tall, field focused) | Field and its label stay below the sticky header; quick-contact bar hides; after a validation error the label, field and error message are all visible | 320 and 390 px |
+| 200% text size (root text doubled) | No sideways scrolling; no words broken mid-word in headings, buttons or contact details. At this size the header shows the logo and Menu only, the WhatsApp icon is dropped, headings grow about 30–40% instead of 100%, and side margins stay fixed | 320 and 390 px |
+| 200% page zoom (160 / 195 CSS px wide) | No sideways scrolling | 320 and 390 px |
+| Desktop gallery | Third hallway photo removed; hallway pair now the same size as the feature-wall pair (580 × 435 px each) | 1440 px |
+| Room caption | "Neutral walls with white skirting." | |
+
+All earlier checks re-run: no overflow at 320/390/768/1440 px, no console errors, 0 contrast failures, form validation and fallback unchanged, page about 332 KB.
+
+Emulation limits: these use a desktop Chromium engine with phone-sized viewports. The keyboard test shrinks the viewport; a real
+on-screen keyboard, iOS Dynamic Type and Android font scaling may behave differently. Check on a physical iPhone and Android phone.
+
 ## Revision 3 (27 Oct 2026, 09:36): approved SEO wording
 
 | Element | Text |

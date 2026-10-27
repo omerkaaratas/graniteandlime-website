@@ -14,13 +14,12 @@ No colour, retouching, object removal or AI changes.
 | 0603825f-…-480/960 | 0603825f-b36d-4cc9-8089-73fb1045855a.jpg | 960 × 720 | Feature wall group | After painting | As above |
 | cc517646-…-480/960/1440 | cc517646-f4df-43b6-9e90-3ca3937d6827.jpg | 2048 × 1536 | Hallway group | During preparation | As above; confirm pairing with cfad4d52 |
 | cfad4d52-…-480/960/1440 | cfad4d52-b0bb-449b-b452-cfa5fdab6e3e.jpg | 2048 × 1536 | Hallway group | After painting | As above |
-| 1cceff0b-…-480/960 | 1cceff0b-2230-48c7-a171-efa57ae5f671.jpg | 2048 × 1536 | Hallway group, supporting view | After painting | As above; confirm same hallway |
-| 4cf47002-…-480/960 | 4cf47002-19b5-4dab-8f78-b4d372bad801.jpg | 1824 × 1368 | "Room" group | After painting | As above; confirm it is the same room as the hero |
+| 4cf47002-…-480/960 | 4cf47002-19b5-4dab-8f78-b4d372bad801.jpg | 1824 × 1368 | "Room" group (caption: "Neutral walls with white skirting.") | After painting | As above; confirm it is the same room as the hero |
 
 "After painting" and "During preparation" describe what each photo shows. They do not claim a whole contract was completed.
 Pairings and room groupings are provisional (visual match only: same panelling and sockets; same stairs, tiles and doors).
 
-Not used (available): 3b6c870e (work in progress detail), b833c368 (landing; skirting marks visible), bdcd2976 (stairwell in progress).
+Not used (available): 1cceff0b (hallway supporting view, removed in revision 3 so the comparison pair leads), 3b6c870e (work in progress detail), b833c368 (landing; skirting marks visible), bdcd2976 (stairwell in progress).
 Held: watermarked @antoaltemel frames; frames with embedded "Before" text; branded collages. See the Growth PHOTO_REVIEW.md.
 
 ## When approved
