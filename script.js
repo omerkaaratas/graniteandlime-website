@@ -365,12 +365,11 @@
         done.className = 'form-done';
         done.setAttribute('role', 'status');
         done.tabIndex = -1;
-        done.innerHTML = '<h3>Thank you, your enquiry has been sent.</h3><p></p><p>If you have not heard back, or it is urgent, call <a data-tel></a>.</p>';
-        // Reply commitment awaits Omer's acceptance of inbox responsibility; keep in step with enquiry-sent.html. CCO wording pending.
-        done.querySelector('p').textContent = `Omer will reply by ${values.phone ? 'phone' : 'email'} to talk through your project.`;
-        const tel = done.querySelector('[data-tel]');
-        tel.href = `tel:${BUSINESS.phoneHref}`;
-        tel.textContent = BUSINESS.phoneDisplay;
+        // Confirmation wording supplied by CCO (GL-UX-V2 revision 4); keep identical to enquiry-sent.html.
+        // INTERNAL FLAG: the reply commitment awaits Omer's acceptance of responsibility for monitoring the enquiry inbox.
+        done.innerHTML = '<h3></h3><p></p>';
+        done.querySelector('h3').textContent = 'Thank you. Your enquiry has been submitted.';
+        done.querySelector('p').textContent = 'We’ll review the details and contact you using the phone number or email address provided to discuss the next step. A site visit or start date is not confirmed by submitting this form.';
         form.replaceChildren(done);
         done.focus();
         sending = false;

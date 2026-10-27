@@ -1,4 +1,4 @@
-# Granite & Lime website: GL-UX-V2 revision 4 (consolidated)
+# Granite & Lime website: GL-UX-V2 revision 4 complete (consolidated)
 
 27 Oct 2026. Local branch `draft/gl-ux-v2`.
 Founder approval (Mr Karatas, 27 Oct): implement revision 4 copy, service hierarchy and mobile layout in the local draft.
@@ -16,14 +16,16 @@ That approval does not confirm photo ownership, publication permissions, operati
 | Gallery | Neutral-room photo is the single hero. "Examples of interior painting": teal wall preparation/result pair; hallway preparation/result pair (third hallway photo removed); one further room view. Factual labels only ("During preparation", "After painting"). No visible claim that the work is Granite & Lime's; approval status kept internally (HTML comment + PHOTOS.md) |
 | Services | Interior painting first (incl. doors, skirting, woodwork). Secondary: commercial painting; tiling; exterior painting "subject to scope, access and weather conditions" |
 | Areas | CCO text: "Based in Dublin, with an initial focus on Clontarf interior painting. Enquiries elsewhere in Dublin are welcome; project suitability and visit availability are confirmed individually." Neighbourhood list removed |
-| Form confirmation | Script and enquiry-sent.html aligned: "Your enquiry has been sent… Omer will reply… If you have not heard back, or it is urgent, call…". Site-visit promise removed. Reply commitment flagged in code as awaiting Omer's acceptance of inbox responsibility |
-| Privacy | Monthly-deletion claim removed; site-visit wording softened. Interim retention sentence is a placeholder pending CCO wording, marked in the file |
+| Process steps | CCO wording: Share the basics / Discuss the scope / Receive a written quotation |
+| FAQ | CCO's six answers, unchanged questions |
+| Form helper | CCO: "After a successful submission, this page will show a confirmation. If you see an error, please call or email us." |
+| Form confirmation | CCO wording, identical in script.js and enquiry-sent.html: "Thank you. Your enquiry has been submitted. We'll review the details and contact you… A site visit or start date is not confirmed by submitting this form." Site-visit promise removed. Reply commitment flagged internally (code comments) until Omer accepts inbox responsibility |
+| Privacy | "How long we keep it" replaced with CCO interim wording. Removed pending verification: 6-month / 6-year periods, monthly deletion claim, 12-month IP retention. Marked in the file as draft, not a completed retention policy |
 | Social / search | Instagram, Facebook, public LinkedIn in footer (verified 27 Oct); robots.txt and sitemap.xml added; structured data contains verified details only |
 
-### Awaiting CCO text (not received in this session)
-The CCO's **process steps, six FAQ answers, form helper/confirmation wording and interim privacy wording** were referenced but not supplied
-(not in the chat, the project, Google Drive or Downloads). The draft keeps the earlier proposed wording for these, unchanged,
-and must not be treated as CCO-approved until the text is dropped in.
+### Status of supplied wording
+CCO text applied verbatim (process, FAQ, form helper, confirmation, interim privacy). It is draft wording: COO confirmation of
+preparation, protection and assessment arrangements, and privacy-fact verification, are still outstanding.
 
 ## 2. Tests
 
@@ -39,6 +41,7 @@ and must not be treated as CCO-approved until the text is dropped in.
 | Accessibility tree (what screen readers read) | One H1; logical headings; descriptive alt text; labelled controls; decorative arrows silent |
 | Images | 0 broken; page about 332 KB (live site 419 KB) |
 | Form validation (empty) | Error summary, focus to first field, label visible below header |
+| Confirmation text (simulated acceptance) | Shows the CCO wording exactly; enquiry-sent.html identical |
 | enquiry-sent.html, privacy.html | No overflow at 320 / 1440 px; no errors |
 
 ### Simulations (useful, but not proof)
@@ -54,11 +57,11 @@ and must not be treated as CCO-approved until the text is dropped in.
 
 ## 3. One list of outstanding decisions and facts
 
-1. **CCO text:** supply the process steps, six FAQ answers, form helper/confirmation wording and interim privacy wording.
-2. **Photos (per group: teal wall, hallway, room/hero):** who performed the work; Granite & Lime / Omer's role; photographer and property permission; confirmation of pairings and that the two room photos show the same room. Neighbouring houses are visible through the hero window.
-3. **Inbox responsibility:** Omer to accept responsibility for monitoring omer@graniteandlime.ie before "Omer will reply" is published.
+1. **COO confirmation:** preparation, protection and site-assessment arrangements described in the process steps and FAQ.
+2. **Photos (all selected photographs, including the hero; per group: teal wall, hallway, room/hero):** who performed the work; Granite & Lime / Omer's role; photographer and property permission; confirmation of pairings and that the two room photos show the same room. Neighbouring houses are visible through the hero window.
+3. **Inbox responsibility:** Omer to accept responsibility for monitoring omer@graniteandlime.ie before the reply commitment ("We'll review the details and contact you…") is published.
 4. **Form delivery:** authorise one labelled TEST submission (section 4).
-5. **Privacy facts:** confirm actual retention periods and deletion practice; Formspark processor details, data locations and IP retention; Microsoft 365 as email host. Then replace the placeholder retention sentence.
+5. **Privacy facts:** confirm actual retention periods and deletion practice; Formspark processor details, data locations and IP retention; Microsoft 365 as email host. The "How long we keep it" text is CCO interim wording, not a completed retention policy.
 6. **Services:** confirm commercial painting, tiling and exterior painting are offered as described.
 7. **Publication:** explicit authorisation to push, merge and deploy.
 

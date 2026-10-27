@@ -17,7 +17,7 @@ No colour, retouching, object removal or AI changes.
 | 4cf47002-…-480/960 | 4cf47002-19b5-4dab-8f78-b4d372bad801.jpg | 1824 × 1368 | "Room" group (caption: "Neutral walls with white skirting.") | After painting | As above; confirm it is the same room as the hero |
 
 "After painting" and "During preparation" describe what each photo shows. They do not claim a whole contract was completed.
-The page section is headed "Examples of interior painting" and makes no visible ownership claim; publication is still blocked until confirmed.
+The page section is headed "Examples of interior painting". A neutral heading does NOT resolve attribution or publication permission: checks remain outstanding for every selected photograph, including the hero.
 Pairings and room groupings are provisional (visual match only: same panelling and sockets; same stairs, tiles and doors).
 
 Not used (available): 1cceff0b (hallway supporting view, removed in revision 3 so the comparison pair leads), 3b6c870e (work in progress detail), b833c368 (landing; skirting marks visible), bdcd2976 (stairwell in progress).
@@ -25,4 +25,4 @@ Held: watermarked @antoaltemel frames; frames with embedded "Before" text; brand
 
 ## When approved
 Founder confirms per group: who performed the work, Omer/G&L's role, photographer and property permission, pairings.
-Then remove `<p class="draft-note">` and the DRAFT comments in index.html.
+Then remove the PUBLICATION BLOCKER and DRAFT comments in index.html.
