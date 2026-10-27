@@ -11,8 +11,8 @@ script.js             all behaviour (business details at the top)
 CNAME                 tells GitHub Pages to serve graniteandlime.ie
 assets/
   logo.svg            GL monogram (also the favicon)
-  hero-study.svg      hero illustration (not project photography)
-  motif-*.svg         small service drawings
+  projects/           project photographs (see PHOTOS.md)
+  photos/             old illustrative stock images (no longer used on the page)
   og-image.png        preview image for WhatsApp, Facebook, LinkedIn links
   noscript.css        only loaded when JavaScript is switched off
   fonts/              Lora (headings) and Inter (text), self-hosted
@@ -24,22 +24,26 @@ Open `script.js` and edit the `BUSINESS` block at the top. Every Call, WhatsApp 
 The same details also appear as plain text in `index.html` (for visitors without JavaScript and for search engines),
 so search `index.html` for `353834277556`, `083 427 7556` and `omer@graniteandlime.ie` and update those too.
 
-## Adding real photographs
+## Project photographs
 
-Nothing on the site pretends to be finished work. Three places are ready for real images:
+Project photos live in `assets/projects/` (800 px and 480 px JPEGs). The register of every photo, its source file
+and its approval status is in `PHOTOS.md`. Nothing goes on the site as Granite & Lime work until the founder has
+confirmed who did the work and the homeowner's permission. Never add invented locations, dates or customer comments.
 
-1. **Hero**: replace `assets/hero-study.svg` in the `<figure class="hero-figure">` with a portrait photo (about 1600 × 2000).
-2. **Omer's portrait**: replace the `<div class="portrait">` block in the About section. The exact `<img>` line is in the HTML comment above it.
-3. **Selected work**: the section exists but is `hidden`. Instructions are in the HTML comment above `<section id="work">`.
-   It includes a before/after slider that works with mouse, touch and arrow keys.
-
-Compress photos before uploading (aim for under 300 KB each) and always write a real `alt` description.
+To add a photo: export it at 800 px and 480 px wide (aim under 150 KB each), copy an existing `<figure class="work-photo">`
+in the "Our work" section, and write an `alt` text describing what is actually in the photo.
 
 ## How the enquiry form works
 
-There is no server. Pressing **Continue in WhatsApp** opens WhatsApp with a ready-written message to the business number;
-**Send by email instead** does the same in the visitor's email app. Nothing is stored on the website.
-Without JavaScript the form still opens WhatsApp with the project description.
+The form sends to Formspark (form `3BXhXMnj9`). The page shows "received" only after Formspark accepts the enquiry;
+if it cannot be reached the visitor keeps their text and gets a copy-and-paste fallback plus the phone number.
+The Formspark form is still named "Website enquiries – TEST": confirm with one approved test that enquiries
+reach omer@graniteandlime.ie, then rename it. WhatsApp and Call buttons open the visitor's own apps; nothing is
+sent from the website.
+
+## Search files
+
+`robots.txt` and `sitemap.xml` are in the root. Add any new page to `sitemap.xml`.
 
 ## Publishing (GitHub Pages)
 

@@ -70,8 +70,10 @@
       document.addEventListener('focusout', () => setTimeout(schedule, 0));
       update();
     }
-    $$('[data-whatsapp="photos"]').forEach(link => {
-      link.href = whatsappUrl(`Hello ${BUSINESS.name}, I'd like to send photos of a project.`);
+    // Every WhatsApp button opens the same short, pre-written message. The visitor fills in the gaps, adds photos
+    // and presses send in WhatsApp; nothing is sent from the website. Without JavaScript the links open a blank chat.
+    $$('[data-whatsapp]').forEach(link => {
+      link.href = whatsappUrl(`Hello ${BUSINESS.name}, I'd like to ask about painting at my home.\nArea: \nRooms or surfaces: \n(I'll add a few photos if I have them.)`);
     });
   }
 
@@ -379,7 +381,7 @@
     });
   }
 
-  /* ---------- Before / after slider (used once real project photos are added) ---------- */
+  /* ---------- Before / after slider (optional: only for photo pairs whose order is confirmed) ---------- */
   function initCompare() {
     $$('[data-compare]').forEach(figure => {
       const frame = $('.compare-frame', figure);
