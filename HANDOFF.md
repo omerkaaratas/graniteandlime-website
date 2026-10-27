@@ -1,90 +1,76 @@
-# Granite & Lime website: draft GL-UX-V2, revision 3
+# Granite & Lime website: GL-UX-V2 revision 4 (consolidated)
 
-27 Oct 2026. Local branch `draft/gl-ux-v2`. Applies Growth instruction "GL-UX-V2 consolidated revision".
-**Not pushed, merged, deployed or published. Publication needs Mr Karatas's explicit authorisation.**
+27 Oct 2026. Local branch `draft/gl-ux-v2`.
+Founder approval (Mr Karatas, 27 Oct): implement revision 4 copy, service hierarchy and mobile layout in the local draft.
+**Not authorised:** form-test submission, push to the public repository, merge, deployment or publication.
+That approval does not confirm photo ownership, publication permissions, operational readiness or privacy procedures.
 
-## Revision 3.1 (27 Oct 2026, 09:41): final mobile corrections
+## 1. Change summary (current state of the draft)
 
-| Item | Change | Checked |
-|---|---|---|
-| Contact section on phones | One column: heading, phone number, WhatsApp button, email, then the full-width form. (Cause: an earlier stylesheet clean-up of mine had deleted the phone single-column rule; restored.) | 320 px: form 278 px wide (was 138 px). 390 px: 348 px (was 176 px) |
-| Phone number | One line at 320 and 390 px. If text is enlarged until it cannot fit, it breaks only between digit groups | Measured at both widths |
-| FAQ on phones | Heading above questions; each question full width | Questions 278 px (320) / 348 px (390); open answers same width |
-| Keyboard open (viewport 360 px tall, field focused) | Field and its label stay below the sticky header; quick-contact bar hides; after a validation error the label, field and error message are all visible | 320 and 390 px |
-| 200% text size (root text doubled) | No sideways scrolling; no words broken mid-word in headings, buttons or contact details. At this size the header shows the logo and Menu only, the WhatsApp icon is dropped, headings grow about 30–40% instead of 100%, and side margins stay fixed | 320 and 390 px |
-| 200% page zoom (160 / 195 CSS px wide) | No sideways scrolling | 320 and 390 px |
-| Desktop gallery | Third hallway photo removed; hallway pair now the same size as the feature-wall pair (580 × 435 px each) | 1440 px |
-| Room caption | "Neutral walls with white skirting." | |
-
-All earlier checks re-run: no overflow at 320/390/768/1440 px, no console errors, 0 contrast failures, form validation and fallback unchanged, page about 332 KB.
-
-Emulation limits: these use a desktop Chromium engine with phone-sized viewports. The keyboard test shrinks the viewport; a real
-on-screen keyboard, iOS Dynamic Type and Android font scaling may behave differently. Check on a physical iPhone and Android phone.
-
-## Revision 3 (27 Oct 2026, 09:36): approved SEO wording
-
-| Element | Text |
+| Area | Current draft |
 |---|---|
-| H1 | Painting & Decorating in Dublin |
-| Opening | Interior painting for homes in Clontarf and across Dublin. Commercial painting, decorating and tiling enquiries also welcome. |
-| Contact line | Speak directly with Omer. |
-| Page title / og:title | Painting & Decorating in Clontarf and Dublin \| Granite & Lime |
-| Meta description | Interior painting for homes in Clontarf and across Dublin. Commercial painting, decorating and tiling enquiries welcome. Call 083 427 7556 or send photos on WhatsApp. |
-| og:description | Interior painting for homes in Clontarf and across Dublin. Speak directly with Omer: call or send photos on WhatsApp. |
+| Heading and opening | H1 "Painting & Decorating in Dublin". Opening: "Interior painting for homes in Clontarf and across Dublin. Commercial painting, decorating and tiling enquiries also welcome." Then "Speak directly with Omer." |
+| Page title / metadata | "Painting & Decorating in Clontarf and Dublin \| Granite & Lime"; meta and Open Graph descriptions consistent, not identical |
+| Contact | Call (primary) and "Send photos on WhatsApp" (secondary), same pair at top, contact section and phone bar. WhatsApp help: opens a separate app; only sent when the visitor presses Send |
+| Mobile layout | Contact details stacked above a full-width form; FAQ heading above full-width questions; phone number kept on one line at 320/390 px |
+| Gallery | Neutral-room photo is the single hero. "Examples of interior painting": teal wall preparation/result pair; hallway preparation/result pair (third hallway photo removed); one further room view. Factual labels only ("During preparation", "After painting"). No visible claim that the work is Granite & Lime's; approval status kept internally (HTML comment + PHOTOS.md) |
+| Services | Interior painting first (incl. doors, skirting, woodwork). Secondary: commercial painting; tiling; exterior painting "subject to scope, access and weather conditions" |
+| Areas | CCO text: "Based in Dublin, with an initial focus on Clontarf interior painting. Enquiries elsewhere in Dublin are welcome; project suitability and visit availability are confirmed individually." Neighbourhood list removed |
+| Form confirmation | Script and enquiry-sent.html aligned: "Your enquiry has been sent… Omer will reply… If you have not heard back, or it is urgent, call…". Site-visit promise removed. Reply commitment flagged in code as awaiting Omer's acceptance of inbox responsibility |
+| Privacy | Monthly-deletion claim removed; site-visit wording softened. Interim retention sentence is a placeholder pending CCO wording, marked in the file |
+| Social / search | Instagram, Facebook, public LinkedIn in footer (verified 27 Oct); robots.txt and sitemap.xml added; structured data contains verified details only |
 
-Re-tested after the change: no overflow at 320/390/768/1440 px or 200% zoom, no console errors, 0 contrast failures
-(117 text elements on phone, 122 on desktop), form validation and fallback unchanged.
-Google may still display its own title in results; ranking is not guaranteed by keyword placement.
-Note: the About heading also reads "Speak directly with Omer." Founder may prefer different wording there to avoid repetition.
+### Awaiting CCO text (not received in this session)
+The CCO's **process steps, six FAQ answers, form helper/confirmation wording and interim privacy wording** were referenced but not supplied
+(not in the chat, the project, Google Drive or Downloads). The draft keeps the earlier proposed wording for these, unchanged,
+and must not be treated as CCO-approved until the text is dropped in.
 
-## Change summary (revision 2)
+## 2. Tests
 
-| Area | Change |
-|---|---|
-| Positioning | H1 "Painting & Decorating in Dublin"; supporting text as supplied. Title, description, Open Graph and structured data now Dublin-wide. Clontarf moved to the area section: "Based in Dublin, welcoming enquiries from Clontarf and across the city." Clontarf also appears in the meta description and form placeholder; no local project history claimed |
-| Services | Interior painting leads with "Interior painting is our main focus. Tell us which rooms or surfaces need attention." Secondary: doors & woodwork, commercial painting, decorating & tiling, plus the supplied line on commercial/decorating/tiling enquiries. Exterior painting card removed to keep the focus (founder may restore) |
-| Photos | Drive-preview exports replaced with the supplied GL-Drive-Photo-Selection exports (WebP + JPEG, 480/960/1440). Neutral room is the single hero; teal pair and hallway comparison are separate groups; second room view used in the gallery so the hero is not repeated. No collages |
-| Labels | "Bedroom" → "Room". Earlier hallway and teal photos labelled "During preparation"; later ones "After painting". Draft note says ownership, pairings and labels await founder confirmation |
-| Contact | Unchanged destinations (tel:+353834277556, wa.me/353834277556, omer@graniteandlime.ie, Formspark 3BXhXMnj9). WhatsApp help now: "Your message is only sent when you press Send in WhatsApp." |
-| Form wording | Success message now "Thank you, your enquiry has been sent" (not "received"); no site-visit promise. Source comment records Formspark as configured, inbox delivery unverified |
-| Operational wording | "One person to talk to, from first call to finished room" replaced with "Speak directly with Omer." Area wording softened to "currently focus on"; availability "confirmed for each enquiry" |
-| Accessibility fixes | Process step numbers were invisible (olive on olive): fixed. Decorative arrows no longer read aloud by screen readers |
-
-## Verification performed (headless Chromium on the local draft)
-
+### Actually performed (headless Chromium on the local draft)
 | Check | Result |
 |---|---|
-| Layout at 320 / 390 / 768 / 1440 px and 200% zoom | No horizontal overflow; no console errors |
-| Contrast (own WCAG 2.x script; axe-core could not be installed here) | 116 text elements on phone, 121 on desktop: 0 failures after the step-number fix. Lowest: 5.73:1 (small olive section labels, need 4.5:1). Form error messages 8.3:1, error summary 11:1. Photo captions sit on a solid dark panel |
-| Screen-reader check (Chromium accessibility tree, which VoiceOver/TalkBack read from) | One H1, logical H2/H3; every photo has descriptive alt text; buttons and links have clear names ("Send photos on WhatsApp (opens WhatsApp)", "Instagram (opens in a new tab)"); form fields labelled and grouped |
-| Keyboard | Skip link first; visible 3 px focus on every stop tested |
-| Images | 0 broken; 7 project images; whole page about 349 KB (live site 419 KB) |
-| Form, empty | Error summary, focus to first field, one message per field |
-| Form, service unreachable (simulated) | Honest error, details kept, copy-and-paste fallback, phone number |
-| Form, service accepts (simulated; nothing sent) | "Your enquiry has been sent" shown only after acceptance |
+| Widths 320 / 390 / 768 / 1440 px | No horizontal overflow; no console errors |
+| Contact and FAQ at 320 / 390 px | Single column; form 278 / 348 px wide; questions full width; phone number on one line |
+| 200% page zoom (160 / 195 CSS px wide) | No horizontal overflow |
+| 200% text size (root text doubled) at 320 / 390 px | No horizontal overflow; no words broken mid-word in headings, buttons or contact details |
+| Keyboard order and focus | Skip link first; logical order; 3 px visible focus |
+| Contrast (own WCAG script; axe-core not installable here) | 0 failures (115 text elements phone, 120 desktop); lowest 5.73:1 against 4.5:1 required |
+| Accessibility tree (what screen readers read) | One H1; logical headings; descriptive alt text; labelled controls; decorative arrows silent |
+| Images | 0 broken; page about 332 KB (live site 419 KB) |
+| Form validation (empty) | Error summary, focus to first field, label visible below header |
+| enquiry-sent.html, privacy.html | No overflow at 320 / 1440 px; no errors |
 
-**Not verified, and not proven by the above:**
-- Real screen-reader listening test (VoiceOver on iPhone/Mac, TalkBack on Android).
-- Physical phone: tapping Call opens the dialler with 083 427 7556; tapping WhatsApp opens the chat with the pre-filled text; the mobile bar behaves while scrolling and typing.
-- Real form delivery (see test plan). A simulated success does not prove delivery.
+### Simulations (useful, but not proof)
+- Keyboard-open state: viewport shortened to 360 px with a field focused (not a real on-screen keyboard).
+- 200% text: root font size doubled (not iOS Dynamic Type or Android font scaling).
+- Form "service unreachable" and "service accepts" responses were simulated; **no enquiry was sent**.
 
-## Form delivery test plan (needs founder authorisation before running)
+### Still pending (need a person, a real device or authorisation)
+- Physical iPhone and Android: tap Call (dialler shows 083 427 7556), tap WhatsApp (chat opens with pre-filled text), real keyboard, enlarged system text.
+- Listening test with VoiceOver / TalkBack.
+- Form delivery test (authorisation needed; see section 4).
+- Lighthouse / PageSpeed measurement on the published site.
 
-1. On the draft (or the live site, whichever you authorise), submit once with: name "TEST – website form check – [date/time]", area "TEST", details "Delivery test. Please ignore. Exclude from enquiry totals.", your own email.
-2. Check the Formspark dashboard shows the record with the TEST name.
-3. Check omer@graniteandlime.ie receives the notification (including spam/junk). Note the time.
-4. Record both results; delete the test entry; exclude it from enquiry counts.
-If step 2 passes but step 3 fails, the service accepts enquiries but notifications are not reaching the inbox.
+## 3. One list of outstanding decisions and facts
 
-## Founder decisions still open
+1. **CCO text:** supply the process steps, six FAQ answers, form helper/confirmation wording and interim privacy wording.
+2. **Photos (per group: teal wall, hallway, room/hero):** who performed the work; Granite & Lime / Omer's role; photographer and property permission; confirmation of pairings and that the two room photos show the same room. Neighbouring houses are visible through the hero window.
+3. **Inbox responsibility:** Omer to accept responsibility for monitoring omer@graniteandlime.ie before "Omer will reply" is published.
+4. **Form delivery:** authorise one labelled TEST submission (section 4).
+5. **Privacy facts:** confirm actual retention periods and deletion practice; Formspark processor details, data locations and IP retention; Microsoft 365 as email host. Then replace the placeholder retention sentence.
+6. **Services:** confirm commercial painting, tiling and exterior painting are offered as described.
+7. **Publication:** explicit authorisation to push, merge and deploy.
 
-1. **Photos:** for each group (feature wall, hallway, room), confirm who did the work, Omer/G&L's role, photographer and property permission, and the pairings (PHOTOS.md). Neighbouring houses are visible through the hero window.
-2. **Form test:** authorise the one TEST submission above.
-3. **Wording to confirm:** the three process steps and six FAQ answers (proposed, not established practice); the area list and availability; "Speak directly with Omer"; the form confirmation "Omer will reply by phone/email".
-4. **Privacy notice:** it promises monthly deletion of enquiries older than 6 months. Confirm this is actually done, or the wording should change. Also enquiry-sent.html still says "A site visit is arranged where the work is suitable and availability allows". Confirm or soften.
-5. **Services:** confirm commercial painting and tiling as offered; confirm dropping the exterior painting card.
-6. **Publish:** explicit go-ahead to push, merge and deploy.
+## 4. Form delivery test plan (do not run until authorised)
+1. Submit once: name "TEST – website form check – [date/time]", area "TEST", details "Delivery test. Please ignore. Exclude from enquiry totals.", your own email.
+2. Check the Formspark dashboard shows the record.
+3. Check omer@graniteandlime.ie receives the notification (including junk). Note the time.
+4. Record both results; delete the test; exclude it from enquiry counts.
+If step 2 passes and step 3 fails: the service accepts enquiries but notifications are not reaching the inbox.
 
-## Competitor research, audit and contact checks
-Unchanged from revision 1 (see git history `e321f36:HANDOFF.md`): five Dublin painting sites compared; live audit findings;
-Instagram, Facebook and public LinkedIn (linkedin.com/company/graniteandlime) verified on 27 Oct 2026.
+## 5. Files
+Changed: index.html, styles.css, script.js, README.md, privacy.html, enquiry-sent.html, enquiry-error.html.
+New: robots.txt, sitemap.xml, PHOTOS.md, HANDOFF.md, assets/projects/ (6 photos × WebP/JPEG sizes from GL-Drive-Photo-Selection).
+Unused but still in the repo: assets/photos/ (old stock), hero-study.svg, motif-*.svg, promise-*.avif, entrance.avif.
+Background: competitor review, live audit and social verification are in git history (`e321f36:HANDOFF.md`).

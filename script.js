@@ -366,6 +366,7 @@
         done.setAttribute('role', 'status');
         done.tabIndex = -1;
         done.innerHTML = '<h3>Thank you, your enquiry has been sent.</h3><p></p><p>If you have not heard back, or it is urgent, call <a data-tel></a>.</p>';
+        // Reply commitment awaits Omer's acceptance of inbox responsibility; keep in step with enquiry-sent.html. CCO wording pending.
         done.querySelector('p').textContent = `Omer will reply by ${values.phone ? 'phone' : 'email'} to talk through your project.`;
         const tel = done.querySelector('[data-tel]');
         tel.href = `tel:${BUSINESS.phoneHref}`;
