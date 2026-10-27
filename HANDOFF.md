@@ -5,13 +5,17 @@ Founder approval (Mr Karatas, 27 Oct): implement revision 4 copy, service hierar
 **Not authorised:** form-test submission, push to the public repository, merge, deployment or publication.
 That approval does not confirm photo ownership, publication permissions, operational readiness or privacy procedures.
 
-## 0. Latest change: founder-selected photos (27 Oct, 10:36)
-- The single second room photo is replaced by the founder's pair "Room with fireplace": Room_Preparation_Extract.png ("During preparation") then Room_After_Extract.png ("After painting"). Side by side on desktop, stacked preparation-first on phones. Ordinary photos, not a slider; proportions preserved (shown at 1.73 and 1.81 ratio, same as the files).
-- Added fd247d8d-c557-4312-a949-a95b5006fc20.JPG as its own group, "Staircase and landing" (portrait, proportions preserved).
-- Not added: cfad4d52(1).JPG (same scene as the hallway photo already used); dabffb2e(1).JPG (equipment visible).
-- Held out of the gallery: "Decluttered teal bedroom with grey headboard.png" (edited presentation image).
-- Re-tested: no overflow at 320/390/768/1440 px, 200% zoom or 200% text; no console errors; 0 contrast failures; all images load; page about 405 KB.
-- Selection does not change attribution or publication permission: still outstanding for every photo (PHOTOS.md).
+## 0. Latest change: founder-selected images (27 Oct, 11:06)
+- Mr Karatas instructed use of all seven newly supplied images, with disclosures. **All seven are AI-generated** (embedded C2PA
+  content credentials: ChatGPT gpt-image, OpenAI, created 27 Oct 10:46–11:00 UTC, "trainedAlgorithmicMedia"). Two are materially
+  altered: the teal bedroom hero (radiator and socket removed) and the skylit interior (vacuum removed). Details in PHOTOS.md.
+- Hero: AI teal bedroom with caption "AI-generated image based on a project photo · not an unedited photograph"; uncropped 4:3 on desktop and phone.
+  Heading, intro, Call and WhatsApp buttons unchanged (widths restored to 528 px after a side effect was found and fixed).
+- Gallery: real-photo teal feature-wall pair kept; hallway and fireplace pairs replaced by the AI versions (preparation first; side by side on desktop, stacked on phones);
+  "Room with skylight" and narrow centred "Staircase and landing" cards added. Every AI image has a visible "AI-recreated" tag, a note under its group and AI-labelled alt text.
+- Re-tested: no overflow at 320/390/768/1440 px, 200% zoom or 200% text; no console errors; 0 contrast failures (132 / 137 text elements);
+  all images load at their own proportions; page about 470–510 KB on first load (larger than before because of the bigger AI images).
+- Commercial painting and tiling: founder-confirmed (no longer an open question).
 
 ## 1. Change summary (current state of the draft)
 
@@ -66,11 +70,11 @@ preparation, protection and assessment arrangements, and privacy-fact verificati
 ## 3. One list of outstanding decisions and facts
 
 1. **COO confirmation:** preparation, protection and site-assessment arrangements described in the process steps and FAQ.
-2. **Photos (all selected photographs, including the hero; groups: teal wall, hallway, room with fireplace, staircase and landing, hero):** who performed the work; Granite & Lime / Omer's role; photographer and property permission; confirmation of pairings; whether the room extracts are untouched photos. Neighbouring houses are visible through the hero window.
+2. **Photos (all selected photographs, including the hero; groups: teal wall, hallway, room with fireplace, staircase and landing, hero):** who performed the work; Granite & Lime / Omer's role; photographer and property permission; confirmation of pairings; and whether showing AI-recreated images (all seven new files) is acceptable for publication, given they are not photographs. Neighbouring houses are visible through the hero window.
 3. **Inbox responsibility:** Omer to accept responsibility for monitoring omer@graniteandlime.ie before the reply commitment ("We'll review the details and contact you…") is published.
 4. **Form delivery:** authorise one labelled TEST submission (section 4).
 5. **Privacy facts:** confirm actual retention periods and deletion practice; Formspark processor details, data locations and IP retention; Microsoft 365 as email host. The "How long we keep it" text is CCO interim wording, not a completed retention policy.
-6. **Services:** confirm commercial painting, tiling and exterior painting are offered as described.
+6. **Services:** exterior painting description to confirm (commercial painting and tiling are founder-confirmed).
 7. **Publication:** explicit authorisation to push, merge and deploy.
 
 ## 4. Form delivery test plan (do not run until authorised)

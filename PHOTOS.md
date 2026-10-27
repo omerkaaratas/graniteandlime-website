@@ -1,30 +1,44 @@
-# Project photo register
+# Image register
 
-Source: GL-Drive-Photo-Selection.zip (Growth, 27 Oct 2026): exact downloaded files from Google Drive ›
-GRANITE & LIME — CONTENT › 01 — ORIGINAL PROJECT PHOTOS, plus responsive exports (WebP q80 / JPEG q84).
-The website uses those supplied exports unchanged. Originals stay outside the website folder.
-No colour, retouching, object removal or AI changes.
+Updated 27 Oct 2026 (11:06 founder instruction). **Nothing here is approved for publication.**
+The founder's selection approves placement in the local draft only. Attribution (who did the work, Granite & Lime / Omer's role)
+and publication permission (photographer and property owner) remain open for every image.
 
-**Every photo below is PENDING. Nothing here is approved for publication.**
+## How provenance was checked
+Each file was inspected for embedded content credentials (C2PA) and compared visually with the earlier photograph of the same scene.
+High resolution does not show that an image is an untouched photograph.
 
-| Website file (assets/projects/) | Exact source filename | Size | Placement | Label used | Still needed |
-|---|---|---|---|---|---|
-| d56523cd-…-480/960/1440 | d56523cd-cfd6-43a1-8624-a3e956eb3f4d.jpg | 1824 × 1368 | Hero (only place it appears) | Caption: "Neutral walls with white window trim and skirting" | Who did the work, G&L/Omer's role, photographer + property permission. Neighbouring houses visible through the window: confirm acceptable |
-| f9278e6e-…-480/960 | f9278e6e-da90-4c7e-a952-a6869edbc8a1.jpg | 960 × 720 | Feature wall group | During preparation | As above; confirm pairing with 0603825f |
-| 0603825f-…-480/960 | 0603825f-b36d-4cc9-8089-73fb1045855a.jpg | 960 × 720 | Feature wall group | After painting | As above |
-| cc517646-…-480/960/1440 | cc517646-f4df-43b6-9e90-3ca3937d6827.jpg | 2048 × 1536 | Hallway group | During preparation | As above; confirm pairing with cfad4d52 |
-| cfad4d52-…-480/960/1440 | cfad4d52-b0bb-449b-b452-cfa5fdab6e3e.jpg | 2048 × 1536 | Hallway group | After painting | As above |
-| room-preparation-extract-480/825 | Room_Preparation_Extract.png (Downloads; founder-selected 27 Oct) | 825 × 476 | "Room with fireplace" pair, shown first | During preparation | Who did the work, role, photographer + property permission. Filename suggests an extract from a branded layout: confirm it is an untouched photo. A parked car is visible through the window; no registration plate is readable |
-| room-after-extract-480/825 | Room_After_Extract.png (Downloads; founder-selected 27 Oct) | 825 × 455 | "Room with fireplace" pair, shown second | After painting | As above. Different camera angle from the preparation photo, so shown as two ordinary photos, not a comparison slider |
-| fd247d8d-…-480/960 | fd247d8d-c557-4312-a949-a95b5006fc20.JPG (supplied in chat; founder-selected) | 1536 × 2048 portrait | "Staircase and landing" | After painting | Who did the work, role, photographer + property permission; whether it is the same house as the hallway group (not assumed) |
+## Images used in the draft
 
-"After painting" and "During preparation" describe what each photo shows. They do not claim a whole contract was completed.
-The page section is headed "Examples of interior painting". A neutral heading does NOT resolve attribution or publication permission: checks remain outstanding for every selected photograph, including the hero.
-Pairings and room groupings are provisional (visual match only: same panelling and sockets; same stairs, tiles and doors).
+| Website file (assets/projects/) | Supplied file | Classification | Evidence | Placement and visible disclosure |
+|---|---|---|---|---|
+| ai-teal-bedroom-hero-480/960/1440 | NEXT TO HEADER Calm Teal Bedroom Retreat(1).png (1448 × 1086) | **AI-generated, materially altered** | C2PA: ChatGPT (gpt-image), OpenAI Media Service, created 27 Oct 2026 11:00 UTC, digitalSourceType trainedAlgorithmicMedia. Compared with the earlier teal-bedroom file: radiator and wall socket removed, skirting redrawn. That earlier file was itself an edited "decluttered" version; the camera original was not supplied | Hero beside the heading. Caption: "AI-generated image based on a project photo · not an unedited photograph". Alt text begins "AI-generated image" |
+| ai-hall-preparation-480/960/1440 | Scuffed stairwell under a skylight(1).png (1448 × 1086) | **AI-generated recreation** | C2PA as above (gpt-image, trainedAlgorithmicMedia). Composition matches cc517646-…jpg; all surfaces re-rendered | Hallway pair, first. Labels "During preparation" + "AI-recreated"; note under the group |
+| ai-hall-after-480/960/1440 | Warm-lit staircase with white spindles(1).png (1448 × 1086) | **AI-generated recreation** | C2PA as above. Composition matches cfad4d52-…jpg | Hallway pair, second. "After painting" + "AI-recreated" |
+| ai-room-preparation-480/960/1440 | Room preparation with dust sheets.png (1652 × 952) | **AI-generated recreation** | C2PA as above. Composition matches Room_Preparation_Extract.png | Fireplace pair, first. "During preparation" + "AI-recreated" |
+| ai-room-after-480/960/1440 | Warm Living Room with Fireplace.png (1688 × 932) | **AI-generated recreation** | C2PA as above. Composition matches Room_After_Extract.png | Fireplace pair, second. "After painting" + "AI-recreated" |
+| ai-skylit-interior-480/960/1440 | Restored wood-effect tiled interior(2).png (1448 × 1086) | **AI-generated, materially altered** | C2PA as above. Compared with dabffb2e(1).JPG: the vacuum cleaner in the foreground is removed; paint tubs remain | "Room with skylight" card. Label "Painted walls and woodwork" (not "after" / handover) + "AI-recreated"; note states equipment was removed |
+| ai-stair-landing-480/960 | Sunlit stair landing and front hall(1).png (1086 × 1448) | **AI-generated recreation** | C2PA as above. Composition matches fd247d8d-…JPG | "Staircase and landing" narrow centred card. "After painting" + "AI-recreated" |
+| f9278e6e-…-480/960 | f9278e6e-da90-4c7e-a952-a6869edbc8a1.jpg (960 × 720) | Photograph (Drive original, resized only) | No AI credentials; GL-Drive-Photo-Selection original | Feature wall pair, first. "During preparation" |
+| 0603825f-…-480/960 | 0603825f-b36d-4cc9-8089-73fb1045855a.jpg (960 × 720) | Photograph (Drive original, resized only) | As above | Feature wall pair, second. "After painting" |
 
-Not used (available): 4cf47002 (second room view, replaced by the founder's room pair), cfad4d52(1).JPG (supplied in chat; a different file from the cfad4d52 already used, same scene, so not added to avoid duplication), dabffb2e(1).JPG (skylit interior; vacuum and paint tubs visible, so it would need a "work in progress" label; left out to keep the gallery focused), 1cceff0b (hallway supporting view, removed in revision 3 so the comparison pair leads), 3b6c870e (work in progress detail), b833c368 (landing; skirting marks visible), bdcd2976 (stairwell in progress).
-Held: "Decluttered teal bedroom with grey headboard.png" (edited presentation image; must not be shown as an untouched project photo); watermarked @antoaltemel frames; frames with embedded "Before" text; branded collages. See the Growth PHOTO_REVIEW.md.
+The C2PA claims are embedded in the files as delivered; their full signature chain was not cryptographically validated here
+(no verification tool is installable in this workspace). They can be checked at contentcredentials.org/verify.
 
-## When approved
-Founder confirms per group: who performed the work, Omer/G&L's role, photographer and property permission, pairings.
-Then remove the PUBLICATION BLOCKER and DRAFT comments in index.html.
+## Disclosure applied on the page
+- Hero caption, plus an "AI-recreated" tag on every AI image in the gallery, a sentence under each AI group, and alt text that starts "AI-recreated image".
+- The section introduction says which images are photographs and which are AI-recreated illustrations, not unedited photos.
+
+## Risk note for the founder (not a legal opinion)
+AI-recreated "before/after" images on a trade website can be read by customers as evidence of workmanship even with labels.
+Google Ads policies on misrepresentation and Irish consumer-protection rules on misleading commercial practices may apply.
+The real photographs of the same scenes are retained in GL-Drive-Photo-Selection and can replace the AI versions at any time.
+
+## Not used in this draft
+Real photographs replaced by the founder's AI versions: d56523cd (previous hero), cc517646, cfad4d52, Room_Preparation_Extract.png,
+Room_After_Extract.png, fd247d8d, dabffb2e. Still held: "Decluttered teal bedroom with grey headboard.png", watermarked
+@antoaltemel frames, frames with embedded "Before" text, branded collages.
+
+## Before publication
+For each image: who performed the work; Granite & Lime / Omer's role; photographer and property permission; confirmation that the
+AI recreations do not misstate the finish actually delivered. Then remove the PUBLICATION BLOCKER comment in index.html.

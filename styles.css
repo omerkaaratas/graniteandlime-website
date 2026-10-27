@@ -473,7 +473,10 @@ ul, ol { list-style: none; }
 .button-call { flex-wrap: wrap; row-gap: 0.1rem; }
 .brand { min-width: 0; }
 .brand-name { white-space: normal !important; overflow-wrap: anywhere; }
-.contact-copy > *, .hero-copy > * { max-width: 100%; }
+.contact-copy > * { max-width: 100%; }
+.hero-actions, .hero .lede { max-width: min(33rem, 100%); }
+.hero h1 { max-width: min(40.625rem, 100%); }
+.hero-hint, .wa-help, .lede-contact { max-width: min(33rem, 100%); }
 .contact-meta a { overflow-wrap: anywhere; }
 /* Gallery: every group full width; pairs side by side; a single photo takes one pair-cell. */
 .work-groups { grid-template-columns: minmax(0, 1fr); }
@@ -511,3 +514,13 @@ h1, h2, h3 { overflow-wrap: anywhere; hyphens: auto; }
 /* Founder-selected photos keep their own proportions (no 4:3 crop). */
 .work-photo.is-natural img { aspect-ratio: auto; height: auto; object-fit: initial; }
 .work-pair { align-items: start; }
+/* AI-image disclosure (founder-selected images, 27 Oct). Visible on every AI image and repeated in text under each group. */
+.work-photo figcaption { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.ai-tag { display: inline-block; padding: 0.25rem 0.6rem; background: var(--off-white); color: var(--ink); border: 1px solid var(--ink); font-size: 0.875rem; font-weight: 600; }
+.ai-note { font-size: var(--t-small); color: var(--ink-2); }
+/* Individual images: centred cards sized to the photo, no large empty area beside a portrait image. */
+.work-singles { display: flex; flex-wrap: wrap; justify-content: center; align-items: start; gap: clamp(1.5rem, 3vw, 2.25rem); }
+.work-single-wide { flex: 1 1 26rem; max-width: 46rem; }
+.work-single-narrow { flex: 0 1 26rem; max-width: 26rem; }
+.work-single-wide .work-photo, .work-single-narrow .work-photo { width: 100%; }
+@media (max-width: 37.5rem) { .work-single-wide, .work-single-narrow { flex: 1 1 100%; max-width: none; } }
