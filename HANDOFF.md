@@ -5,6 +5,14 @@ Founder approval (Mr Karatas, 27 Oct): implement revision 4 copy, service hierar
 **Not authorised:** form-test submission, push to the public repository, merge, deployment or publication.
 That approval does not confirm photo ownership, publication permissions, operational readiness or privacy procedures.
 
+## 0. Latest change: founder-selected photos (27 Oct, 10:36)
+- The single second room photo is replaced by the founder's pair "Room with fireplace": Room_Preparation_Extract.png ("During preparation") then Room_After_Extract.png ("After painting"). Side by side on desktop, stacked preparation-first on phones. Ordinary photos, not a slider; proportions preserved (shown at 1.73 and 1.81 ratio, same as the files).
+- Added fd247d8d-c557-4312-a949-a95b5006fc20.JPG as its own group, "Staircase and landing" (portrait, proportions preserved).
+- Not added: cfad4d52(1).JPG (same scene as the hallway photo already used); dabffb2e(1).JPG (equipment visible).
+- Held out of the gallery: "Decluttered teal bedroom with grey headboard.png" (edited presentation image).
+- Re-tested: no overflow at 320/390/768/1440 px, 200% zoom or 200% text; no console errors; 0 contrast failures; all images load; page about 405 KB.
+- Selection does not change attribution or publication permission: still outstanding for every photo (PHOTOS.md).
+
 ## 1. Change summary (current state of the draft)
 
 | Area | Current draft |
@@ -13,7 +21,7 @@ That approval does not confirm photo ownership, publication permissions, operati
 | Page title / metadata | "Painting & Decorating in Clontarf and Dublin \| Granite & Lime"; meta and Open Graph descriptions consistent, not identical |
 | Contact | Call (primary) and "Send photos on WhatsApp" (secondary), same pair at top, contact section and phone bar. WhatsApp help: opens a separate app; only sent when the visitor presses Send |
 | Mobile layout | Contact details stacked above a full-width form; FAQ heading above full-width questions; phone number kept on one line at 320/390 px |
-| Gallery | Neutral-room photo is the single hero. "Examples of interior painting": teal wall preparation/result pair; hallway preparation/result pair (third hallway photo removed); one further room view. Factual labels only ("During preparation", "After painting"). No visible claim that the work is Granite & Lime's; approval status kept internally (HTML comment + PHOTOS.md) |
+| Gallery | Neutral-room photo is the single hero. "Examples of interior painting": teal wall preparation/result pair; hallway preparation/result pair; founder-selected room-with-fireplace pair; staircase and landing view. Factual labels only ("During preparation", "After painting"). No visible claim that the work is Granite & Lime's; approval status kept internally (HTML comment + PHOTOS.md) |
 | Services | Interior painting first (incl. doors, skirting, woodwork). Secondary: commercial painting; tiling; exterior painting "subject to scope, access and weather conditions" |
 | Areas | CCO text: "Based in Dublin, with an initial focus on Clontarf interior painting. Enquiries elsewhere in Dublin are welcome; project suitability and visit availability are confirmed individually." Neighbourhood list removed |
 | Process steps | CCO wording: Share the basics / Discuss the scope / Receive a written quotation |
@@ -39,7 +47,7 @@ preparation, protection and assessment arrangements, and privacy-fact verificati
 | Keyboard order and focus | Skip link first; logical order; 3 px visible focus |
 | Contrast (own WCAG script; axe-core not installable here) | 0 failures (115 text elements phone, 120 desktop); lowest 5.73:1 against 4.5:1 required |
 | Accessibility tree (what screen readers read) | One H1; logical headings; descriptive alt text; labelled controls; decorative arrows silent |
-| Images | 0 broken; page about 332 KB (live site 419 KB) |
+| Images | 0 broken; page about 405 KB (live site 419 KB) |
 | Form validation (empty) | Error summary, focus to first field, label visible below header |
 | Confirmation text (simulated acceptance) | Shows the CCO wording exactly; enquiry-sent.html identical |
 | enquiry-sent.html, privacy.html | No overflow at 320 / 1440 px; no errors |
@@ -58,7 +66,7 @@ preparation, protection and assessment arrangements, and privacy-fact verificati
 ## 3. One list of outstanding decisions and facts
 
 1. **COO confirmation:** preparation, protection and site-assessment arrangements described in the process steps and FAQ.
-2. **Photos (all selected photographs, including the hero; per group: teal wall, hallway, room/hero):** who performed the work; Granite & Lime / Omer's role; photographer and property permission; confirmation of pairings and that the two room photos show the same room. Neighbouring houses are visible through the hero window.
+2. **Photos (all selected photographs, including the hero; groups: teal wall, hallway, room with fireplace, staircase and landing, hero):** who performed the work; Granite & Lime / Omer's role; photographer and property permission; confirmation of pairings; whether the room extracts are untouched photos. Neighbouring houses are visible through the hero window.
 3. **Inbox responsibility:** Omer to accept responsibility for monitoring omer@graniteandlime.ie before the reply commitment ("We'll review the details and contact you…") is published.
 4. **Form delivery:** authorise one labelled TEST submission (section 4).
 5. **Privacy facts:** confirm actual retention periods and deletion practice; Formspark processor details, data locations and IP retention; Microsoft 365 as email host. The "How long we keep it" text is CCO interim wording, not a completed retention policy.
@@ -74,6 +82,6 @@ If step 2 passes and step 3 fails: the service accepts enquiries but notificatio
 
 ## 5. Files
 Changed: index.html, styles.css, script.js, README.md, privacy.html, enquiry-sent.html, enquiry-error.html.
-New: robots.txt, sitemap.xml, PHOTOS.md, HANDOFF.md, assets/projects/ (6 photos × WebP/JPEG sizes from GL-Drive-Photo-Selection).
+New: robots.txt, sitemap.xml, PHOTOS.md, HANDOFF.md, assets/projects/ (8 photos as WebP + JPEG: 5 from GL-Drive-Photo-Selection, 3 founder-selected).
 Unused but still in the repo: assets/photos/ (old stock), hero-study.svg, motif-*.svg, promise-*.avif, entrance.avif.
 Background: competitor review, live audit and social verification are in git history (`e321f36:HANDOFF.md`).

@@ -508,3 +508,6 @@ h1, h2, h3 { overflow-wrap: anywhere; hyphens: auto; }
 @container header (max-width: 15em) { .brand-copy { display: none; } .menu-button { margin-left: auto; } }
 /* When focus moves to a field (e.g. after a validation error), keep its label visible below the sticky header. */
 .field input, .field textarea { scroll-margin-top: calc(var(--header-h) + 2.75rem); }
+/* Founder-selected photos keep their own proportions (no 4:3 crop). */
+.work-photo.is-natural img { aspect-ratio: auto; height: auto; object-fit: initial; }
+.work-pair { align-items: start; }
