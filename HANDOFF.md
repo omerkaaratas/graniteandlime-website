@@ -1,101 +1,56 @@
-# Granite & Lime website: draft GL-UX-V2 handoff
+# Granite & Lime website: draft GL-UX-V2, revision 2
 
-Prepared 27 Oct 2026 by the UI/UX designer & website builder role. Local branch `draft/gl-ux-v2`.
-**Not published. Publication needs Mr Karatas's explicit authorisation.**
+27 Oct 2026. Local branch `draft/gl-ux-v2`. Applies Growth instruction "GL-UX-V2 consolidated revision".
+**Not pushed, merged, deployed or published. Publication needs Mr Karatas's explicit authorisation.**
 
-## 1. Audit of the current site (27 Oct 2026)
+## Change summary (revision 2)
 
-| Finding | Source |
+| Area | Change |
 |---|---|
-| Clean static site (HTML/CSS/JS, GitHub Pages), honest "not our work" labels on stock photos, good keyboard and form handling | LIVE + SOURCE |
-| No genuine project photos: hero and detail image are Pexels stock | LIVE + SOURCE |
-| Historical "broken before/after links" and "project placeholders": not visible live; placeholder markup exists but is `hidden` | LIVE + SOURCE |
-| Form posts to Formspark `3BXhXMnj9`; a source comment names it "Website enquiries – TEST", connected on a "preview branch only". Delivery to the inbox is **unverified** | SOURCE (not tested live; no real submission sent) |
-| Three equal hero buttons (Call / WhatsApp / Send Enquiry) plus an SMS link: four competing actions | LIVE |
-| No Instagram, Facebook or LinkedIn links; tiling not mentioned; header says "Renovation & Refurbishment" | LIVE |
-| robots.txt and sitemap.xml return 404 | LIVE (measured) |
-| Page weight about 419 KB, load event 0.74 s (founder's connection, built-in browser) | LIVE (measured) |
-| README describes an older WhatsApp-only form: out of date | SOURCE |
+| Positioning | H1 "Painting & Decorating in Dublin"; supporting text as supplied. Title, description, Open Graph and structured data now Dublin-wide. Clontarf moved to the area section: "Based in Dublin, welcoming enquiries from Clontarf and across the city." Clontarf also appears in the meta description and form placeholder; no local project history claimed |
+| Services | Interior painting leads with "Interior painting is our main focus. Tell us which rooms or surfaces need attention." Secondary: doors & woodwork, commercial painting, decorating & tiling, plus the supplied line on commercial/decorating/tiling enquiries. Exterior painting card removed to keep the focus (founder may restore) |
+| Photos | Drive-preview exports replaced with the supplied GL-Drive-Photo-Selection exports (WebP + JPEG, 480/960/1440). Neutral room is the single hero; teal pair and hallway comparison are separate groups; second room view used in the gallery so the hero is not repeated. No collages |
+| Labels | "Bedroom" → "Room". Earlier hallway and teal photos labelled "During preparation"; later ones "After painting". Draft note says ownership, pairings and labels await founder confirmation |
+| Contact | Unchanged destinations (tel:+353834277556, wa.me/353834277556, omer@graniteandlime.ie, Formspark 3BXhXMnj9). WhatsApp help now: "Your message is only sent when you press Send in WhatsApp." |
+| Form wording | Success message now "Thank you, your enquiry has been sent" (not "received"); no site-visit promise. Source comment records Formspark as configured, inbox delivery unverified |
+| Operational wording | "One person to talk to, from first call to finished room" replaced with "Speak directly with Omer." Area wording softened to "currently focus on"; availability "confirmed for each enquiry" |
+| Accessibility fixes | Process step numbers were invisible (olive on olive): fixed. Decorative arrows no longer read aloud by screen readers |
 
-### Three most important customer problems
-1. **No proof of real work.** A homeowner sees only stock photos labelled "not Granite & Lime work".
-2. **Too many equal choices at the top.** Call, WhatsApp, enquiry form and SMS compete; nothing explains what WhatsApp needs or that the message must be sent there.
-3. **The written enquiry route may not reach Omer.** The form is wired to a service labelled TEST and has never been confirmed end to end.
-
-## 2. Competitor comparison (inspected 27 Oct 2026, from page content; claims are theirs, not verified)
-
-| Site | Area clarity | Phone near top | WhatsApp | Real photos | Prep / scope explained | Trust evidence | Notable issue |
-|---|---|---|---|---|---|---|---|
-| [lemonpainting.ie](https://www.lemonpainting.ie/exterior-painting-clontarf/) (Clontarf page) | Mixed (N Dublin, also Bray/Greystones) | Yes | No | Likely, by filename | Partly | Ratings and "15+ years" without sources | Templated area blurbs |
-| [dublindecopainting.ie](https://dublindecopainting.ie/areas/clontarf/) (Clontarf page) | Strong, local names | Yes | Yes, bottom only | Mostly, but not Clontarf jobs | Good for seafront homes | Dated, named reviews + Google link | Cookie banner; reused template |
-| [abhailedecorators.com](https://www.abhailedecorators.com/) | Vague | No (bottom, not tappable) | No | Yes, named areas | No | "46 years" claim, no evidence | Dated build, keyword-stuffed title |
-| [thepaintingcompany.ie](https://thepaintingcompany.ie/) | "Dublin" only | No | No | Unclear; mismatched alt text | Good, products named | Two short testimonials | Number buried |
-| [aquapainting.ie](https://aquapainting.ie/house-painters-raheny/) (Raheny page) | Weak (lists distant towns) | Yes, not a link | No | Stock | No | Claims only | Copied text, staging links |
-
-**Lessons applied:** a tappable number at the top beats everything else; WhatsApp is rare and is a real differentiator if explained;
-real local-looking project photos are the strongest trust signal; templated neighbourhood pages read as fake, so the draft keeps one honest page;
-explaining preparation simply builds confidence without unverifiable claims.
-
-## 3. What changed and why
-
-- **One primary action, one secondary:** "Call us 083 427 7556" (primary) and "Send photos on WhatsApp" (secondary), the same pair at the top, in the contact section and in the mobile bar. SMS link and third hero button removed; the form is kept as a quieter "Or send a written enquiry".
-- **WhatsApp explained:** the brief's wording under each button, plus "Nothing is sent until you press send in WhatsApp." The WhatsApp chat opens with a short fill-in message (Area / Rooms or surfaces).
-- **Real project photography** (draft, pending approval): teal feature wall replaces the stock hero; new "Our work" section with three groups (feature wall preparation → finished; hallway before → after; bedroom). See PHOTOS.md.
-- **Clontarf + interior painting focus** in title, H1, meta description and hero. Services: interior painting leads; doors/woodwork, exterior, decorating & tiling sit quieter.
-- **Readability:** body text 17 px (was 16), service and step text 16 px (was 15), form labels 15 px (was 13), form notes 14–15 px; only the small uppercase section labels and the logo strapline are 12–13 px. Touch targets 48 px+; numbered process steps.
-- **Plain-English process and six FAQs** (preparation, colours, furniture, written quotation): proposed wording for founder/CCO/COO confirmation.
-- **Follow us** in the footer: Instagram, Facebook, LinkedIn (public URL), recognisable icons with text, no embeds or tracking. Same URLs added to structured data `sameAs`.
-- **Search basics:** robots.txt, sitemap.xml, canonical kept, one H1, logical H2/H3 order. No URL changes, so no redirects needed.
-- Header strapline "Renovation & Refurbishment" → "Painting & Decorating · Dublin" (to match the offer; founder to confirm).
-
-## 4. Contact and social destinations checked (27 Oct 2026)
-
-| Destination | Result |
-|---|---|
-| tel:+353834277556 / 083 427 7556 | Matches brief, live site and Facebook page. Link format verified; **no call placed** |
-| https://wa.me/353834277556 | Matches brief; link format verified; **no message sent** |
-| omer@graniteandlime.ie | Matches brief, live site, privacy notice, Facebook |
-| https://www.instagram.com/graniteandlime/ | Verified: "Granite & Lime", links to graniteandlime.ie. Bio still says "Bathrooms • Interiors • Finishes" / "Renovation & Refurbishment" |
-| https://www.facebook.com/graniteandlime/ | Verified: "Granite & Lime · Residential Painting & Decorating in Dublin", same phone and email |
-| https://www.linkedin.com/company/graniteandlime/ | Verified as the public URL of company 146653601 ("Granite & Lime", Dublin). The admin dashboard URL is **not** used |
-
-## 5. Tests performed (headless Chromium on the draft, plus live-site measurements)
+## Verification performed (headless Chromium on the local draft)
 
 | Check | Result |
 |---|---|
-| 320 / 390 / 768 / 1440 px | No horizontal overflow; screenshots in proofs |
-| 200% zoom (720 px CSS width) | No horizontal overflow |
-| Keyboard | Skip link first; logical order; 3 px visible focus outline on every stop tested |
-| Touch targets | All controls ≥ 44 px, except the inline privacy link inside a sentence (allowed for inline text links) |
-| Headings | One H1, H2/H3 in order |
-| Console errors | None at any width |
-| In-page links | All anchors resolve |
-| Mobile bar | Two buttons; hides while the top buttons or the contact section are on screen, and while typing |
-| Form: empty submit | Error summary "4 things need your attention", focus moves to first field, each field explained |
-| Form: service unreachable (simulated) | Honest error, details kept, copy-and-paste fallback and phone number shown |
-| Form: success (simulated response, nothing sent) | Confirmation only after the service accepts |
+| Layout at 320 / 390 / 768 / 1440 px and 200% zoom | No horizontal overflow; no console errors |
+| Contrast (own WCAG 2.x script; axe-core could not be installed here) | 116 text elements on phone, 121 on desktop: 0 failures after the step-number fix. Lowest: 5.73:1 (small olive section labels, need 4.5:1). Form error messages 8.3:1, error summary 11:1. Photo captions sit on a solid dark panel |
+| Screen-reader check (Chromium accessibility tree, which VoiceOver/TalkBack read from) | One H1, logical H2/H3; every photo has descriptive alt text; buttons and links have clear names ("Send photos on WhatsApp (opens WhatsApp)", "Instagram (opens in a new tab)"); form fields labelled and grouped |
+| Keyboard | Skip link first; visible 3 px focus on every stop tested |
+| Images | 0 broken; 7 project images; whole page about 349 KB (live site 419 KB) |
+| Form, empty | Error summary, focus to first field, one message per field |
+| Form, service unreachable (simulated) | Honest error, details kept, copy-and-paste fallback, phone number |
+| Form, service accepts (simulated; nothing sent) | "Your enquiry has been sent" shown only after acceptance |
 
-**Not yet tested:** real form delivery to the inbox; real call/WhatsApp on a phone; screen reader pass (VoiceOver/TalkBack);
-Lighthouse/PageSpeed on the published site; contrast measured by tool (colours are unchanged from the existing palette apart from text sizes).
+**Not verified, and not proven by the above:**
+- Real screen-reader listening test (VoiceOver on iPhone/Mac, TalkBack on Android).
+- Physical phone: tapping Call opens the dialler with 083 427 7556; tapping WhatsApp opens the chat with the pre-filled text; the mobile bar behaves while scrolling and typing.
+- Real form delivery (see test plan). A simulated success does not prove delivery.
 
-## 6. Measurement plan (no tracking installed)
+## Form delivery test plan (needs founder authorisation before running)
 
-Separate counts, owned as noted: phone clicks and WhatsApp clicks (Growth: needs approved, cookie-free click counting or call tracking);
-successful form submissions (Formspark dashboard, already carries utm/gclid fields); actual enquiries received, qualified discussions,
-surveys, quotations and accepted work (CCO, logged by hand from phone/WhatsApp/email). A click is not an enquiry.
+1. On the draft (or the live site, whichever you authorise), submit once with: name "TEST – website form check – [date/time]", area "TEST", details "Delivery test. Please ignore. Exclude from enquiry totals.", your own email.
+2. Check the Formspark dashboard shows the record with the TEST name.
+3. Check omer@graniteandlime.ie receives the notification (including spam/junk). Note the time.
+4. Record both results; delete the test entry; exclude it from enquiry counts.
+If step 2 passes but step 3 fails, the service accepts enquiries but notifications are not reaching the inbox.
 
-## 7. Founder decisions and facts needed before publication
+## Founder decisions still open
 
-1. **Photos:** for each photo in PHOTOS.md: was it Granite & Lime / your work, and in what role; does the homeowner agree to publication; is the before/after order right. Send the original files (or connect the Drive folder) for full-quality exports.
-2. **Form:** approve one test submission to confirm enquiries reach omer@graniteandlime.ie; then rename the Formspark form.
-3. **Wording:** confirm the three process steps and six FAQ answers (no free survey, timing or price promises are made).
-4. **Services:** confirm tiling and exterior painting should be listed; confirm the "Painting & Decorating" strapline.
-5. **Areas:** confirm the area list (CCO grouping; COO capacity confirmation still pending).
-6. **Instagram bio** mentions bathrooms and renovation: consider aligning with painting (you change this; not done here).
-7. **Publish:** your explicit go-ahead to merge `draft/gl-ux-v2` and push to GitHub Pages.
+1. **Photos:** for each group (feature wall, hallway, room), confirm who did the work, Omer/G&L's role, photographer and property permission, and the pairings (PHOTOS.md). Neighbouring houses are visible through the hero window.
+2. **Form test:** authorise the one TEST submission above.
+3. **Wording to confirm:** the three process steps and six FAQ answers (proposed, not established practice); the area list and availability; "Speak directly with Omer"; the form confirmation "Omer will reply by phone/email".
+4. **Privacy notice:** it promises monthly deletion of enquiries older than 6 months. Confirm this is actually done, or the wording should change. Also enquiry-sent.html still says "A site visit is arranged where the work is suitable and availability allows". Confirm or soften.
+5. **Services:** confirm commercial painting and tiling as offered; confirm dropping the exterior painting card.
+6. **Publish:** explicit go-ahead to push, merge and deploy.
 
-## 8. Files
-
-Changed: index.html, styles.css, script.js, README.md, privacy.html, enquiry-sent.html, enquiry-error.html.
-New: robots.txt, sitemap.xml, PHOTOS.md, HANDOFF.md, assets/projects/ (12 draft image exports).
-Unchanged and still in the repo but no longer used on the page: assets/photos/ (stock), hero-study.svg, motif-*.svg, promise-*.avif, entrance.avif.
+## Competitor research, audit and contact checks
+Unchanged from revision 1 (see git history `e321f36:HANDOFF.md`): five Dublin painting sites compared; live audit findings;
+Instagram, Facebook and public LinkedIn (linkedin.com/company/graniteandlime) verified on 27 Oct 2026.

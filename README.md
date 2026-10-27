@@ -26,16 +26,16 @@ so search `index.html` for `353834277556`, `083 427 7556` and `omer@graniteandli
 
 ## Project photographs
 
-Project photos live in `assets/projects/` (800 px and 480 px JPEGs). The register of every photo, its source file
+Project photos live in `assets/projects/` (480, 960 and 1440 px, WebP with JPEG fallback). The register of every photo, its source file
 and its approval status is in `PHOTOS.md`. Nothing goes on the site as Granite & Lime work until the founder has
 confirmed who did the work and the homeowner's permission. Never add invented locations, dates or customer comments.
 
-To add a photo: export it at 800 px and 480 px wide (aim under 150 KB each), copy an existing `<figure class="work-photo">`
+To add a photo: export it at 480 and 960 px wide (WebP + JPEG), copy an existing `<figure class="work-photo">`
 in the "Our work" section, and write an `alt` text describing what is actually in the photo.
 
 ## How the enquiry form works
 
-The form sends to Formspark (form `3BXhXMnj9`). The page shows "received" only after Formspark accepts the enquiry;
+The form sends to Formspark (form `3BXhXMnj9`). The page shows "sent" only after Formspark accepts the enquiry (acceptance is not proof the email reached the inbox);
 if it cannot be reached the visitor keeps their text and gets a copy-and-paste fallback plus the phone number.
 The Formspark form is still named "Website enquiries – TEST": confirm with one approved test that enquiries
 reach omer@graniteandlime.ie, then rename it. WhatsApp and Call buttons open the visitor's own apps; nothing is

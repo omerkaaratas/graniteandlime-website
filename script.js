@@ -360,13 +360,13 @@
       if (fallback) fallback.hidden = true;
       const ok = await sendDirect(values);
       if (ok) {
-        // Confirmed by the form service: replace the form with the confirmation so it cannot be sent twice.
+        // Accepted by the form service (this does not prove the email notification was read): replace the form with the confirmation so it cannot be sent twice.
         const done = document.createElement('div');
         done.className = 'form-done';
         done.setAttribute('role', 'status');
         done.tabIndex = -1;
-        done.innerHTML = '<h3>Thank you, your enquiry has been received.</h3><p></p><p>If it is urgent, call <a data-tel></a>.</p>';
-        done.querySelector('p').textContent = `We will reply by ${values.phone ? 'phone' : 'email'} to discuss your property. A site visit is arranged where the work is suitable and availability allows.`;
+        done.innerHTML = '<h3>Thank you, your enquiry has been sent.</h3><p></p><p>If you have not heard back, or it is urgent, call <a data-tel></a>.</p>';
+        done.querySelector('p').textContent = `Omer will reply by ${values.phone ? 'phone' : 'email'} to talk through your project.`;
         const tel = done.querySelector('[data-tel]');
         tel.href = `tel:${BUSINESS.phoneHref}`;
         tel.textContent = BUSINESS.phoneDisplay;
